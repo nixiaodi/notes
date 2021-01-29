@@ -1,0 +1,568 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Spring注解驱动 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="SSM.html" />
+    
+    
+    <link rel="prev" href="SpringCloud.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="JUC.html">
+            
+                <a href="JUC.html">
+            
+                    
+                    JUC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="JVM.html">
+            
+                <a href="JVM.html">
+            
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Netty.html">
+            
+                <a href="Netty.html">
+            
+                    
+                    Netty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="RabbitMQ.html">
+            
+                <a href="RabbitMQ.html">
+            
+                    
+                    Rabbit MQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Redis.html">
+            
+                <a href="Redis.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="SpringCloud.html">
+            
+                <a href="SpringCloud.html">
+            
+                    
+                    Spring Cloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="Spring注解驱动.html">
+            
+                <a href="Spring注解驱动.html">
+            
+                    
+                    Spring注解驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="SSM.html">
+            
+                <a href="SSM.html">
+            
+                    
+                    SSM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Spring注解驱动</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="spring&#x6CE8;&#x89E3;&#x9A71;&#x52A8;">Spring&#x6CE8;&#x89E3;&#x9A71;&#x52A8;</h1>
+<h2 id="ioc">IOC</h2>
+<h3 id="&#x7EC4;&#x4EF6;&#x6CE8;&#x518C;">&#x7EC4;&#x4EF6;&#x6CE8;&#x518C;</h3>
+<h4 id="configuration">@Configuration</h4>
+<ul>
+<li>&#x6807;&#x6CE8;&#x914D;&#x7F6E;&#x7C7B;&#xFF0C;@Configuration&#x6CE8;&#x89E3;&#x96C6;&#x6210;&#x4E86;@component&#x6CE8;&#x89E3;</li>
+</ul>
+<h4 id="bean">@Bean</h4>
+<ul>
+<li>&#x7ED3;&#x5408;@Configuration&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x5BFC;&#x5165;&#x7B2C;&#x4E09;&#x65B9;&#x7EC4;&#x4EF6;&#xFF1B;&#x7C7B;&#x4E0A;&#x6807;&#x6CE8;@Configuration&#x6CE8;&#x89E3;&#xFF0C;&#x65B9;&#x6CD5;&#x4E0A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;@Bean&#x6CE8;&#x89E3;&#xFF0C;&#x5C06;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x6CE8;&#x5165;&#x5BB9;&#x5668;&#x4E2D;</li>
+</ul>
+<h4 id="componentscan">@ComponentScan</h4>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x6307;&#x5B9A;value&#xFF0C;value&#x662F;&#x4E00;&#x4E2A;String[]&#xFF0C;value&#x4F20;&#x5165;&#x7684;&#x662F;&#x5305;&#x626B;&#x63CF;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5305;&#x5185;&#x6807;&#x6CE8;&#x4E86;@Controller&#x7B49;&#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#x90FD;&#x4F1A;&#x6CE8;&#x5165;&#x5BB9;&#x5668;&#x4E2D;</li>
+</ul>
+<h4 id="filter">@Filter</h4>
+<ul>
+<li>&#x914D;&#x5408;@ComponentScan&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#xFF0C;&#x6307;&#x5B9A;&#x5305;&#x626B;&#x63CF;&#x89C4;&#x5219;&#xFF1B;&#x7B49;&#x540C;&#x4E8E;&#x5728;xml&#x6587;&#x4EF6;&#x4E2D;&#x914D;&#x7F6E;&#x5305;&#x7684;&#x626B;&#x63CF;&#x89C4;&#x5219;</li>
+<li>&#x5728;@Component&#x6CE8;&#x89E3;&#x4E2D;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;includeFilters&#x548C;excludeFilters&#x5C5E;&#x6027;&#xFF0C;&#x901A;&#x8FC7;@Filter&#x6CE8;&#x89E3;&#x8BBE;&#x7F6E;type&#x5C5E;&#x6027;&#xFF0C;type&#x5C5E;&#x6027;&#x5C5E;&#x4E8E;<strong>FilterType&#x679A;&#x4E3E;&#x7C7B;</strong>&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x6307;&#x5B9A;classes&#x5C5E;&#x6027;(&#x901A;&#x8FC7;class&#x5BF9;&#x8C61;&#x6307;&#x5B9A;&#x8FC7;&#x6EE4;&#x89C4;&#x5219;)</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/@Filter.png" alt="@Filter"></li>
+</ul>
+<h4 id="scope">@Scope</h4>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x7EC4;&#x4EF6;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5355;&#x5B9E;&#x4F8B;&#x6216;&#x591A;&#x5B9E;&#x4F8B;</li>
+</ul>
+<h4 id="lazy">@Lazy</h4>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x61D2;&#x52A0;&#x8F7D;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x61D2;&#x52A0;&#x8F7D;&#xFF0C;&#x5373;&#x4F7F;&#x8BE5;&#x7EC4;&#x4EF6;&#x662F;&#x5355;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x5728;&#x5BB9;&#x5668;&#x542F;&#x52A8;&#x65F6;&#x521B;&#x5EFA;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x624D;&#x4F1A;&#x52A0;&#x8F7D;</li>
+</ul>
+<h4 id="conditional">@Conditional</h4>
+<ul>
+<li>&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x7684;&#x89C4;&#x5219;&#x6CE8;&#x518C;&#x7EC4;&#x4EF6;&#xFF0C;&#x53EA;&#x6709;&#x5224;&#x65AD;&#x4E3A;true&#x7684;&#x624D;&#x8FDB;&#x884C;&#x6CE8;&#x518C;</li>
+<li>&#x53EF;&#x4EE5;&#x6807;&#x6CE8;&#x5728;&#x7C7B;&#x4E0A;&#xFF0C;&#x8868;&#x793A;&#x5224;&#x65AD;&#x6761;&#x4EF6;&#x5982;&#x679C;&#x4E0D;&#x4E3A;&#x771F;&#xFF0C;&#x7C7B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x90FD;&#x4E0D;&#x4F1A;&#x52A0;&#x8F7D;</li>
+<li>value&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;Condition&#x6570;&#x7EC4;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5224;&#x522B;&#x89C4;&#x5219;&#xFF0C;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x7C7B;&#x7EE7;&#x627F;&#x4E8E;<strong>Condition&#x63A5;&#x53E3;</strong></li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/Condition&#x63A5;&#x53E3;.png" alt="Condition&#x63A5;&#x53E3;"></li>
+<li>&#x5B9E;&#x73B0;Condition&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x91CD;&#x5199;matches&#x65B9;&#x6CD5;&#xFF0C;&#x4E3B;&#x8981;&#x5229;&#x7528;&#x4E0A;context(&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;)&#x8FDB;&#x884C;&#x5224;&#x522B;</li>
+</ul>
+<h4 id="import">@Import</h4>
+<ul>
+<li><p>value&#x5C5E;&#x6027;&#x4E2D;&#x4F20;&#x5165;class&#x6570;&#x7EC4;&#xFF0C;&#x5BB9;&#x5668;&#x4E2D;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x9ED8;&#x8BA4;id&#x4E3A;&#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x7C7B;&#x540D;&#xFF0C;&#x5982;org.jiang.Person</p>
+</li>
+<li><p>value&#x5C5E;&#x6027;&#x4F20;&#x5165;ImportSelector&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;class&#x5BF9;&#x8C61;&#xFF0C;&#x5B9E;&#x73B0;&#x7C7B;&#x4E2D;&#x91CD;&#x5199;selectImports&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x53C2;&#x6570;importingClassMetadata&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x7C7B;&#x7684;&#x6CE8;&#x89E3;&#x4FE1;&#x606F;&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;String&#x6570;&#x7EC4;&#xFF0C;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E3A;&#x7C7B;&#x7684;&#x5168;&#x7C7B;&#x540D;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5C06;&#x8FD4;&#x56DE;&#x503C;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x7684;&#x7EC4;&#x4EF6;&#x6CE8;&#x518C;&#x5230;&#x5BB9;&#x5668;&#x4E2D;</p>
+</li>
+<li><p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/ImportSelector.png" alt="ImportSelector"></p>
+</li>
+<li><p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/ImportSelector&#x5B9E;&#x73B0;&#x7C7B;.png" alt="ImportSelector&#x5B9E;&#x73B0;&#x7C7B;"></p>
+</li>
+<li><p>value&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x4F20;&#x5165;ImportBeanDefinitionRegistrar&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x624B;&#x52A8;&#x6CE8;&#x518C;bean&#xFF0C;&#x91CD;&#x5199;registerBeanDefinitions&#x65B9;&#x6CD5;&#xFF0C;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x53C2;&#x6570;registry(&#x4E5F;&#x5C31;&#x662F;bean&#x6CE8;&#x518C;&#x5668;)</p>
+</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/ImportBeanDefinitionRegistrar&#x5B9E;&#x73B0;&#x7C7B;.png" alt="ImportBeanDefinitionRegistrar&#x5B9E;&#x73B0;&#x7C7B;"></li>
+</ul>
+<h4 id="beanfactory&#x63A5;&#x53E3;">BeanFactory&#x63A5;&#x53E3;</h4>
+<ul>
+<li><p><a href="https://www.cnblogs.com/aspirant/p/9082858.html" target="_blank">https://www.cnblogs.com/aspirant/p/9082858.html</a></p>
+</li>
+<li><p>&#x5DE5;&#x5382;bean&#xFF0C;&#x901A;&#x8FC7;&#x7F16;&#x5199;&#x4E00;&#x4E2A;FactoryBean<person>&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x5E76;&#x6307;&#x5B9A;&#x6CDB;&#x578B;&#xFF0C;&#x7EE7;&#x800C;&#x91CD;&#x5199;getObject&#x3001;getObjectType&#x3001;isSingleton&#x65B9;&#x6CD5;&#x6307;&#x5B9A;&#x5DE5;&#x5382;&#x521B;&#x5EFA;&#x7684;bean&#x7C7B;&#x578B;&#xFF0C;&#x63A5;&#x7740;&#x5C06;&#x8BE5;&#x5DE5;&#x5382;&#x6CE8;&#x518C;&#x5230;&#x5BB9;&#x5668;&#x5F53;&#x4E2D;</person></p>
+</li>
+<li>&#x5F53;&#x83B7;&#x53D6;&#x8BE5;bean&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x539F;&#x672C;&#x88C5;&#x914D;&#x7684;&#x662F;&#x5DE5;&#x5382;&#x7C7B;&#x578B;&#xFF0C;&#x800C;&#x5B9E;&#x9645;&#x8BE5;bean&#x5C31;&#x662F;&#x5DE5;&#x5382;&#x521B;&#x5EFA;&#x7684;&#x7C7B;&#x578B;</li>
+<li><p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201028153249858.png" alt="image-20201028153249858"></p>
+</li>
+<li><p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201028153405546.png" alt="image-20201028153405546"></p>
+</li>
+<li><p>spring&#x6846;&#x67B6;&#x5728;&#x6574;&#x5408;&#x5176;&#x4ED6;&#x6846;&#x67B6;&#x65F6;(&#x6BD4;&#x5982;mybatis)&#x5E38;&#x4F7F;&#x7528;&#x5230;FactoryBean&#x5DE5;&#x5382;&#x5BF9;&#x8C61;</p>
+</li>
+</ul>
+<h3 id="&#x751F;&#x547D;&#x5468;&#x671F;">&#x751F;&#x547D;&#x5468;&#x671F;</h3>
+<h4 id="&#x901A;&#x8FC7;bean&#x6CE8;&#x89E3;&#x6307;&#x5B9A;&#x751F;&#x547D;&#x5468;&#x671F;">&#x901A;&#x8FC7;@Bean&#x6CE8;&#x89E3;&#x6307;&#x5B9A;&#x751F;&#x547D;&#x5468;&#x671F;</h4>
+<ul>
+<li>&#x4F7F;&#x7528;@Bean&#x6CE8;&#x89E3;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x653E;&#x7F6E;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x4E0A;&#x6DFB;&#x52A0;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x548C;&#x9500;&#x6BC1;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x548C;&#x9500;&#x6BC1;&#x65F6;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;</li>
+<li><p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201028165148356.png" alt="image-20201028165148356"></p>
+</li>
+<li><p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201028165201870.png" alt="image-20201028165201870"></p>
+</li>
+<li><p>&#x5355;&#x5B9E;&#x4F8B;bean</p>
+<ul>
+<li>&#x521D;&#x59CB;&#x5316;&#x5728;&#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x5E76;&#x8D4B;&#x503C;&#x4E4B;&#x540E;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF1B;&#x9500;&#x6BC1;&#x5728;&#x5BB9;&#x5668;&#x5173;&#x95ED;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x5C31;&#x662F;&#x8C03;&#x7528;context.close()&#x65B9;&#x6CD5;&#x65F6;</li>
+</ul>
+</li>
+<li>&#x591A;&#x5B9E;&#x4F8B;bean<ul>
+<li>&#x521D;&#x59CB;&#x5316;&#x5728;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x65F6;&#x521B;&#x5EFA;&#x5E76;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x521D;&#x59CB;&#x5316;&#xFF1B;&#x5373;&#x4F7F;&#x5728;&#x5BB9;&#x5668;&#x5173;&#x95ED;&#x65F6;&#x4E5F;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x9500;&#x6BC1;</li>
+</ul>
+</li>
+</ul>
+<h4 id="initializebean&#x63A5;&#x53E3;&#x91CD;&#x70B9;&#x548C;disposablebean&#x63A5;&#x53E3;">InitializeBean&#x63A5;&#x53E3;(<u><strong><em>&#x91CD;&#x70B9;</em></strong></u>)&#x548C;DisposableBean&#x63A5;&#x53E3;</h4>
+<ul>
+<li>&#x901A;&#x8FC7;&#x521B;&#x5EFA;InitializingBean&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x5B9A;&#x4E49;&#x521D;&#x59CB;&#x5316;&#x903B;&#x8F91;&#xFF0C;&#x8BE5;&#x5B9E;&#x73B0;&#x7C7B;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x8282;&#x70B9;&#x662F;&#x521B;&#x5EFA;&#x5B8C;Bean&#x5BF9;&#x8C61;&#x4E14;&#x8BBE;&#x7F6E;&#x5C5E;&#x6027;&#x4E4B;&#x540E;</li>
+<li><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029114052051.png" alt="image-20201029114052051"></li>
+<li>&#x901A;&#x8FC7;&#x521B;&#x5EFA;DisposableBean&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x5B9A;&#x4E49;&#x9500;&#x6BC1;&#x903B;&#x8F91;&#xFF0C;&#x8BE5;&#x5B9E;&#x73B0;&#x7C7B;&#x5728;BeanFactory&#x9500;&#x6BC1;&#x4E00;&#x4E2A;Bean&#x65F6;&#x88AB;&#x8C03;&#x7528;</li>
+<li><p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029114112789.png" alt="image-20201029114112789"></p>
+</li>
+<li><p>InitializingBean&#x63A5;&#x53E3;&#x7ECF;&#x5178;&#x7528;&#x6CD5;</p>
+<p>&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x5C5E;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x7C7B;&#x6765;&#x83B7;&#x53D6;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;</p>
+<p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029115241787.png" alt="image-20201029115241787"></p>
+<p>&#x901A;&#x8FC7;@Value&#x6CE8;&#x89E3;&#x83B7;&#x53D6;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x8FDB;&#x800C;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF;&#xFF1B;&#x518D;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x91CD;&#x5199;&#x7684;afterPropertiesSet&#x65B9;&#x6CD5;&#x5C06;&#x53D8;&#x91CF;&#x503C;&#x8D4B;&#x503C;&#x7ED9;&#x5E38;&#x91CF;</p>
+</li>
+</ul>
+<h5 id="beanpostprocessor-&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;--">BeanPostProcessor &#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;  <!--本质上就是拦截并添加逻辑功能--></h5>
+<ul>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;&#x5B9E;&#x73B0;BeanPostProcessor&#x63A5;&#x53E3;</li>
+<li>&#x91CD;&#x5199;&#x7684;postProcessBeforeInitialization&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x6BD4;&#x5982;@Bean&#x6CE8;&#x89E3;&#x5B9A;&#x4E49;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x3001;@InitializingBean&#x63A5;&#x53E3;&#x91CD;&#x5199;&#x7684;afterPropertiesSet&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x8C03;&#x7528;</li>
+<li>&#x91CD;&#x5199;&#x7684;postProcessAfterInitialization&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;@Bean&#x6CE8;&#x89E3;&#x5B9A;&#x4E49;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x3001;@InitializingBean&#x63A5;&#x53E3;&#x91CD;&#x5199;&#x7684;afterPropertiesSet&#x65B9;&#x6CD5;&#x4E4B;&#x540E;&#x8C03;&#x7528;</li>
+<li>&#x53C2;&#x6570;&#x4E2D;&#x7684;bean&#x548C;beanName&#x53EF;&#x4EE5;&#x5BF9;&#x5BB9;&#x5668;&#x4E2D;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x524D;&#x540E;&#x6DFB;&#x52A0;&#x903B;&#x8F91;</li>
+<li><p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029120530449.png" alt="image-20201029120530449"></p>
+</li>
+<li><p><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029120552034.png" alt="image-20201029120552034"></p>
+</li>
+<li>&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;<ul>
+<li>&#x83B7;&#x53D6;&#x5230;IOC&#x5BB9;&#x5668;&#x5728;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#x4F7F;&#x7528;<ul>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;&#x5B9E;&#x73B0;ApplicationContextAware&#x63A5;&#x53E3;&#xFF0C;&#x91CD;&#x5199;setApplicationContext&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5B9E;&#x73B0;&#x7C7B;&#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x5728;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#x5C06;IOC&#x5BB9;&#x5668;&#x8D4B;&#x503C;&#x7ED9;&#x8BE5;&#x53D8;&#x91CF;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#x4F7F;&#x7528;IOC&#x5BB9;&#x5668;</li>
+<li><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029122345445.png" alt="image-20201029122345445"></li>
+<li><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029122518527.png" alt="image-20201029122518527"></li>
+<li><strong>&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x5229;&#x7528;&#x4E86;ApplicationContextAwareProcessor(BeanPostProcessor&#x7684;&#x5B9E;&#x73B0;&#x7C7B;)</strong><ul>
+<li>&#x5728;Bean&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x5224;&#x65AD;bean&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B9E;&#x73B0;&#x4E86;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;bean&#x5BF9;&#x8C61;&#xFF1B;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x5C31;&#x8C03;&#x7528;invokeAwareInterfaces&#x65B9;&#x6CD5;</li>
+<li><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029123130970.png" alt="image-20201029123130970"></li>
+<li>&#x5728;invokeAwareInterfaces&#x65B9;&#x6CD5;&#x4E2D;&#x5224;&#x65AD;bean&#x7C7B;&#x578B;&#xFF0C;&#x8FDB;&#x800C;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;setXXX&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;IOC&#x5BB9;&#x5668;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x4E2D;&#x8FDB;&#x884C;&#x4F7F;&#x7528;</li>
+<li><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029123316949.png" alt="image-20201029123316949"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>@Autowired&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x4E86;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x5C5E;&#x6027;&#x8D4B;&#x503C;">&#x5C5E;&#x6027;&#x8D4B;&#x503C;</h3>
+<h4 id="value">@Value</h4>
+<ul>
+<li>&#x5BF9;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;spEL&#x8868;&#x8FBE;&#x5F0F;---#{}&#x3001;&#x57FA;&#x672C;&#x5B57;&#x9762;&#x91CF;&#x3001;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;&#x3001;&#x53D6;&#x51FA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x503C;--- ${}(<strong>&#x5728;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x503C;</strong>)</li>
+</ul>
+<h4 id="propertysource">@PropertySource</h4>
+<ul>
+<li>&#x8BFB;&#x53D6;&#x5916;&#x90E8;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;k-v&#x952E;&#x503C;&#x5BF9;&#x4FDD;&#x5B58;&#x5230;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x4E2D;</li>
+<li>value&#x5C5E;&#x6027;&#x503C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#xFF0C;&#x4EE3;&#x8868;&#x9700;&#x8981;&#x5F15;&#x5165;&#x7684;&#x591A;&#x4E2A;&#x5916;&#x90E8;&#x6587;&#x4EF6;</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/PropertiesValue.png" alt="PropertiesValue"></li>
+<li>&#x642D;&#x914D;@Value&#x6CE8;&#x89E3;&#x7684;${}&#x53D6;&#x51FA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x5E94;key&#x7684;value</li>
+</ul>
+<h3 id="&#x81EA;&#x52A8;&#x88C5;&#x914D;">&#x81EA;&#x52A8;&#x88C5;&#x914D;</h3>
+<h4 id="autowired">@AutoWired</h4>
+<ul>
+<li>&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x7C7B;&#x578B;&#x5339;&#x914D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;xxx.class&#xFF1B;&#x5982;&#x679C;&#x5C5E;&#x6027;&#x5339;&#x914D;&#x591A;&#x4E2A;&#xFF0C;&#x518D;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x4E0B;&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x8FDB;&#x884C;&#x5339;&#x914D;</li>
+<li>&#x53EF;&#x4EE5;&#x6307;&#x5B9A;required&#x5C5E;&#x6027;&#x4E3A;false&#xFF0C;&#x6307;&#x5B9A;&#x540E;&#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x88C5;&#x914D;&#x4E0A;&#x4E5F;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;</li>
+<li>&#x53EF;&#x4EE5;&#x642D;&#x914D;@Qualifier&#x6CE8;&#x89E3;&#x5E76;&#x6307;&#x5B9A;value&#x7684;&#x503C;&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#xFF0C;value&#x7684;&#x503C;&#x5C31;&#x662F;&#x9700;&#x8981;&#x88C5;&#x914D;&#x7684;bean&#x7684;&#x540D;&#x79F0;</li>
+</ul>
+<h4 id="qualifier">@Qualifier</h4>
+<ul>
+<li>&#x7ED3;&#x5408;@AutoWired&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x5BB9;&#x5668;&#x4E2D;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x540C;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#x7684;bean&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;@Qualifier&#x7684;value&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#xFF0C;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x88C5;&#x914D;&#x54EA;&#x4E2A;&#x5BF9;&#x8C61;</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/Qualifier.png" alt="Qualifier"></li>
+<li>&#x4E00;&#x822C;&#x6309;&#x7167;@AutoWired&#x4E0B;&#x9762;&#x6CE8;&#x5165;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF0C;&#x4F46;&#x6DFB;&#x52A0;&#x4E86;@Qualifier&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x4F18;&#x5148;&#x6309;&#x7167;@Qualifier&#x7684;value&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x88C5;&#x914D;</li>
+</ul>
+<h4 id="&#x5229;&#x7528;aware&#x63A5;&#x53E3;&#x7684;&#x5B50;&#x63A5;&#x53E3;&#x5C06;spring&#x5E95;&#x5C42;&#x4E00;&#x4E9B;&#x7EC4;&#x4EF6;&#x6CE8;&#x5165;&#x5230;&#x81EA;&#x5B9A;&#x4E49;bean&#x4E2D;">&#x5229;&#x7528;Aware&#x63A5;&#x53E3;&#x7684;&#x5B50;&#x63A5;&#x53E3;&#x5C06;Spring&#x5E95;&#x5C42;&#x4E00;&#x4E9B;&#x7EC4;&#x4EF6;&#x6CE8;&#x5165;&#x5230;&#x81EA;&#x5B9A;&#x4E49;Bean&#x4E2D;</h4>
+<ul>
+<li>Aware&#x63A5;&#x53E3;&#x7684;&#x5B50;&#x63A5;&#x53E3;</li>
+<li><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029151823730.png" alt="image-20201029151823730"></li>
+<li>&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x7C7B;&#x7EE7;&#x627F;&#x4E8E;Aware&#x63A5;&#x53E3;&#x7684;&#x5B50;&#x63A5;&#x53E3;(&#x4E0D;&#x540C;&#x7684;&#x5B50;&#x63A5;&#x53E3;&#x4F5C;&#x7528;&#x4E0D;&#x540C;)&#xFF0C;&#x5C06;&#x8BE5;bean&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x5230;&#x5BB9;&#x5668;&#x5F53;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x91CD;&#x5199;&#x5B50;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;Spring&#x7684;&#x5E95;&#x5C42;&#x7EC4;&#x4EF6;&#x5E76;&#x64CD;&#x4F5C;</li>
+<li><img src="C:\Users\19939\AppData\Roaming\Typora\typora-user-images\image-20201029152136653.png" alt="image-20201029152136653"><ul>
+<li>&#x5982;&#x679C;&#x5B9E;&#x73B0;ServletContextAware&#x63A5;&#x53E3;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;ServletContext(Servlet&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;)</li>
+</ul>
+</li>
+<li>&#x5F53;&#x7EE7;&#x627F;&#x4E8E;Aware&#x5B50;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x91CD;&#x5199;&#x4E86;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x4E4B;&#x540E;&#xFF0C;Aware&#x5B50;&#x63A5;&#x53E3;<strong>&#x5BF9;&#x5E94;&#x7684;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;</strong>&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x5224;&#x65AD;&#x6700;&#x7EC8;&#x5C31;&#x8C03;&#x7528;&#x5B9E;&#x73B0;&#x7C7B;&#x4E2D;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;</li>
+</ul>
+<h4 id="profile">@Profile</h4>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5F53;&#x524D;&#x6307;&#x5B9A;&#x73AF;&#x5883;&#xFF0C;&#x52A8;&#x6001;&#x7684;&#x5207;&#x6362;&#x548C;&#x6FC0;&#x6D3B;&#x4E00;&#x7CFB;&#x5217;&#x7EC4;&#x4EF6;&#x7684;&#x529F;&#x80FD;</li>
+<li>&#x5F53;&#x5728;&#x914D;&#x7F6E;&#x7C7B;&#x4E0A;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x5165;&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;@Bean&#x6CE8;&#x89E3;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EF;&#x4EE5;&#x5728;@Bean&#x6CE8;&#x89E3;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x6DFB;&#x52A0;@Profile&#x6CE8;&#x89E3;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;value&#x7684;&#x503C;&#x6765;&#x5B9A;&#x4E49;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x662F;&#x4EC0;&#x4E48;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x7EC4;&#x4EF6;</li>
+<li>&#x5F53;&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6307;&#x5B9A;spring.profile&#x65F6;&#x5C31;&#x4F1A;&#x52A0;&#x8F7D;&#x6307;&#x5B9A;&#x73AF;&#x5883;&#x7684;&#x7EC4;&#x4EF6;</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/Profile.png" alt="Profile"></li>
+</ul>
+<h2 id="aop">AOP</h2>
+<h4 id="enableaspectjautoproxy">@EnableAspectJAutoProxy</h4>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/EnableAspectJAutoProxy-1605664188852.png" alt="EnableAspectJAutoProxy"></p>
+<ul>
+<li><p>@EnableAspectJAutoProxy&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x5BFC;&#x5165;&#x4E86;AspectJAutoProxyRegistrar&#x7EC4;&#x4EF6;</p>
+</li>
+<li><p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/AspectJAutoProxyRegistrar.png" alt="AspectJAutoProxyRegistrar"></p>
+<ul>
+<li><p>AspectJAutoProxyRegistrar&#x7C7B;&#x7EE7;&#x627F;&#x4E8E;ImportBeanDefinitionRegistrar&#x63A5;&#x53E3;&#xFF0C;<strong>&#x6839;&#x636E;&#x524D;&#x9762;@Import&#x6CE8;&#x89E3;&#x5B66;&#x4E60;</strong>&#xFF0C;ImportBeanDefinitionRegistrar&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x7C7B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x91CD;&#x5199;registerBeanDefinitions&#x65B9;&#x6CD5;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x518C;bean</p>
+</li>
+<li><p>registerBeanDefinitions&#x65B9;&#x6CD5;&#x9996;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x5165;AspectJAnnotationAutoProxyCreator</p>
+<ul>
+<li><p>&#x5F53;&#x6267;&#x884C;&#x5230;AopConfigUtils&#x8C03;&#x7528;registerOrEscalateApcAsRequired&#x65B9;&#x6CD5;&#x65F6;</p>
+</li>
+<li><p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201118101844246.png" alt="image-20201118101844246"></p>
+</li>
+<li><p>&#x9996;&#x5148;&#x5224;&#x65AD;&#x5BB9;&#x5668;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;org.springframework.aop.config.internalAutoProxyCreator&#x8FD9;&#x79CD;&#x7EC4;&#x4EF6;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5219;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x5165;&#x4E00;&#x4E2A;beanDefinition&#xFF0C;&#x901A;&#x8FC7;debug&#x53EF;&#x77E5;&#x83B7;&#x53D6;&#x5230;&#x7684;beanDefinition&#x4E3A;</li>
+</ul>
+<pre><code class="lang-java">org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator
+</code></pre>
+<ul>
+<li>&#x518D;&#x5C06;&#x8BE5;beanDefinition&#x6CE8;&#x518C;&#x5230;&#x5BB9;&#x5668;&#x4E2D;</li>
+</ul>
+<pre><code class="lang-java">registry.registerBeanDefinition(<span class="hljs-string">&quot;org.springframework.aop.config.internalAutoProxyCreator&quot;</span>, beanDefinition);
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x7B2C;&#x4E00;&#x6B65;&#x603B;&#x7ED3;</p>
+<ul>
+<li>&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x5165;&#x4E86;AnnotationAwareAspectJAutoProxyCreator&#x7EC4;&#x4EF6;</li>
+</ul>
+</li>
+</ul>
+<h4 id="annotationawareaspectjautoproxycreator">AnnotationAwareAspectJAutoProxyCreator</h4>
+<ul>
+<li><p>&#x7EE7;&#x627F;&#x5173;&#x7CFB;</p>
+<ul>
+<li><p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201118103252881.png" alt="image-20201118103252881"></p>
+</li>
+<li><p>&#x9488;&#x5BF9; AbstractAutoProxyCreator(&#x540C;&#x65F6;&#x5177;&#x6709;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x548C;&#x8BBE;&#x7F6E;BeanFactory&#x7684;&#x529F;&#x80FD;)</p>
+</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201118103457992.png" alt="image-20201118103457992"><ul>
+<li>AbstractAutoProxyCreator&#x5B9E;&#x73B0;&#x4E86;SmartInstantiationAwareBeanPostProcessor&#x548C;BeanFactoryAware&#x63A5;&#x53E3;</li>
+<li>SmartInstantiationAwareBeanPostProcessor&#x5B9E;&#x73B0;&#x4E86;BeanPostProcessor&#x63A5;&#x53E3;(&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;)&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;bean&#x521B;&#x5EFA;&#x524D;&#x540E;&#x8FDB;&#x884C;&#x5904;&#x7406;</li>
+<li>BeanFactoryAware&#x63A5;&#x53E3;&#x901A;&#x8FC7;&#x91CD;&#x5199;setBeanFactory&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;BeanFactory</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201118103631103.png" alt="image-20201118103631103"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>setBeanFactory&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;</p>
+<ul>
+<li>setBeanFactory&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5728;AbstractAdvisorAutoProxyCreator&#x7C7B;&#x4E0A;</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201118105102035.png" alt="image-20201118105102035"></li>
+</ul>
+</li>
+<li><p>&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;</p>
+<ul>
+<li>&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x5728;AbstractAutoProxyCreator&#x7C7B;&#x4E0A;</li>
+<li><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201118110121783.png" alt="image-20201118110121783"></li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SpringCloud.html" class="navigation navigation-prev " aria-label="Previous page: Spring Cloud">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="SSM.html" class="navigation navigation-next " aria-label="Next page: SSM">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spring注解驱动","level":"1.8","depth":1,"next":{"title":"SSM","level":"1.9","depth":1,"path":"SSM.md","ref":"SSM.md","articles":[]},"previous":{"title":"Spring Cloud","level":"1.7","depth":1,"path":"SpringCloud.md","ref":"SpringCloud.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring注解驱动.md","mtime":"2020-12-17T02:19:58.720Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-29T02:08:49.101Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,2005 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Redis · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="SpringCloud.html" />
+    
+    
+    <link rel="prev" href="RabbitMQ.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="JUC.html">
+            
+                <a href="JUC.html">
+            
+                    
+                    JUC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="JVM.html">
+            
+                <a href="JVM.html">
+            
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Netty.html">
+            
+                <a href="Netty.html">
+            
+                    
+                    Netty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="RabbitMQ.html">
+            
+                <a href="RabbitMQ.html">
+            
+                    
+                    Rabbit MQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="Redis.html">
+            
+                <a href="Redis.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="SpringCloud.html">
+            
+                <a href="SpringCloud.html">
+            
+                    
+                    Spring Cloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Spring注解驱动.html">
+            
+                <a href="Spring注解驱动.html">
+            
+                    
+                    Spring注解驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="SSM.html">
+            
+                <a href="SSM.html">
+            
+                    
+                    SSM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Redis</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="redis">Redis</h1>
+<h2 id="&#x57FA;&#x7840;">&#x57FA;&#x7840;</h2>
+<h3 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h3>
+<ul>
+<li>redis&#x9ED8;&#x8BA4;&#x6709;16&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;select&#x6307;&#x4EE4;&#x5207;&#x6362;&#x6570;&#x636E;&#x5E93;</li>
+<li>redis&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD8;&#x8FD9;&#x4E48;&#x5FEB;&#xFF1F;<ul>
+<li>&#x8BEF;&#x533A;<ul>
+<li>&#x9AD8;&#x6027;&#x80FD;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E00;&#x5B9A;&#x662F;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#xFF1F;</li>
+<li>&#x591A;&#x7EBF;&#x7A0B;(cpu&#x4E0A;&#x4E0B;&#x6587;&#x4F1A;&#x5207;&#x6362;)&#x4E00;&#x5B9A;&#x6BD4;&#x5355;&#x7EBF;&#x7A0B;&#x6548;&#x7387;&#x9AD8;&#xFF1F;</li>
+</ul>
+</li>
+<li>&#x5FEB;&#x7684;&#x539F;&#x56E0;<ul>
+<li><strong>redis&#x662F;&#x5C06;&#x6570;&#x636E;&#x653E;&#x5728;&#x5185;&#x5B58;&#x5F53;&#x4E2D;&#x7684;&#xFF0C;&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x6548;&#x7387;&#x5C31;&#x662F;&#x6700;&#x9AD8;&#x7684;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x4F1A;&#x5207;&#x6362;cpu&#x4E0A;&#x4E0B;&#x6587;</strong></li>
+<li><strong>&#x591A;&#x8DEF;IO&#x590D;&#x7528;</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>redis&#x662F;&#x57FA;&#x4E8E;&#x5185;&#x5B58;&#x64CD;&#x4F5C;&#xFF0C;CPU&#x4E0D;&#x662F;redis&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;redis&#x7684;&#x74F6;&#x9888;&#x662F;&#x6839;&#x636E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5185;&#x5B58;&#x548C;&#x7F51;&#x7EDC;&#x5E26;&#x5BBD;</li>
+</ul>
+<h3 id="&#x4E00;&#x822C;&#x6307;&#x4EE4;">&#x4E00;&#x822C;&#x6307;&#x4EE4;</h3>
+<h4 id="&#x901A;&#x8FC7;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;">&#x901A;&#x8FC7;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;</h4>
+<ul>
+<li><p>&#x5982;&#x679C;&#x4F7F;&#x7528;docker&#x8FDB;&#x5165;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#xFF0C;&#x5219;&#x5728;&#x7A97;&#x53E3;&#x8F93;&#x5165;redis-cli -p 6379</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># redis-cli -p 6379</span>
+127.0.0.1:6379&gt; auth <span class="hljs-string">&quot;nidi1995230&quot;</span>
+</code></pre>
+</li>
+</ul>
+<h4 id="&#x767B;&#x5F55;&#x9A8C;&#x8BC1;">&#x767B;&#x5F55;&#x9A8C;&#x8BC1;</h4>
+<ul>
+<li><p>&#x8FDB;&#x5165;redis&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#x65F6;&#x5982;&#x679C;&#x51FA;&#x73B0;<strong>(error) NOAUTH Authentication required</strong>&#xFF0C;&#x5219;&#x8868;&#x660E;&#x9700;&#x8981;&#x767B;&#x5F55;</p>
+</li>
+<li><p>&#x5728;&#x547D;&#x4EE4;&#x7A97;&#x53E3;&#x8F93;&#x5165;auth &#x201C;&#x5BC6;&#x7801;&#x201D;&#x5373;&#x53EF;&#x767B;&#x5F55;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; auth <span class="hljs-string">&quot;nidi1995230&quot;</span>
+OK
+</code></pre>
+</li>
+</ul>
+<h4 id="&#x5207;&#x6362;&#x6570;&#x636E;&#x5E93;">&#x5207;&#x6362;&#x6570;&#x636E;&#x5E93;</h4>
+<ul>
+<li><p>select num(&#x7B2C;&#x51E0;&#x4E2A;&#x6570;&#x636E;&#x5E93;)</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; select 2
+OK
+</code></pre>
+</li>
+</ul>
+<h4 id="&#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#x5927;&#x5C0F;">&#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#x5927;&#x5C0F;</h4>
+<pre><code class="lang-bash">127.0.0.1:6379[2]&gt; dbsize
+(<span class="hljs-built_in">integer</span>) 0
+</code></pre>
+<h4 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x6240;&#x6709;&#x7684;key">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x6240;&#x6709;&#x7684;key</h4>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; keys *
+1) <span class="hljs-string">&quot;name&quot;</span>
+</code></pre>
+<h4 id="&#x6E05;&#x7A7A;&#x5168;&#x90E8;&#x5E93;">&#x6E05;&#x7A7A;&#x5168;&#x90E8;&#x5E93;</h4>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; FLUSHALL
+OK
+</code></pre>
+<h4 id="&#x6E05;&#x7A7A;&#x5F53;&#x524D;&#x5E93;">&#x6E05;&#x7A7A;&#x5F53;&#x524D;&#x5E93;</h4>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; FLUSHDB
+OK
+</code></pre>
+<h2 id="&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2>
+<h3 id="redis-key">redis-key</h3>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5224;&#x65AD;key&#x662F;&#x5426;&#x5B58;&#x5728;">&#x5224;&#x65AD;key&#x662F;&#x5426;&#x5B58;&#x5728;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; EXISTS name
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x79FB;&#x52A8;key&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5E93;">&#x79FB;&#x52A8;key&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5E93;</h5>
+<ul>
+<li>move key num(&#x7B2C;&#x51E0;&#x4E2A;&#x5E93;)</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; move name 1
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x8BBE;&#x7F6E;key&#x8FC7;&#x671F;&#x65F6;&#x95F4;">&#x8BBE;&#x7F6E;key&#x8FC7;&#x671F;&#x65F6;&#x95F4;</h5>
+<ul>
+<li>expire key seconds(&#x591A;&#x5C11;&#x79D2;)</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; EXPIRE name 10
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x67E5;&#x770B;key&#x7684;&#x5269;&#x4F59;&#x5B58;&#x6D3B;&#x65F6;&#x95F4;">&#x67E5;&#x770B;key&#x7684;&#x5269;&#x4F59;&#x5B58;&#x6D3B;&#x65F6;&#x95F4;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; ttl name
+(<span class="hljs-built_in">integer</span>) 6
+</code></pre>
+<h5 id="&#x67E5;&#x770B;key&#x7684;&#x7C7B;&#x578B;">&#x67E5;&#x770B;key&#x7684;&#x7C7B;&#x578B;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; <span class="hljs-built_in">type</span> name
+string
+</code></pre>
+<h3 id="&#x5B57;&#x7B26;&#x4E32;">&#x5B57;&#x7B26;&#x4E32;</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x867D;&#x7136;&#x5B58;&#x50A8;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x662F;&#x6570;&#x5B57;&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7167;&#x6837;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x6570;&#x5B57;&#x7684;&#x903B;&#x8F91;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x6BD4;&#x5982;&#x9012;&#x589E;&#x3001;&#x9012;&#x51CF;&#x7B49;</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x65B0;&#x5EFA;k-v&#x952E;&#x503C;&#x5BF9;">&#x65B0;&#x5EFA;k-v&#x952E;&#x503C;&#x5BF9;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; <span class="hljs-built_in">set</span> age 18
+OK
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;key&#x5BF9;&#x5E94;&#x7684;value">&#x83B7;&#x53D6;key&#x5BF9;&#x5E94;&#x7684;value</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; get age
+<span class="hljs-string">&quot;18&quot;</span>
+</code></pre>
+<h5 id="&#x8FFD;&#x52A0;&#x5B57;&#x7B26;&#x4E32;">&#x8FFD;&#x52A0;&#x5B57;&#x7B26;&#x4E32;</h5>
+<ul>
+<li>&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x8FFD;&#x52A0;&#x4E4B;&#x540E;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x8FFD;&#x52A0;&#x662F;&#x76F4;&#x63A5;&#x5C06;&#x539F;&#x6765;&#x7684;&#x5185;&#x5BB9;&#x548C;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;&#x62FC;&#x63A5;</li>
+<li>&#x5982;&#x679C;key&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x8BDD;&#x5219;&#x65B0;&#x5EFA;&#x8FD9;&#x4E2A;k-v&#x952E;&#x503C;&#x5BF9;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; APPEND name nidi
+(<span class="hljs-built_in">integer</span>) 9
+127.0.0.1:6379[1]&gt; get name
+<span class="hljs-string">&quot;jiangnidi&quot;</span>
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;">&#x83B7;&#x53D6;&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; STRLEN name
+(<span class="hljs-built_in">integer</span>) 9
+</code></pre>
+<h5 id="&#x9012;&#x589E;value&#x7684;&#x503C;&#x6B65;&#x957F;&#x4E3A;1">&#x9012;&#x589E;value&#x7684;&#x503C;(&#x6B65;&#x957F;&#x4E3A;1)</h5>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x76D1;&#x63A7;&#x6D4F;&#x89C8;&#x91CF;&#x3001;&#x64AD;&#x653E;&#x91CF;&#x7B49;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; <span class="hljs-built_in">set</span> views 0
+OK
+127.0.0.1:6379[1]&gt; INCR views
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x9012;&#x51CF;value&#x7684;&#x503C;&#x6B65;&#x957F;&#x4E3A;1">&#x9012;&#x51CF;value&#x7684;&#x503C;(&#x6B65;&#x957F;&#x4E3A;1)</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; DECR views
+(<span class="hljs-built_in">integer</span>) 0
+127.0.0.1:6379[1]&gt; get views
+<span class="hljs-string">&quot;0&quot;</span>
+</code></pre>
+<h5 id="&#x6307;&#x5B9A;&#x6B65;&#x957F;&#x9012;&#x589E;value&#x7684;&#x503C;">&#x6307;&#x5B9A;&#x6B65;&#x957F;&#x9012;&#x589E;value&#x7684;&#x503C;</h5>
+<ul>
+<li>incrby key &#x6B65;&#x957F;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; INCRBY views 5
+(<span class="hljs-built_in">integer</span>) 5
+127.0.0.1:6379[1]&gt; get views
+<span class="hljs-string">&quot;5&quot;</span>
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;&#x90E8;&#x5206;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x5168;&#x90E8;&#x5B57;&#x7B26;&#x4E32;">&#x83B7;&#x53D6;&#x90E8;&#x5206;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x5168;&#x90E8;&#x5B57;&#x7B26;&#x4E32;</h5>
+<ul>
+<li>&#x5F53;&#x622A;&#x53D6;&#x8303;&#x56F4;&#x4E3A;0 -1&#x65F6;&#x8868;&#x793A;&#x5168;&#x90E8;&#x5B57;&#x7B26;&#x4E32;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; GETRANGE name 0 3
+<span class="hljs-string">&quot;jian&quot;</span>
+127.0.0.1:6379[1]&gt; GETRANGE name 0 -1
+<span class="hljs-string">&quot;jiangnidi&quot;</span>
+</code></pre>
+<h5 id="&#x66FF;&#x6362;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E00;&#x90E8;&#x5206;">&#x66FF;&#x6362;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E00;&#x90E8;&#x5206;</h5>
+<ul>
+<li>setrange key &#x66FF;&#x6362;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;  &#x66FF;&#x6362;&#x7684;&#x5B57;&#x7B26;&#x4E32;(&#x4E5F;&#x5C31;&#x662F;&#x4ECE;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x7B97;&#xFF0C;&#x66FF;&#x6362;&#x7684;&#x957F;&#x5EA6;&#x5C31;&#x662F;&#x66FF;&#x6362;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;)</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; SETRANGE name 2 xx
+(<span class="hljs-built_in">integer</span>) 9
+127.0.0.1:6379[1]&gt; get name
+<span class="hljs-string">&quot;jixxgnidi&quot;</span>
+</code></pre>
+<h5 id="&#x65B0;&#x5EFA;k-v&#x5E76;&#x8BBE;&#x7F6E;&#x8FC7;&#x671F;&#x65F6;&#x95F4;">&#x65B0;&#x5EFA;k-v&#x5E76;&#x8BBE;&#x7F6E;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</h5>
+<ul>
+<li>setex(set with expire)</li>
+<li>setex key seconds value</li>
+</ul>
+<pre><code>127.0.0.1:6379[1]&gt; SETEX dog 10 jiang
+OK
+127.0.0.1:6379[1]&gt; ttl dog
+(integer) 4
+</code></pre><h5 id="&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x65B0;&#x5EFA;k-v">&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x65B0;&#x5EFA;k-v</h5>
+<ul>
+<li>&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x624D;&#x4F1A;&#x521B;&#x5EFA;&#xFF0C;&#x5B58;&#x5728;&#x7684;&#x8BDD;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;0(&#x4E5F;&#x5C31;&#x662F;false)</li>
+<li><strong>&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x4E2D;&#x5E38;&#x7528;</strong></li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; setnx cat jiang
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379[1]&gt; get cat
+<span class="hljs-string">&quot;jiang&quot;</span>
+127.0.0.1:6379[1]&gt; setnx cat nidi 
+(<span class="hljs-built_in">integer</span>) 0
+127.0.0.1:6379[1]&gt; get cat
+<span class="hljs-string">&quot;jiang&quot;</span>
+</code></pre>
+<h5 id="&#x540C;&#x65F6;&#x65B0;&#x5EFA;&#x591A;&#x4E2A;k-v">&#x540C;&#x65F6;&#x65B0;&#x5EFA;&#x591A;&#x4E2A;k-v</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; mset k1 v1 k2 v2 k3 v3 
+OK
+</code></pre>
+<h5 id="&#x901A;&#x8FC7;&#x83B7;&#x53D6;&#x591A;&#x4E2A;key&#x7684;value">&#x901A;&#x8FC7;&#x83B7;&#x53D6;&#x591A;&#x4E2A;key&#x7684;value</h5>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; MGET k1 k2 k3
+1) <span class="hljs-string">&quot;v1&quot;</span>
+2) <span class="hljs-string">&quot;v2&quot;</span>
+3) <span class="hljs-string">&quot;v3&quot;</span>
+</code></pre>
+<h5 id="&#x540C;&#x65F6;&#x521B;&#x5EFA;&#x591A;&#x4E2A;k-v&#x4E14;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5176;&#x4E2D;&#x7684;k&#x5B58;&#x5728;">&#x540C;&#x65F6;&#x521B;&#x5EFA;&#x591A;&#x4E2A;k-v&#x4E14;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5176;&#x4E2D;&#x7684;k&#x5B58;&#x5728;</h5>
+<ul>
+<li>&#x7531;&#x4E8E;k1&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#xFF0C;&#x6545;&#x8FD4;&#x56DE;false&#xFF1B;&#x540C;&#x65F6;k4&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x8BBE;&#x7F6E;</li>
+<li><strong>&#x539F;&#x5B50;&#x6027;&#x64CD;&#x4F5C;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;</strong></li>
+</ul>
+<pre><code>127.0.0.1:6379[1]&gt; MSETNX k1 v4 k4 v5
+(integer) 0
+127.0.0.1:6379[1]&gt; MGET k1 k2 k3 k4
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v3&quot;
+4) (nil)
+</code></pre><h5 id="&#x901A;&#x8FC7;&#x5B57;&#x7B26;&#x4E32;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;">&#x901A;&#x8FC7;&#x5B57;&#x7B26;&#x4E32;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;</h5>
+<p>&#x5728;redis&#x4E2D;:&#x5177;&#x6709;&#x5206;&#x5C42;&#x7EA7;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x901A;&#x8FC7;mset&#x8BBE;&#x7F6E;user&#x5C31;&#x7C7B;&#x4F3C;&#x4E8E;</p>
+<pre><code class="lang-json">user&#xFF1A;{
+    <span class="hljs-number">1</span>&#xFF1A;{
+    name:jiang,
+    age:<span class="hljs-number">18</span>
+}
+}
+</code></pre>
+<pre><code class="lang-bash">127.0.0.1:6379[1]&gt; mset user:1:name jiang user:1:age 18
+OK
+127.0.0.1:6379[1]&gt; mget user:1:name  user:1:age 
+1) <span class="hljs-string">&quot;jiang&quot;</span>
+2) <span class="hljs-string">&quot;18&quot;</span>
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;&#x5E76;&#x8BBE;&#x7F6E;">&#x83B7;&#x53D6;&#x5E76;&#x8BBE;&#x7F6E;</h5>
+<ul>
+<li>&#x5148;&#x83B7;&#x53D6;key&#x7684;&#x503C;&#x518D;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x539F;&#x6709;&#x7684;value</li>
+<li>&#x7B2C;&#x4E00;&#x6B21;&#x83B7;&#x53D6;&#x4E3A;null&#x56E0;&#x4E3A;&#x4E4B;&#x524D;&#x4E0D;&#x5B58;&#x5728;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; getset db mysql
+(nil)
+127.0.0.1:6379&gt; get db
+<span class="hljs-string">&quot;mysql&quot;</span>
+127.0.0.1:6379&gt; GETSET db redis
+<span class="hljs-string">&quot;mysql&quot;</span>
+127.0.0.1:6379&gt; get db
+<span class="hljs-string">&quot;redis&quot;</span>
+</code></pre>
+<h3 id="list">List</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x5728;redis&#x4E2D;&#x53EF;&#x4EE5;&#x5C06;list&#x64CD;&#x4F5C;&#x4E3A;&#x6808;&#x3001;&#x961F;&#x5217;&#x3001;&#x963B;&#x585E;&#x961F;&#x5217;</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5411;&#x5217;&#x8868;&#x4E2D;&#x5B58;&#x50A8;&#x503C;&#x4ECE;&#x5DE6;&#x4FA7;">&#x5411;&#x5217;&#x8868;&#x4E2D;&#x5B58;&#x50A8;&#x503C;(&#x4ECE;&#x5DE6;&#x4FA7;)</h5>
+<ul>
+<li>lrange &#x5217;&#x8868;&#x540D; value</li>
+<li>&#x5C06;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x503C;&#x63D2;&#x5165;&#x5230;&#x5217;&#x8868;&#x7684;&#x5934;&#x90E8;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LPUSH list one
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; LPUSH list two
+(<span class="hljs-built_in">integer</span>) 2
+127.0.0.1:6379&gt; LPUSH list three
+(<span class="hljs-built_in">integer</span>) 3
+</code></pre>
+<h5 id="&#x4ECE;&#x5217;&#x8868;&#x4E2D;&#x53D6;&#x503C;&#x4ECE;&#x5DE6;&#x4FA7;">&#x4ECE;&#x5217;&#x8868;&#x4E2D;&#x53D6;&#x503C;(&#x4ECE;&#x5DE6;&#x4FA7;)</h5>
+<ul>
+<li>lrange &#x5217;&#x8868;&#x540D; &#x8303;&#x56F4;&#xFF1B;&#x8303;&#x56F4;&#x4E3A;0 -1&#x65F6;&#x8868;&#x793A;&#x53D6;&#x51FA;&#x6240;&#x6709;&#x503C;</li>
+<li>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5F53;&#x6307;&#x5B9A;&#x8303;&#x56F4;&#x4E3A;0 -1&#x65F6;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x662F;three two&#x8868;&#x793A;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x9075;&#x5FAA;&#x7684;&#x539F;&#x5219;&#x662F;&#x5148;&#x8FDB;&#x540E;&#x51FA;(&#x7C7B;&#x4F3C;&#x4E8E;&#x6808;)</li>
+<li>&#x4ECE;&#x5217;&#x8868;&#x7684;&#x5934;&#x90E8;&#x5F00;&#x59CB;&#x53D6;&#x503C;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;three&quot;</span>
+2) <span class="hljs-string">&quot;two&quot;</span>
+3) <span class="hljs-string">&quot;one&quot;</span>
+127.0.0.1:6379&gt; LRANGE list 0 1
+1) <span class="hljs-string">&quot;three&quot;</span>
+2) <span class="hljs-string">&quot;two&quot;</span>
+</code></pre>
+<p>&#x5411;&#x5217;&#x8868;&#x4E2D;&#x5B58;&#x50A8;&#x503C;(&#x4ECE;&#x53F3;&#x4FA7;)</p>
+<ul>
+<li>&#x5C06;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x503C;&#x63D2;&#x5165;&#x5230;&#x5217;&#x8868;&#x7684;&#x5C3E;&#x90E8;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; RPUSH list four
+(<span class="hljs-built_in">integer</span>) 4
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;three&quot;</span>
+2) <span class="hljs-string">&quot;two&quot;</span>
+3) <span class="hljs-string">&quot;one&quot;</span>
+4) <span class="hljs-string">&quot;four&quot;</span>
+</code></pre>
+<h5 id="&#x79FB;&#x9664;&#x5143;&#x7D20;&#x4ECE;&#x5DE6;&#x4FA7;">&#x79FB;&#x9664;&#x5143;&#x7D20;(&#x4ECE;&#x5DE6;&#x4FA7;)</h5>
+<ul>
+<li>&#x4ECE;&#x5DE6;&#x4FA7;&#x79FB;&#x9664;&#x4E5F;&#x5C31;&#x662F;&#x4ECE;&#x5934;&#x90E8;&#x79FB;&#x9664;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LPOP list
+<span class="hljs-string">&quot;three&quot;</span>
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;two&quot;</span>
+2) <span class="hljs-string">&quot;one&quot;</span>
+3) <span class="hljs-string">&quot;four&quot;</span>
+</code></pre>
+<h5 id="&#x79FB;&#x9664;&#x5143;&#x7D20;&#x4ECE;&#x53F3;&#x4FA7;">&#x79FB;&#x9664;&#x5143;&#x7D20;(&#x4ECE;&#x53F3;&#x4FA7;)</h5>
+<ul>
+<li>&#x4ECE;&#x5DE6;&#x4FA7;&#x79FB;&#x9664;&#x4E5F;&#x5C31;&#x662F;&#x4ECE;&#x5C3E;&#x90E8;&#x79FB;&#x9664;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; RPOP list
+<span class="hljs-string">&quot;four&quot;</span>
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;two&quot;</span>
+2) <span class="hljs-string">&quot;one&quot;</span>
+</code></pre>
+<h5 id="&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x67E5;&#x627E;&#x503C;&#x4ECE;&#x5DE6;&#x4FA7;">&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x67E5;&#x627E;&#x503C;(&#x4ECE;&#x5DE6;&#x4FA7;)</h5>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x505A;&#x963B;&#x585E;&#x961F;&#x5217;&#xFF0C;&#x5224;&#x65AD;&#x961F;&#x5217;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x503C;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;two&quot;</span>
+2) <span class="hljs-string">&quot;one&quot;</span>
+127.0.0.1:6379&gt; lindex list 1
+<span class="hljs-string">&quot;one&quot;</span>
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;list&#x957F;&#x5EA6;">&#x83B7;&#x53D6;list&#x957F;&#x5EA6;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LLEN list
+(<span class="hljs-built_in">integer</span>) 2
+</code></pre>
+<h5 id="&#x79FB;&#x9664;&#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x6307;&#x5B9A;&#x503C;">&#x79FB;&#x9664;&#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x6307;&#x5B9A;&#x503C;</h5>
+<ul>
+<li>lrem key &#x6570;&#x91CF; &#x6307;&#x5B9A;&#x503C;</li>
+<li>&#x539F;&#x5148;&#x6709;&#x4E24;&#x4E2A;one&#xFF0C;&#x5F53;&#x6570;&#x91CF;&#x4E3A;1&#x65F6;&#x5C31;&#x4ECE;&#x9996;&#x90E8;&#x5F00;&#x59CB;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#xFF1B;&#x5982;&#x679C;&#x4E3A;2&#x5C31;&#x4ECE;&#x9996;&#x90E8;&#x5F00;&#x59CB;&#x79FB;&#x9664;&#x4E24;&#x4E2A;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;one&quot;</span>
+2) <span class="hljs-string">&quot;two&quot;</span>
+3) <span class="hljs-string">&quot;one&quot;</span>
+127.0.0.1:6379&gt; LREM list 1 one
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;two&quot;</span>
+2) <span class="hljs-string">&quot;one&quot;</span>
+</code></pre>
+<h5 id="&#x622A;&#x53D6;list">&#x622A;&#x53D6;list</h5>
+<ul>
+<li>&#x548C;lrange&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x662F;&#xFF1A;ltrim&#x5C06;&#x539F;&#x5217;&#x8868;&#x6539;&#x53D8;&#x4E86;&#xFF0C;&#x800C;lrange&#x53EA;&#x662F;&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x539F;&#x5217;&#x8868;&#x7684;&#x90E8;&#x5206;&#x503C;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;1&quot;</span>
+2) <span class="hljs-string">&quot;0&quot;</span>
+3) <span class="hljs-string">&quot;one&quot;</span>
+4) <span class="hljs-string">&quot;two&quot;</span>
+5) <span class="hljs-string">&quot;one&quot;</span>
+127.0.0.1:6379&gt; LTRIM list 0 1
+OK
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;1&quot;</span>
+2) <span class="hljs-string">&quot;0&quot;</span>
+</code></pre>
+<h5 id="&#x79FB;&#x9664;&#x5143;&#x7D20;&#x5E76;&#x79FB;&#x52A8;&#x5230;&#x65B0;&#x5217;&#x8868;&#x7EC4;&#x5408;&#x547D;&#x4EE4;">&#x79FB;&#x9664;&#x5143;&#x7D20;&#x5E76;&#x79FB;&#x52A8;&#x5230;&#x65B0;&#x5217;&#x8868;(&#x7EC4;&#x5408;&#x547D;&#x4EE4;)</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;1&quot;</span>
+2) <span class="hljs-string">&quot;0&quot;</span>
+127.0.0.1:6379&gt; RPOPLPUSH list newlist 
+<span class="hljs-string">&quot;0&quot;</span>
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;1&quot;</span>
+127.0.0.1:6379&gt; LRANGE newlist 0 -1
+1) <span class="hljs-string">&quot;0&quot;</span>
+</code></pre>
+<h5 id="&#x66F4;&#x65B0;list&#x4E2D;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x503C;">&#x66F4;&#x65B0;list&#x4E2D;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x503C;</h5>
+<ul>
+<li>lset key &#x6307;&#x5B9A;&#x7684;index &#x9700;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x503C;</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x4E0B;&#x6807;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x62A5;&#x9519;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;1&quot;</span>
+127.0.0.1:6379&gt; LSET list 0 <span class="hljs-built_in">test</span>
+OK
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;test&quot;</span>
+</code></pre>
+<h5 id="&#x5728;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x524D;&#x4E4B;&#x540E;&#x63D2;&#x5165;&#x503C;">&#x5728;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x524D;/&#x4E4B;&#x540E;&#x63D2;&#x5165;&#x503C;</h5>
+<ul>
+<li>&#x5982;&#x679C;&#x5224;&#x65AD;&#x4E3A;before&#x65F6;&#xFF0C;&#x5C31;&#x5728;&#x5143;&#x7D20;&#x4E4B;&#x524D;&#x63D2;&#x5165;(&#x504F;&#x9996;&#x90E8;)&#xFF1B;&#x5982;&#x679C;&#x5224;&#x65AD;&#x4E3A;after&#x65F6;&#xFF0C;&#x5C31;&#x5728;&#x5143;&#x7D20;&#x4E4B;&#x540E;&#x63D2;&#x5165;</li>
+<li>linsert key before/after &#x88AB;&#x63D2;&#x5165;&#x7684;&#x5143;&#x7D20;&#x503C; &#x63D2;&#x5165;&#x7684;&#x503C;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;test&quot;</span>
+127.0.0.1:6379&gt; LINSERT list before <span class="hljs-built_in">test</span> yes
+(<span class="hljs-built_in">integer</span>) 2
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) <span class="hljs-string">&quot;yes&quot;</span>
+2) <span class="hljs-string">&quot;test&quot;</span>
+</code></pre>
+<h3 id="set">Set</h3>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5411;set&#x4E2D;&#x63D2;&#x5165;&#x503C;&#x83B7;&#x53D6;set&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;">&#x5411;set&#x4E2D;&#x63D2;&#x5165;&#x503C;/&#x83B7;&#x53D6;set&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;</h5>
+<ul>
+<li>&#x4ECE;&#x6240;&#x6709;&#x5143;&#x7D20;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;set&#x65E0;&#x5E8F;</li>
+<li>&#x65E0;&#x6CD5;&#x6DFB;&#x52A0;&#x91CD;&#x590D;&#x5143;&#x7D20;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; sadd <span class="hljs-built_in">set</span> hello
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; sadd <span class="hljs-built_in">set</span> world
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; sadd <span class="hljs-built_in">set</span> yes
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; SMEMBERS <span class="hljs-built_in">set</span>
+1) <span class="hljs-string">&quot;hello&quot;</span>
+2) <span class="hljs-string">&quot;yes&quot;</span>
+3) <span class="hljs-string">&quot;world&quot;</span>
+</code></pre>
+<h5 id="&#x5224;&#x65AD;set&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x67D0;&#x4E2A;&#x5143;&#x7D20;">&#x5224;&#x65AD;set&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x67D0;&#x4E2A;&#x5143;&#x7D20;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SISMEMBER <span class="hljs-built_in">set</span> hello
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x5224;&#x65AD;set&#x5143;&#x7D20;&#x4E2A;&#x6570;">&#x5224;&#x65AD;set&#x5143;&#x7D20;&#x4E2A;&#x6570;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SCARD <span class="hljs-built_in">set</span>
+(<span class="hljs-built_in">integer</span>) 3
+</code></pre>
+<h5 id="&#x79FB;&#x9664;set&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5143;&#x7D20;">&#x79FB;&#x9664;set&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5143;&#x7D20;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SREM <span class="hljs-built_in">set</span> hello
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; SMEMBERS <span class="hljs-built_in">set</span>
+1) <span class="hljs-string">&quot;yes&quot;</span>
+2) <span class="hljs-string">&quot;world&quot;</span>
+</code></pre>
+<h5 id="&#x968F;&#x673A;&#x62BD;&#x9009;&#x51FA;set&#x4E2D;&#x6307;&#x5B9A;&#x4E2A;&#x6570;&#x5143;&#x7D20;">&#x968F;&#x673A;&#x62BD;&#x9009;&#x51FA;set&#x4E2D;&#x6307;&#x5B9A;&#x4E2A;&#x6570;&#x5143;&#x7D20;</h5>
+<ul>
+<li>srandmemeber key &#x62BD;&#x53D6;&#x5143;&#x7D20;&#x4E2A;&#x6570;</li>
+<li>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x505A;&#x62BD;&#x5956;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SRANDMEMBER <span class="hljs-built_in">set</span> 2
+1) <span class="hljs-string">&quot;yes&quot;</span>
+2) <span class="hljs-string">&quot;world&quot;</span>
+</code></pre>
+<h5 id="&#x968F;&#x673A;&#x5220;&#x9664;&#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5143;&#x7D20;">&#x968F;&#x673A;&#x5220;&#x9664;&#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5143;&#x7D20;</h5>
+<ul>
+<li>spop key &#x5220;&#x9664;&#x5143;&#x7D20;&#x4E2A;&#x6570;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SPOP <span class="hljs-built_in">set</span> 1
+1) <span class="hljs-string">&quot;world&quot;</span>
+127.0.0.1:6379&gt; SMEMBERS <span class="hljs-built_in">set</span>
+1) <span class="hljs-string">&quot;yes&quot;</span>
+</code></pre>
+<h5 id="&#x79FB;&#x52A8;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x4ECE;&#x4E00;&#x4E2A;set&#x5230;&#x53E6;&#x4E00;&#x4E2A;">&#x79FB;&#x52A8;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x4ECE;&#x4E00;&#x4E2A;set&#x5230;&#x53E6;&#x4E00;&#x4E2A;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SMOVE <span class="hljs-built_in">set</span> newset yes
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; SMEMBERS <span class="hljs-built_in">set</span>
+(empty list or <span class="hljs-built_in">set</span>)
+127.0.0.1:6379&gt; SMEMBERS newset
+1) <span class="hljs-string">&quot;yes&quot;</span>
+</code></pre>
+<h5 id="&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x96C6;">&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x96C6;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; sadd <span class="hljs-built_in">set</span>1 1 2 3
+(<span class="hljs-built_in">integer</span>) 3
+127.0.0.1:6379&gt; SADD <span class="hljs-built_in">set</span>2 2 3 4
+(<span class="hljs-built_in">integer</span>) 3
+127.0.0.1:6379&gt; SDIFF <span class="hljs-built_in">set</span>1 <span class="hljs-built_in">set</span>2
+1) <span class="hljs-string">&quot;1&quot;</span>
+</code></pre>
+<h5 id="&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x5E76;&#x96C6;">&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x5E76;&#x96C6;</h5>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x505A;&#x89C6;&#x9891;&#x7F51;&#x7AD9;&#x3001;&#x5FAE;&#x535A;&#x7684;&#x5171;&#x540C;&#x5173;&#x6CE8;&#xFF0C;&#x505A;&#x597D;&#x53CB;&#x63A8;&#x8350;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SINTER <span class="hljs-built_in">set</span>1 <span class="hljs-built_in">set</span>2
+1) <span class="hljs-string">&quot;2&quot;</span>
+2) <span class="hljs-string">&quot;3&quot;</span>
+</code></pre>
+<h5 id="&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x5E76;&#x96C6;">&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x5E76;&#x96C6;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SUNION <span class="hljs-built_in">set</span>1 <span class="hljs-built_in">set</span>2 
+1) <span class="hljs-string">&quot;1&quot;</span>
+2) <span class="hljs-string">&quot;2&quot;</span>
+3) <span class="hljs-string">&quot;3&quot;</span>
+4) <span class="hljs-string">&quot;4&quot;</span>
+</code></pre>
+<h3 id="hash">Hash</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x9002;&#x5408;&#x8FDB;&#x884C;&#x5BF9;&#x8C61;&#x7684;&#x5B58;&#x50A8;</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5411;hash&#x4E2D;&#x5B58;&#x50A8;&#x503C;&#x5E76;&#x53D6;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x503C;">&#x5411;hash&#x4E2D;&#x5B58;&#x50A8;&#x503C;&#x5E76;&#x53D6;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x503C;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; hset <span class="hljs-built_in">hash</span> name jiang
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; HGET <span class="hljs-built_in">hash</span> name
+<span class="hljs-string">&quot;jiang&quot;</span>
+</code></pre>
+<h5 id="&#x5411;hash&#x4E2D;&#x5B58;&#x50A8;&#x591A;&#x4E2A;&#x503C;&#x5E76;&#x53D6;&#x51FA;&#x591A;&#x4E2A;&#x503C;">&#x5411;hash&#x4E2D;&#x5B58;&#x50A8;&#x591A;&#x4E2A;&#x503C;&#x5E76;&#x53D6;&#x51FA;&#x591A;&#x4E2A;&#x503C;</h5>
+<ul>
+<li>&#x4ECE;name&#x5C5E;&#x6027;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;hash&#x4E2D;&#x4FEE;&#x6539;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x7684;&#x503C;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; hmset <span class="hljs-built_in">hash</span> name nidi age 18
+OK
+127.0.0.1:6379&gt; HMGET <span class="hljs-built_in">hash</span> name age
+1) <span class="hljs-string">&quot;nidi&quot;</span>
+2) <span class="hljs-string">&quot;18&quot;</span>
+</code></pre>
+<h5 id="&#x4ECE;hash&#x4E2D;&#x53D6;&#x51FA;&#x6240;&#x6709;&#x7684;&#x952E;&#x548C;&#x503C;">&#x4ECE;hash&#x4E2D;&#x53D6;&#x51FA;&#x6240;&#x6709;&#x7684;&#x952E;&#x548C;&#x503C;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; HGETALL <span class="hljs-built_in">hash</span>
+1) <span class="hljs-string">&quot;name&quot;</span>
+2) <span class="hljs-string">&quot;nidi&quot;</span>
+3) <span class="hljs-string">&quot;age&quot;</span>
+4) <span class="hljs-string">&quot;18&quot;</span>
+</code></pre>
+<h5 id="&#x5220;&#x9664;hash&#x4E2D;&#x7684;&#x952E;">&#x5220;&#x9664;hash&#x4E2D;&#x7684;&#x952E;</h5>
+<ul>
+<li>&#x5220;&#x9664;&#x952E;&#x4E4B;&#x540E;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x4E5F;&#x88AB;&#x5220;&#x9664;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; HDEL <span class="hljs-built_in">hash</span> name
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; HGETALL <span class="hljs-built_in">hash</span>
+1) <span class="hljs-string">&quot;age&quot;</span>
+2) <span class="hljs-string">&quot;18&quot;</span>
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;hash&#x952E;&#x503C;&#x5BF9;&#x7684;&#x4E2A;&#x6570;">&#x83B7;&#x53D6;hash&#x952E;&#x503C;&#x5BF9;&#x7684;&#x4E2A;&#x6570;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; HLEN <span class="hljs-built_in">hash</span>
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x5224;&#x65AD;hash&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x67D0;&#x4E2A;&#x952E;">&#x5224;&#x65AD;hash&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x67D0;&#x4E2A;&#x952E;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; HEXISTS <span class="hljs-built_in">hash</span> age
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x952E;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x503C;">&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x952E;/&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x503C;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; HKEYS <span class="hljs-built_in">hash</span>
+1) <span class="hljs-string">&quot;age&quot;</span>
+127.0.0.1:6379&gt; HVALS <span class="hljs-built_in">hash</span>
+1) <span class="hljs-string">&quot;18&quot;</span>
+</code></pre>
+<h5 id="&#x8BA9;hash&#x4E2D;&#x6307;&#x5B9A;&#x7684;key&#x5BF9;&#x5E94;&#x7684;value&#x81EA;&#x589E;&#x6216;&#x81EA;&#x51CF;&#x6307;&#x5B9A;&#x6B65;&#x957F;">&#x8BA9;hash&#x4E2D;&#x6307;&#x5B9A;&#x7684;key&#x5BF9;&#x5E94;&#x7684;value&#x81EA;&#x589E;&#x6216;&#x81EA;&#x51CF;(&#x6307;&#x5B9A;&#x6B65;&#x957F;)</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; HINCRBY <span class="hljs-built_in">hash</span> age 2
+(<span class="hljs-built_in">integer</span>) 20
+127.0.0.1:6379&gt; HINCRBY <span class="hljs-built_in">hash</span> age -2
+(<span class="hljs-built_in">integer</span>) 18
+</code></pre>
+<h5 id="&#x5728;&#x5224;&#x65AD;key&#x662F;&#x5426;&#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6DFB;&#x52A0;&#x952E;&#x503C;&#x5BF9;">&#x5728;&#x5224;&#x65AD;key&#x662F;&#x5426;&#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6DFB;&#x52A0;&#x952E;&#x503C;&#x5BF9;</h5>
+<ul>
+<li>&#x5F53;&#x952E;&#x5B58;&#x5728;&#x65F6;&#x5219;&#x65E0;&#x6CD5;&#x8BBE;&#x7F6E;&#xFF0C;&#x8FD4;&#x56DE;false</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; HSETNX <span class="hljs-built_in">hash</span> age 32
+(<span class="hljs-built_in">integer</span>) 0
+127.0.0.1:6379&gt; HSETNX <span class="hljs-built_in">hash</span> dog hello
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h3 id="zset">Zset</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x5BF9;&#x6570;&#x636E;&#x6DFB;&#x52A0;&#x6743;&#x91CD;&#xFF0C;&#x6BD4;&#x5982;&#x6392;&#x884C;&#x699C;&#x5E94;&#x7528;&#x3001;&#x5DE5;&#x8D44;&#x8868;&#x6392;&#x5E8F;</li>
+<li>&#x5BF9;&#x6D88;&#x606F;&#x961F;&#x5217;&#x6DFB;&#x52A0;&#x6743;&#x91CD;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x91CD;&#x6D88;&#x606F;&#x4F18;&#x5148;&#x7EA7;&#x4E0D;&#x540C;</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5411;zset&#x4E2D;&#x6DFB;&#x52A0;&#x503C;&#x5E76;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x503C;">&#x5411;zset&#x4E2D;&#x6DFB;&#x52A0;&#x503C;&#x5E76;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x503C;</h5>
+<ul>
+<li>zrange&#x4EE3;&#x8868;&#x83B7;&#x53D6;&#x503C;&#x540C;&#x65F6;&#x6309;&#x7167;&#x5347;&#x5E8F;&#x6392;&#x5E8F;</li>
+<li>zrevrange&#x4EE3;&#x8868;&#x83B7;&#x53D6;&#x503C;&#x540C;&#x65F6;&#x6309;&#x7167;&#x964D;&#x5E8F;&#x6392;&#x5E8F;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; ZADD zset 1 one 2 two 3 three
+(<span class="hljs-built_in">integer</span>) 3
+127.0.0.1:6379&gt; ZRANGE zset 0 -1
+1) <span class="hljs-string">&quot;one&quot;</span>
+2) <span class="hljs-string">&quot;two&quot;</span>
+3) <span class="hljs-string">&quot;three&quot;</span>
+127.0.0.1:6379&gt; ZREVRANGE zset 0 -1
+1) <span class="hljs-string">&quot;three&quot;</span>
+2) <span class="hljs-string">&quot;two&quot;</span>
+</code></pre>
+<h5 id="&#x6309;&#x7167;&#x5E8F;&#x53F7;&#x8FDB;&#x884C;&#x5347;&#x5E8F;">&#x6309;&#x7167;&#x5E8F;&#x53F7;&#x8FDB;&#x884C;&#x5347;&#x5E8F;</h5>
+<ul>
+<li>zrangebyscore key &#x5E8F;&#x53F7;&#x7684;&#x8303;&#x56F4;</li>
+<li>&#x5173;&#x952E;&#x5B57;&#x4E2D;&#x7684;score&#x4EE3;&#x8868;&#x7684;&#x5C31;&#x662F;&#x5143;&#x7D20;&#x7684;&#x5E8F;&#x53F7;</li>
+<li>-inf&#x548C;+inf&#x5206;&#x522B;&#x4EE3;&#x8868;&#x8D1F;&#x65E0;&#x7A77;&#x548C;&#x6B63;&#x65E0;&#x7A77;</li>
+<li>&#x5F53;&#x540E;&#x9762;&#x6DFB;&#x52A0;withscore&#x53C2;&#x6570;&#x65F6;&#x5C31;&#x4F1A;&#x628A;&#x5143;&#x7D20;&#x5BF9;&#x5E94;&#x7684;&#x5E8F;&#x53F7;&#x5E26;&#x4E0A;</li>
+<li>&#x5982;&#x679C;&#x5143;&#x7D20;&#x7684;&#x5E8F;&#x53F7;&#x5728;&#x5B9A;&#x4E49;&#x7684;&#x5E8F;&#x53F7;&#x8303;&#x56F4;&#x4E4B;&#x5916;&#x5219;&#x4E0D;&#x4F1A;&#x88AB;&#x53D6;&#x51FA;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; ZRANGEBYSCORE zset -inf +inf
+1) <span class="hljs-string">&quot;one&quot;</span>
+2) <span class="hljs-string">&quot;two&quot;</span>
+3) <span class="hljs-string">&quot;three&quot;</span>
+127.0.0.1:6379&gt; ZRANGEBYSCORE zset -inf +inf withscores
+1) <span class="hljs-string">&quot;one&quot;</span>
+2) <span class="hljs-string">&quot;1&quot;</span>
+3) <span class="hljs-string">&quot;two&quot;</span>
+4) <span class="hljs-string">&quot;2&quot;</span>
+5) <span class="hljs-string">&quot;three&quot;</span>
+6) <span class="hljs-string">&quot;3&quot;</span>
+127.0.0.1:6379&gt; ZRANGEBYSCORE zset -inf 2 withscores
+1) <span class="hljs-string">&quot;one&quot;</span>
+2) <span class="hljs-string">&quot;1&quot;</span>
+3) <span class="hljs-string">&quot;two&quot;</span>
+4) <span class="hljs-string">&quot;2&quot;</span>
+</code></pre>
+<h5 id="&#x6309;&#x7167;&#x5E8F;&#x53F7;&#x8FDB;&#x884C;&#x964D;&#x5E8F;&#x6392;&#x5217;">&#x6309;&#x7167;&#x5E8F;&#x53F7;&#x8FDB;&#x884C;&#x964D;&#x5E8F;&#x6392;&#x5217;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; ZREVRANGEBYSCORE zset +inf -inf withscores
+1) <span class="hljs-string">&quot;three&quot;</span>
+2) <span class="hljs-string">&quot;3&quot;</span>
+3) <span class="hljs-string">&quot;two&quot;</span>
+4) <span class="hljs-string">&quot;2&quot;</span>
+5) <span class="hljs-string">&quot;one&quot;</span>
+6) <span class="hljs-string">&quot;1&quot;</span>
+</code></pre>
+<h5 id="&#x79FB;&#x9664;zset&#x4E2D;&#x7684;&#x5143;&#x7D20;">&#x79FB;&#x9664;zset&#x4E2D;&#x7684;&#x5143;&#x7D20;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; ZREM zset one
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x67E5;&#x770B;zset&#x5143;&#x7D20;&#x4E2A;&#x6570;">&#x67E5;&#x770B;zset&#x5143;&#x7D20;&#x4E2A;&#x6570;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; ZCARD zset
+(<span class="hljs-built_in">integer</span>) 2
+</code></pre>
+<h5 id="&#x83B7;&#x53D6;&#x5E8F;&#x53F7;&#x6307;&#x5B9A;&#x533A;&#x95F4;&#x5143;&#x7D20;&#x6570;&#x91CF;">&#x83B7;&#x53D6;&#x5E8F;&#x53F7;&#x6307;&#x5B9A;&#x533A;&#x95F4;&#x5143;&#x7D20;&#x6570;&#x91CF;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; ZCOUNT zset 1 2
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h3 id="geospatial-&#x5730;&#x7406;&#x4F4D;&#x7F6E;">geospatial &#x5730;&#x7406;&#x4F4D;&#x7F6E;</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li><p>&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x63A8;&#x7B97;&#x4E24;&#x5730;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x65B9;&#x5706;&#x51E0;&#x91CC;&#x4E4B;&#x5185;&#x7684;&#x4EBA;(&#x5FAE;&#x4FE1;&#x6447;&#x4E00;&#x6447;)</p>
+</li>
+<li><p>geo&#x5E95;&#x5C42;&#x5C31;&#x662F;&#x901A;&#x8FC7;zset&#x5B9E;&#x73B0;&#xFF0C;&#x6545;geo&#x53EF;&#x4EE5;&#x4F7F;&#x7528;zset&#x6307;&#x4EE4;&#x64CD;&#x4F5C;&#x6210;&#x5458;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; ZREM china:city xian
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; ZRANGE china:city 0 -1
+1) <span class="hljs-string">&quot;chongqing&quot;</span>
+2) <span class="hljs-string">&quot;shenzhen&quot;</span>
+3) <span class="hljs-string">&quot;hangzhou&quot;</span>
+4) <span class="hljs-string">&quot;shanghai&quot;</span>
+5) <span class="hljs-string">&quot;beijing&quot;</span>
+</code></pre>
+</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x6DFB;&#x52A0;&#x5730;&#x7406;&#x4F4D;&#x7F6E;&#x7ECF;&#x7EAC;&#x5EA6;&#x5750;&#x6807;">&#x6DFB;&#x52A0;&#x5730;&#x7406;&#x4F4D;&#x7F6E;&#x7ECF;&#x7EAC;&#x5EA6;&#x5750;&#x6807;</h5>
+<ul>
+<li>china:city&#x4EE3;&#x8868;&#x7684;&#x662F;key&#xFF0C;&#x800C;&#x4E4B;&#x540E;&#x7684;&#x4E24;&#x4E2A;&#x5750;&#x6807;&#x5206;&#x522B;&#x662F;&#x7ECF;&#x5EA6;(longitude)&#x548C;&#x7EAC;&#x5EA6;(latitude),beijing&#x4EE3;&#x8868;&#x6210;&#x5458;(member)</li>
+<li>&#x5730;&#x7403;&#x4E24;&#x6781;&#x65E0;&#x6CD5;&#x6DFB;&#x52A0;</li>
+<li>&#x4E00;&#x822C;&#x901A;&#x8FC7;java&#x7A0B;&#x5E8F;&#x8BFB;&#x53D6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5BFC;&#x5165;(&#x7ECF;&#x5EA6;&#x3001;&#x7EAC;&#x5EA6;&#x3001;&#x540D;&#x79F0;)</li>
+</ul>
+<pre><code>127.0.0.1:6379&gt; GEOADD china:city 116.371661 39.994241 beijing
+(integer) 1
+127.0.0.1:6379&gt; GEOADD china:city 121.480066 31.236392 shanghai
+(integer) 1
+127.0.0.1:6379&gt; GEOADD china:city 107.093737 29.858 chongqing
+(integer) 1
+127.0.0.1:6379&gt; GEOADD china:city 114.064552 22.548457 shenzhen
+(integer) 1
+</code></pre><h5 id="&#x6307;&#x5B9A;&#x6210;&#x5458;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x5730;&#x7406;&#x4F4D;&#x7F6E;">&#x6307;&#x5B9A;&#x6210;&#x5458;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x5730;&#x7406;&#x4F4D;&#x7F6E;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; GEOPOS china:city xian
+1) 1) <span class="hljs-string">&quot;125.15537291765213013&quot;</span>
+   2) <span class="hljs-string">&quot;42.93330850721532244&quot;</span>
+</code></pre>
+<h5 id="&#x67E5;&#x8BE2;&#x4E24;&#x4E2A;&#x6210;&#x5458;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;">&#x67E5;&#x8BE2;&#x4E24;&#x4E2A;&#x6210;&#x5458;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;</h5>
+<ul>
+<li>km&#x4EE3;&#x8868;&#x6307;&#x5B9A;&#x8DDD;&#x79BB;&#x7684;&#x5355;&#x4F4D;(unit)&#xFF0C;&#x53EF;&#x4EE5;&#x662F;m&#x3001;km</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; GEODIST china:city xian hangzhou km
+<span class="hljs-string">&quot;1477.0258&quot;</span>
+</code></pre>
+<h5 id="&#x67E5;&#x627E;&#x5728;key&#x4E2D;&#x7B26;&#x5408;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x4F4D;&#x7F6E;&#x5177;&#x4F53;&#x8303;&#x56F4;&#x5185;&#x5143;&#x7D20;">&#x67E5;&#x627E;&#x5728;key&#x4E2D;&#x7B26;&#x5408;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x4F4D;&#x7F6E;&#x5177;&#x4F53;&#x8303;&#x56F4;&#x5185;&#x5143;&#x7D20;</h5>
+<ul>
+<li>key&#x662F;china:city&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4ECE;china:key&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x534A;&#x5F84;&#x4E3A;500km</li>
+<li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5E94;&#x7528;&#x641C;&#x7D22;&#x9644;&#x8FD1;&#x7684;&#x4EBA;</li>
+<li>&#x540E;&#x9762;&#x6DFB;&#x52A0;withdist&#x3001;withcoord&#x8FD8;&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x7ECF;&#x7EAC;&#x5EA6;&#xFF0C;&#x76F4;&#x7EBF;&#x8DDD;&#x79BB;&#x7B49;</li>
+<li>&#x540E;&#x9762;&#x6DFB;&#x52A0;count num&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x53D6;&#x51FA;&#x591A;&#x5C11;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x4ECE;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x8DDD;&#x79BB;&#x6700;&#x77ED;&#x5F00;&#x59CB;&#x8BA1;&#x7B97;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; GEORADIUS china:city 120 30 500 km
+1) <span class="hljs-string">&quot;hangzhou&quot;</span>
+2) <span class="hljs-string">&quot;shanghai&quot;</span>
+127.0.0.1:6379&gt; GEORADIUS china:city 120 30 500 km withcoord withdist
+1) 1) <span class="hljs-string">&quot;hangzhou&quot;</span>
+   2) <span class="hljs-string">&quot;34.9603&quot;</span>
+   3) 1) <span class="hljs-string">&quot;120.2155110239982605&quot;</span>
+      2) <span class="hljs-string">&quot;30.2530820188523748&quot;</span>
+2) 1) <span class="hljs-string">&quot;shanghai&quot;</span>
+   2) <span class="hljs-string">&quot;197.4341&quot;</span>
+   3) 1) <span class="hljs-string">&quot;121.48006528615951538&quot;</span>
+      2) <span class="hljs-string">&quot;31.23639160652168556&quot;</span>
+127.0.0.1:6379&gt; GEORADIUS china:city 120 30 500 km withcoord withdist count 1
+1) 1) <span class="hljs-string">&quot;hangzhou&quot;</span>
+   2) <span class="hljs-string">&quot;34.9603&quot;</span>
+   3) 1) <span class="hljs-string">&quot;120.2155110239982605&quot;</span>
+      2) <span class="hljs-string">&quot;30.2530820188523748&quot;</span>
+</code></pre>
+<h5 id="&#x4EE5;key&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E3A;&#x4E2D;&#x5FC3;&#xFF0C;&#x67E5;&#x627E;&#x51FA;&#x6307;&#x5B9A;&#x8DDD;&#x79BB;&#x5185;key&#x4E2D;&#x7B26;&#x5408;&#x7684;&#x5143;&#x7D20;">&#x4EE5;key&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E3A;&#x4E2D;&#x5FC3;&#xFF0C;&#x67E5;&#x627E;&#x51FA;&#x6307;&#x5B9A;&#x8DDD;&#x79BB;&#x5185;key&#x4E2D;&#x7B26;&#x5408;&#x7684;&#x5143;&#x7D20;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; GEORADIUSBYMEMBER china:city xian 1000 km withcoord
+1) 1) <span class="hljs-string">&quot;xian&quot;</span>
+   2) 1) <span class="hljs-string">&quot;125.15537291765213013&quot;</span>
+      2) <span class="hljs-string">&quot;42.93330850721532244&quot;</span>
+2) 1) <span class="hljs-string">&quot;beijing&quot;</span>
+   2) 1) <span class="hljs-string">&quot;116.37165874242782593&quot;</span>
+      2) <span class="hljs-string">&quot;39.9942410243751425&quot;</span>
+</code></pre>
+<h3 id="hyperloglog">Hyperloglog</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x8BB8;&#x591A;&#x5143;&#x7D20;&#x4E2D;&#x4E0D;&#x91CD;&#x590D;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x7F51;&#x7AD9;&#x7684;&#x7528;&#x6237;&#x6570;&#x91CF;(&#x540C;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x591A;&#x6B21;&#x6D4F;&#x89C8;&#x91CD;&#x590D;&#x4E0D;&#x8BA1;)</li>
+<li>&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x7ED3;&#x6784;&#x4E2D;&#x5177;&#x4F53;&#x7684;&#x5143;&#x7D20;&#x503C;</li>
+<li>set&#x4E5F;&#x53EF;&#x4EE5;&#x7EDF;&#x8BA1;&#x4E0D;&#x91CD;&#x590D;&#x5143;&#x7D20;&#xFF0C;&#x7136;&#x800C;set&#x5360;&#x7528;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x8F83;&#x5927;&#xFF1B;hyperloglog&#x53EA;&#x7EDF;&#x8BA1;&#x65E0;&#x6CD5;&#x53D6;&#x503C;</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5411;&#x7ED3;&#x6784;&#x4E2D;&#x6DFB;&#x52A0;&#x5143;&#x7D20;">&#x5411;&#x7ED3;&#x6784;&#x4E2D;&#x6DFB;&#x52A0;&#x5143;&#x7D20;</h5>
+<ul>
+<li>&#x53EA;&#x80FD;&#x6DFB;&#x52A0;&#x4F46;&#x65E0;&#x6CD5;&#x53D6;&#x51FA;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; PFADD key 1 2 3 4 5 6
+(<span class="hljs-built_in">integer</span>) 1
+127.0.0.1:6379&gt; PFADD key2 3 4 5 6 7
+(<span class="hljs-built_in">integer</span>) 1
+</code></pre>
+<h5 id="&#x7EDF;&#x8BA1;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;">&#x7EDF;&#x8BA1;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; PFCOUNT key
+(<span class="hljs-built_in">integer</span>) 6
+</code></pre>
+<h5 id="&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5E76;&#x7EDF;&#x8BA1;">&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5E76;&#x7EDF;&#x8BA1;</h5>
+<ul>
+<li>&#x5408;&#x5E76;&#x65F6;&#x7B2C;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x76EE;&#x6807;&#x7ED3;&#x6784;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x7ED3;&#x6784;&#x53EF;&#x4EE5;&#x6709;&#x5F88;&#x591A;&#x8868;&#x793A;&#x6E90;&#x7ED3;&#x6784;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; PFMERGE key3 key key1
+OK
+127.0.0.1:6379&gt; PFCOUNT key3
+(<span class="hljs-built_in">integer</span>) 6
+</code></pre>
+<h3 id="bitmaps-&#x4F4D;&#x5B58;&#x50A8;">Bitmaps &#x4F4D;&#x5B58;&#x50A8;</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x53EA;&#x6709;&#x4E24;&#x79CD;&#x72B6;&#x6001;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x6253;&#x5361;&#x3001;&#x7528;&#x6237;&#x662F;&#x5426;&#x767B;&#x5F55;(&#x7528;0&#x548C;1&#x8868;&#x793A;)</li>
+<li>&#x64CD;&#x4F5C;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x6765;&#x8FDB;&#x884C;&#x8BB0;&#x5F55;&#xFF0C;&#x53EA;&#x6709;0&#x548C;1&#x4E24;&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x8F83;&#x5C0F;</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5B58;&#x50A8;&#x67D0;&#x4E2A;&#x504F;&#x79FB;&#x91CF;&#x7684;&#x4F4D;&#x6570;&#x503C;">&#x5B58;&#x50A8;&#x67D0;&#x4E2A;&#x504F;&#x79FB;&#x91CF;&#x7684;&#x4F4D;&#x6570;&#x503C;</h5>
+<ul>
+<li>bit&#x4EE3;&#x8868;&#x7684;&#x662F;key&#xFF0C;&#x800C;0 1 2 3&#x4EE3;&#x8868;&#x7684;&#x662F;&#x504F;&#x79FB;&#x91CF;(offset)&#xFF0C;&#x53EF;&#x4EE5;&#x5F62;&#x8C61;&#x6BD4;&#x4F5C;&#x5468;&#x4E00;&#x3001;&#x5468;&#x4E8C;&#x3001;&#x5468;&#x4E09;&#x7B49;&#xFF0C;&#x540E;&#x9762;&#x7684;0&#x548C;1&#x4EE3;&#x8868;&#x7684;&#x662F;&#x4F4D;&#x6570;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x6BD4;&#x4F5C;&#x6253;&#x5361;&#x6216;&#x672A;&#x6253;&#x5361;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; PFCOUNT key3
+(<span class="hljs-built_in">integer</span>) 6
+127.0.0.1:6379&gt; setbit bit 0 1
+(<span class="hljs-built_in">integer</span>) 0
+127.0.0.1:6379&gt; SETBIT bit 1 0
+(<span class="hljs-built_in">integer</span>) 0
+127.0.0.1:6379&gt; setbit bit 2 0
+(<span class="hljs-built_in">integer</span>) 0
+127.0.0.1:6379&gt; SETBIT bit 3 1
+(<span class="hljs-built_in">integer</span>) 0
+</code></pre>
+<h5 id="&#x5BF9;key&#x8FDB;&#x884C;&#x4F4D;&#x8FD0;&#x7B97;&#x7EDF;&#x8BA1;">&#x5BF9;key&#x8FDB;&#x884C;&#x4F4D;&#x8FD0;&#x7B97;(&#x7EDF;&#x8BA1;)</h5>
+<ul>
+<li>&#x7C7B;&#x4F3C;&#x4E8E;&#x7EDF;&#x8BA1;&#x4E00;&#x5468;&#x5185;&#x7684;&#x6253;&#x5361;&#x6570;&#x91CF;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; BITCOUNT bit
+(<span class="hljs-built_in">integer</span>) 2
+</code></pre>
+<h2 id="&#x9AD8;&#x7EA7;">&#x9AD8;&#x7EA7;</h2>
+<h3 id="&#x4E8B;&#x52A1;">&#x4E8B;&#x52A1;</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>redis&#x5355;&#x6761;&#x547D;&#x4EE4;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;&#xFF0C;&#x4F46;&#x4E8B;&#x52A1;&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;</li>
+<li>(&#x4E00;&#x81F4;&#x6027;)redis&#x4E8B;&#x52A1;&#x672C;&#x8D28;&#x5C31;&#x662F;&#x4E00;&#x7EC4;&#x547D;&#x4EE4;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x8981;&#x4E48;&#x540C;&#x65F6;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x540C;&#x65F6;&#x5931;&#x8D25;</li>
+<li>(&#x987A;&#x5E8F;&#x6027;)redis&#x4E8B;&#x52A1;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x547D;&#x4EE4;&#x90FD;&#x4F1A;&#x88AB;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x5728;&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F1A;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x6267;&#x884C;</li>
+<li>(&#x6392;&#x4ED6;&#x6027;)redis&#x4E8B;&#x52A1;&#x6CA1;&#x6709;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x6982;&#x5FF5;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x7F13;&#x8BFB;&#x3001;&#x810F;&#x8BFB;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x547D;&#x4EE4;&#x5728;&#x4E8B;&#x52A1;&#x4E2D;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x6267;&#x884C;&#xFF0C;&#x53EA;&#x6709;&#x53D1;&#x8D77;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x6267;&#x884C;</li>
+</ul>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<h5 id="&#x5F00;&#x542F;&#x4E8B;&#x52A1;">&#x5F00;&#x542F;&#x4E8B;&#x52A1;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; MULTI
+OK
+</code></pre>
+<h5 id="&#x547D;&#x4EE4;&#x5165;&#x961F;">&#x547D;&#x4EE4;&#x5165;&#x961F;</h5>
+<ul>
+<li>&#x4ECE;&#x8FD4;&#x56DE;&#x503C;queue&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x547D;&#x4EE4;&#x5165;&#x961F;</li>
+</ul>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> k1 v1
+QUEUED
+127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> ke v2
+QUEUED
+</code></pre>
+<h5 id="&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;">&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; <span class="hljs-built_in">exec</span>
+1) OK
+2) OK
+</code></pre>
+<h5 id="&#x653E;&#x5F03;&#x4E8B;&#x52A1;">&#x653E;&#x5F03;&#x4E8B;&#x52A1;</h5>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; DISCARD
+OK
+</code></pre>
+<h5 id="&#x51FA;&#x73B0;&#x5F02;&#x5E38;">&#x51FA;&#x73B0;&#x5F02;&#x5E38;</h5>
+<ul>
+<li>&#x5982;&#x679C;&#x4E8B;&#x52A1;&#x4E2D;&#x5B58;&#x5728;&#x7F16;&#x8BD1;&#x5F02;&#x5E38;(&#x547D;&#x4EE4;&#x6709;&#x9519;)&#xFF0C;&#x4E8B;&#x52A1;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x547D;&#x4EE4;&#x90FD;&#x4E0D;&#x4F1A;&#x88AB;&#x6267;&#x884C;</li>
+<li>&#x5982;&#x679C;&#x4E8B;&#x52A1;&#x4E2D;&#x5B58;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;(1/0)&#xFF0C;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x65F6;&#x5176;&#x4ED6;&#x547D;&#x4EE4;&#x662F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x6267;&#x884C;&#xFF0C;&#x9519;&#x8BEF;&#x547D;&#x4EE4;&#x629B;&#x51FA;&#x5F02;&#x5E38;</li>
+</ul>
+<h3 id="redis&#x5B9E;&#x73B0;&#x4E50;&#x89C2;&#x9501;">redis&#x5B9E;&#x73B0;&#x4E50;&#x89C2;&#x9501;</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x60B2;&#x89C2;&#x9501;:&#x8BA4;&#x4E3A;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x65E0;&#x8BBA;&#x505A;&#x4EC0;&#x4E48;&#x90FD;&#x4F1A;&#x52A0;&#x9501;</li>
+<li>&#x4E50;&#x89C2;&#x9501;:&#x8BA4;&#x4E3A;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x90FD;&#x4E0D;&#x4F1A;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x4F1A;&#x4E0A;&#x9501;&#xFF1B;&#x5728;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x671F;&#x95F4;&#x5224;&#x65AD;&#x5728;&#x6B64;&#x671F;&#x95F4;&#x662F;&#x5426;&#x6709;&#x4EBA;&#x4FEE;&#x6539;&#x8FC7;&#x8FD9;&#x4E2A;&#x6570;&#x636E;</li>
+<li>mybaits-plus&#x5B9E;&#x73B0;&#x4E50;&#x89C2;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;version&#x5B57;&#x6BB5;&#xFF0C;&#x5F53;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x65F6;version&#x4E5F;&#x4F1A;&#x8FDB;&#x884C;&#x66F4;&#x65B0;</li>
+</ul>
+<h4 id="redis&#x76D1;&#x89C6;&#x6D4B;&#x8BD5;">redis&#x76D1;&#x89C6;&#x6D4B;&#x8BD5;</h4>
+<ul>
+<li><p>&#x524D;&#x63D0;&#x6761;&#x4EF6;</p>
+<ul>
+<li>&#x540C;&#x65F6;&#x5F00;&#x542F;&#x4E24;&#x4E2A;&#x7EC8;&#x7AEF;&#xFF0C;&#x7528;&#x6765;&#x6A21;&#x62DF;&#x5E76;&#x53D1;&#x64CD;&#x4F5C;</li>
+<li>&#x8BBE;&#x7F6E;&#x539F;&#x6709;&#x5B58;&#x50A8;money&#x4E3A;100&#xFF0C;&#x539F;&#x6709;&#x6D88;&#x8D39;out&#x4E3A;0</li>
+</ul>
+</li>
+<li><p>&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x76D1;&#x89C6;(watch)money&#xFF0C;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#xFF0C;&#x5C06;&#x4F59;&#x989D;&#x51CF;&#x5C11;10&#xFF0C;&#x6D88;&#x8D39;&#x589E;&#x52A0;10</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> money 100
+OK
+127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> out 0
+OK
+127.0.0.1:6379&gt; watch money
+OK
+127.0.0.1:6379&gt; MULTI
+OK
+127.0.0.1:6379&gt; DECRBY money 10
+QUEUED
+127.0.0.1:6379&gt; INCRBY out 10
+QUEUED
+</code></pre>
+</li>
+<li><p>&#x53E6;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x5148;&#x83B7;&#x53D6;&#x4F59;&#x989D;&#x518D;&#x4FEE;&#x6539;&#x4F59;&#x989D;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; get money
+<span class="hljs-string">&quot;100&quot;</span>
+127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> money 1000
+OK
+</code></pre>
+</li>
+<li><p>&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE;null</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; <span class="hljs-built_in">exec</span>
+(nil)
+</code></pre>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;</p>
+<ul>
+<li>redis&#x4F7F;&#x7528;watch&#x5F53;&#x505A;&#x4E50;&#x89C2;&#x9501;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</li>
+<li>&#x7531;&#x4E8E;&#x7B2C;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x76D1;&#x89C6;&#x4E86;money&#xFF0C;&#x5F53;&#x4E8B;&#x52A1;&#x51C6;&#x5907;&#x63D0;&#x4EA4;&#x65F6;&#x53D1;&#x73B0;money&#x5DF2;&#x7ECF;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x6545;&#x6267;&#x884C;&#x5931;&#x8D25;(&#x7C7B;&#x4F3C;&#x4E8E;version&#x5DF2;&#x7ECF;&#x88AB;&#x4FEE;&#x6539;)</li>
+</ul>
+</li>
+<li><p>&#x5F53;&#x53D1;&#x73B0;&#x6267;&#x884C;&#x5931;&#x8D25;&#x4E4B;&#x540E;&#xFF0C;&#x653E;&#x5F03;&#x539F;&#x6709;&#x7684;&#x76D1;&#x89C6;&#xFF0C;&#x518D;&#x91CD;&#x65B0;&#x76D1;&#x89C6;&#xFF0C;&#x8FDB;&#x800C;&#x6267;&#x884C;&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; UNWATCH
+OK
+127.0.0.1:6379&gt; WATCH money
+OK
+</code></pre>
+</li>
+</ul>
+<h3 id="springboot&#x6574;&#x5408;redis">Springboot&#x6574;&#x5408;redis</h3>
+<h4 id="&#x76F8;&#x5173;&#x8D44;&#x6599;">&#x76F8;&#x5173;&#x8D44;&#x6599;</h4>
+<ul>
+<li><a href="https://my.oschina.net/u/4394698/blog/4339964" target="_blank">&#x5E8F;&#x5217;&#x5316;&#x914D;&#x7F6E;&#x89C4;&#x8303;</a></li>
+<li><a href="https://www.codenong.com/cs106922950/" target="_blank">&#x76F8;&#x5173;&#x7EC4;&#x4EF6;</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1497594" target="_blank">Redis&#x4F7F;&#x7528;&#x8BF4;&#x660E;</a></li>
+<li><a href="https://www.jianshu.com/p/c5fcd2a1ab49" target="_blank">ObjectMapper&#x5E8F;&#x5217;&#x5316;&#x95EE;&#x9898;</a></li>
+<li><a href="https://blog.csdn.net/sdyy321/article/details/40298081" target="_blank">Jackson &#x6CE8;&#x89E3;&#x8BE6;&#x89E3;</a></li>
+<li><a href="https://blog.csdn.net/Seky_fei/article/details/109960178" target="_blank">Jackson ObjectMapper&#x914D;&#x7F6E;</a></li>
+</ul>
+<h4 id="jsr107&#x7F13;&#x5B58;&#x89C4;&#x8303;">JSR107&#x7F13;&#x5B58;&#x89C4;&#x8303;</h4>
+<h5 id="&#x89C4;&#x8303;&#x6838;&#x5FC3;&#x63A5;&#x53E3;">&#x89C4;&#x8303;(&#x6838;&#x5FC3;&#x63A5;&#x53E3;)</h5>
+<h6 id="cachingprovider">CachingProvider</h6>
+<p>&#x5B9A;&#x4E49;&#x4E86;&#x521B;&#x5EFA;&#x3001;&#x914D;&#x7F6E;&#x3001;&#x83B7;&#x53D6;&#x3001;&#x7BA1;&#x7406;&#x548C;&#x63A7;&#x5236;&#x591A;&#x4E2A;CacheManager&#xFF0C;&#x5355;&#x4E2A;&#x5E94;&#x7528;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x591A;&#x4E2A;CachingProvider</p>
+<h6 id="cachemanager">CacheManager</h6>
+<p>&#x5B9A;&#x4E49;&#x4E86;&#x521B;&#x5EFA;&#x3001;&#x914D;&#x7F6E;&#x3001;&#x83B7;&#x53D6;&#x3001;&#x7BA1;&#x7406;&#x548C;&#x63A7;&#x5236;&#x591A;&#x4E2A;&#x552F;&#x4E00;&#x547D;&#x540D;&#x7684;Cache&#xFF0C;&#x6240;&#x6709;Cache&#x5B58;&#x5728;&#x4E8E;CacheManager&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;CacheManager&#x4EC5;&#x88AB;&#x4E00;&#x4E2A;CachingProvider&#x6240;&#x62E5;&#x6709;&#x7684;</p>
+<h6 id="cache">Cache</h6>
+<p>&#x7C7B;&#x4F3C;&#x4E8E;Map&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5E76;&#x4E34;&#x65F6;&#x5B58;&#x50A8;&#x4EE5;key&#x4E3A;&#x7D22;&#x5F15;&#x7684;&#x503C;&#xFF0C;&#x4E00;&#x4E2A;Cache&#x4EC5;&#x88AB;&#x4E00;&#x4E2A;CacheManager&#x6240;&#x62E5;&#x6709;&#x7684;</p>
+<h6 id="entry">Entry</h6>
+<p>&#x5B58;&#x50A8;&#x5728;Cache&#x4E2D;&#x7684;key-value&#x5BF9;</p>
+<h6 id="expiry">Expiry</h6>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x5728;Cache&#x4E2D;&#x7684;&#x6761;&#x76EE;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x7684;&#x6709;&#x6548;&#x671F;&#xFF1B;&#x4E00;&#x65E6;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;&#x6761;&#x76EE;&#x4E3A;&#x8FC7;&#x671F;&#x7684;&#x72B6;&#x6001;&#xFF1B;&#x4E00;&#x65E6;&#x8FC7;&#x671F;&#xFF0C;&#x6761;&#x76EE;&#x5C06;&#x4E0D;&#x53EF;&#x8BBF;&#x95EE;&#x3001;&#x66F4;&#x65B0;&#x548C;&#x5220;&#x9664;&#xFF1B;&#x7F13;&#x5B58;&#x6709;&#x6548;&#x671F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;ExpiryPolicy&#x8BBE;&#x7F6E;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/20200406124803857.png" alt="20200406124803857"></p>
+<blockquote>
+<p>1&#x3001;&#x4E0D;&#x540C;&#x7684;CacheManager&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0D;&#x540C;&#x7684;&#x5382;&#x5546;&#x8FDB;&#x884C;&#x63D0;&#x4F9B;&#xFF0C;&#x4F8B;&#x5982;Redis&#x3001;MemCache&#x7B49;</p>
+<p>2&#x3001;&#x4E0D;&#x540C;&#x7684;Cache&#x53EF;&#x4EE5;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5B58;&#x50A8;&#xFF0C;&#x4F8B;&#x5982;&#x5BF9;&#x5458;&#x5DE5;&#x7684;&#x7F13;&#x5B58;&#x3001;&#x5BF9;&#x4EA7;&#x54C1;&#x7684;&#x7F13;&#x5B58;</p>
+<p>3&#x3001;CacheManager&#x548C;Cache&#x4E4B;&#x95F4;&#x7C7B;&#x4F3C;&#x4E8E;&#x8FDE;&#x63A5;&#x6C60;&#x548C;&#x8FDE;&#x63A5;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;</p>
+</blockquote>
+<h4 id="spring&#x7F13;&#x5B58;&#x62BD;&#x8C61;">Spring&#x7F13;&#x5B58;&#x62BD;&#x8C61;</h4>
+<p>Spring&#x5B9A;&#x4E49;&#x4E86;<code>org.springframework.cache.Cache</code>&#x548C;<code>org.springframework.cache.CacheManager</code>&#x63A5;&#x53E3;&#x6765;&#x7EDF;&#x4E00;&#x4E0D;&#x540C;&#x7684;&#x7F13;&#x5B58;&#x6280;&#x672F;</p>
+<ul>
+<li>Cache&#x63A5;&#x53E3;&#x4E3A;&#x7F13;&#x5B58;&#x7684;&#x7EC4;&#x4EF6;&#x89C4;&#x8303;&#x5B9A;&#x4E49;&#xFF0C;&#x5305;&#x542B;&#x7F13;&#x5B58;&#x7684;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x96C6;&#x5408;</li>
+<li>Cache&#x63A5;&#x53E3;&#x4E0B;&#x63D0;&#x4F9B;&#x4E86;&#x5404;&#x79CD;xxxCache&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5982;RedisCache&#x3001;EhCacheCache&#x7B49;</li>
+</ul>
+<h5 id="&#x6838;&#x5FC3;&#x63A5;&#x53E3;">&#x6838;&#x5FC3;&#x63A5;&#x53E3;</h5>
+<h6 id="cache">Cache</h6>
+<p>&#x7F13;&#x5B58;&#x63A5;&#x53E3;&#xFF0C;&#x5B9A;&#x4E49;&#x7F13;&#x5B58;&#x64CD;&#x4F5C;&#xFF1B;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x73B0;&#x5305;&#x62EC;RedisCache&#x3001;EhCacheCache&#x7B49;</p>
+<h6 id="cachemanager">CacheManager</h6>
+<p>&#x7F13;&#x5B58;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x7BA1;&#x7406;&#x5404;&#x79CD;&#x7F13;&#x5B58;&#x7EC4;&#x4EF6;</p>
+<h6 id="enablecaching">@EnableCaching</h6>
+<p>&#x5F00;&#x542F;&#x57FA;&#x4E8E;&#x6CE8;&#x89E3;&#x7684;&#x7F13;&#x5B58;</p>
+<h4 id="&#x7F13;&#x5B58;&#x539F;&#x7406;">&#x7F13;&#x5B58;&#x539F;&#x7406;</h4>
+<blockquote>
+<p>Springboot2.xx&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x4F7F;&#x7528;jedis&#xFF0C;&#x91C7;&#x7528;lettuce</p>
+<p>jedis&#xFF1A;&#x91C7;&#x7528;&#x76F4;&#x8FDE;&#xFF0C;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x64CD;&#x4F5C;&#x4E0D;&#x5B89;&#x5168;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;jedis pool</p>
+<p>lettuce&#xFF1A;&#x91C7;&#x7528;netty&#xFF0C;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x5728;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x7EBF;&#x7A0B;&#x4E0D;&#x5B89;&#x5168;(&#x7C7B;&#x4F3C;&#x4E8E;NIO&#x6A21;&#x5F0F;)</p>
+</blockquote>
+<h5 id="cacheautoconfiguration">CacheAutoConfiguration</h5>
+<p>Springboot&#x6240;&#x6709;&#x7684;&#x914D;&#x7F6E;&#x7C7B;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x7C7B;&#xFF0C;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x7C7B;&#x90FD;&#x4F1A;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;properties&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<p>&#x5728;<code>spring.factory</code>&#x4E2D;&#x5B58;&#x5728;&#x5BF9;&#x5E94;&#x7684;CacheAutoConfiguration&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x7C7B;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120123636394.png" alt="image-20210120123636394"></p>
+<p>&#x9996;&#x5148;&#x770B;&#x4E0B;CacheAutoConfiguration&#x914D;&#x7F6E;&#x7C7B;&#x505A;&#x4E86;&#x54EA;&#x4E9B;&#x64CD;&#x4F5C;&#xFF1F;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120123831723.png" alt="image-20210120123831723"></p>
+<blockquote>
+<p>1&#x3001;&#x9996;&#x5148;&#x901A;&#x8FC7;@EnableConfigurationProperties&#x7ED1;&#x5B9A;&#x4E86;CacheProperties&#x914D;&#x7F6E;&#x7C7B;</p>
+<p>2&#x3001;&#x901A;&#x8FC7;@Import&#x6CE8;&#x89E3;&#x5BFC;&#x5165;&#x4E86;CacheConfigurationImportSelector.class&#xFF1B;&#x800C;&#x5982;&#x679C;&#x5BFC;&#x5165;&#x7684;&#x662F;<code>ImportSelector</code>&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x4F1A;&#x901A;&#x8FC7;<code>selectImports</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x5165;&#x5BF9;&#x8C61;</p>
+</blockquote>
+<p>&#x7136;&#x540E;&#x518D;&#x5206;&#x6790;&#x4E0B;CacheConfigurationImportSelector&#x5185;&#x90E8;&#x7C7B;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CacheConfigurationImportSelector</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ImportSelector</span> </span>{
+    CacheConfigurationImportSelector() {
+    }
+
+    <span class="hljs-keyword">public</span> String[] selectImports(AnnotationMetadata importingClassMetadata) {
+        CacheType[] types = CacheType.values();
+        String[] imports = <span class="hljs-keyword">new</span> String[types.length];
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; types.length; ++i) {
+            imports[i] = CacheConfigurations.getConfigurationClass(types[i]);
+        }
+
+        <span class="hljs-keyword">return</span> imports;
+    }
+}
+</code></pre>
+<p>&#x4EE5;debug&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#x9879;&#x76EE;</p>
+<p>1&#x3001;<code>CacheType.values()</code></p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120141454048.png" alt="image-20210120141454048"></p>
+<blockquote>
+<p>&#x9996;&#x5148;&#x53EF;&#x4EE5;&#x770B;&#x51FA;type&#x6570;&#x7EC4;&#x4E2D;&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x5BF9;&#x5404;&#x79CD;&#x7C7B;&#x578B;&#x7F13;&#x5B58;&#x7684;&#x524D;&#x7F00;&#x8FDB;&#x884C;&#x8BB0;&#x5F55;</p>
+<p>&#x800C;CacheType&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x7C7B;&#xFF0C;&#x679A;&#x4E3E;&#x4E86;&#x6240;&#x6709;&#x7684;&#x7F13;&#x5B58;&#x7C7B;&#x578B;</p>
+</blockquote>
+<p>2&#x3001;&#x5BF9;type&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x904D;&#x5386;&#xFF0C;&#x8C03;&#x7528;<code>CacheConfigurations.getConfigurationClass()</code>&#x65B9;&#x6CD5;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120141902682.png" alt="image-20210120141902682"></p>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x5BFC;&#x5165;&#x4E86;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7F13;&#x5B58;&#x7684;xxxCacheConfiguration&#x7C7B;</p>
+</blockquote>
+<p>&#x90A3;&#x4E48;&#x5C31;&#x6765;&#x9488;&#x5BF9;&#x6027;&#x7684;&#x5206;&#x6790;<code>org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration</code></p>
+<pre><code class="lang-java"><span class="hljs-meta">@ConditionalOnClass</span>({RedisConnectionFactory.class})
+<span class="hljs-meta">@AutoConfigureAfter</span>({RedisAutoConfiguration.class})
+<span class="hljs-meta">@ConditionalOnBean</span>({RedisConnectionFactory.class})
+<span class="hljs-meta">@ConditionalOnMissingBean</span>({CacheManager.class})
+<span class="hljs-meta">@Conditional</span>({CacheCondition.class})
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisCacheConfiguration</span> </span>{
+    RedisCacheConfiguration() {
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function">RedisCacheManager <span class="hljs-title">cacheManager</span><span class="hljs-params">(CacheProperties cacheProperties, CacheManagerCustomizers cacheManagerCustomizers, ObjectProvider&lt;org.springframework.data.redis.cache.RedisCacheConfiguration&gt; redisCacheConfiguration, ObjectProvider&lt;RedisCacheManagerBuilderCustomizer&gt; redisCacheManagerBuilderCustomizers, RedisConnectionFactory redisConnectionFactory, ResourceLoader resourceLoader)</span> </span>{
+        RedisCacheManagerBuilder builder = RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(<span class="hljs-keyword">this</span>.determineConfiguration(cacheProperties, redisCacheConfiguration, resourceLoader.getClassLoader()));
+        List&lt;String&gt; cacheNames = cacheProperties.getCacheNames();
+        <span class="hljs-keyword">if</span> (!cacheNames.isEmpty()) {
+            builder.initialCacheNames(<span class="hljs-keyword">new</span> LinkedHashSet(cacheNames));
+        }
+
+        redisCacheManagerBuilderCustomizers.orderedStream().forEach((customizer) -&gt; {
+            customizer.customize(builder);
+        });
+        <span class="hljs-keyword">return</span> (RedisCacheManager)cacheManagerCustomizers.customize(builder.build());
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x9996;&#x5148;&#x8BE5;&#x914D;&#x7F6E;&#x7C7B;&#x5148;&#x8FDB;&#x884C;&#x4E86;&#x8BB8;&#x591A;&#x5224;&#x65AD;&#xFF0C;&#x6BD4;&#x5982;&#x662F;&#x5426;&#x5B58;&#x5728;RedisConnectionFactory&#x7EC4;&#x4EF6;&#xFF0C;&#x662F;&#x5426;&#x6CA1;&#x6709;CacheManager&#x7EC4;&#x4EF6;&#xFF1B;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x90FD;&#x6210;&#x7ACB;&#xFF0C;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x5165;&#x4E00;&#x4E2A;RedisCacheManager&#x7EC4;&#x4EF6;</p>
+<p><code>&#x4ECE;&#x800C;&#x8BF4;&#x660E;&#x53EA;&#x8981;&#x81EA;&#x5B9A;&#x4E49;RedisCacheManager&#x7EC4;&#x4EF6;&#xFF0C;&#x8BE5;&#x914D;&#x7F6E;&#x7C7B;&#x5C31;&#x4E0D;&#x4F1A;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x5165;</code></p>
+</blockquote>
+<p>&#x800C;&#x5BB9;&#x5668;&#x4E2D;&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7684;RedisCacheManager&#x7EC4;&#x4EF6;&#x4F7F;&#x7528;&#x7684;jdk&#x5E8F;&#x5217;&#x5316;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;RedisCacheManager</p>
+<h5 id="rediscachemanager">RedisCacheManager</h5>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisCacheManager</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractTransactionSupportingCacheManager</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RedisCacheWriter cacheWriter;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RedisCacheConfiguration defaultCacheConfig;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, RedisCacheConfiguration&gt; initialCacheConfiguration;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> allowInFlightCacheCreation;
+     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RedisCacheManager</span><span class="hljs-params">(RedisCacheWriter cacheWriter, RedisCacheConfiguration defaultCacheConfiguration)</span> </span>{
+        <span class="hljs-keyword">this</span>(cacheWriter, defaultCacheConfiguration, <span class="hljs-keyword">true</span>);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">RedisCacheManager</span><span class="hljs-params">(RedisCacheWriter cacheWriter, RedisCacheConfiguration defaultCacheConfiguration, <span class="hljs-keyword">boolean</span> allowInFlightCacheCreation)</span> </span>{
+        Assert.notNull(cacheWriter, <span class="hljs-string">&quot;CacheWriter must not be null!&quot;</span>);
+        Assert.notNull(defaultCacheConfiguration, <span class="hljs-string">&quot;DefaultCacheConfiguration must not be null!&quot;</span>);
+        <span class="hljs-keyword">this</span>.cacheWriter = cacheWriter;
+        <span class="hljs-keyword">this</span>.defaultCacheConfig = defaultCacheConfiguration;
+        <span class="hljs-keyword">this</span>.initialCacheConfiguration = <span class="hljs-keyword">new</span> LinkedHashMap();
+        <span class="hljs-keyword">this</span>.allowInFlightCacheCreation = allowInFlightCacheCreation;
+    }
+</code></pre>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6784;&#x9020;RedisCacheManager&#x9700;&#x8981;&#x5728;&#x6784;&#x9020;&#x5668;&#x4E2D;&#x4F20;&#x5165;RedisCacheWriter&#x548C;RedisCacheConfiguration</p>
+</blockquote>
+<h5 id="rediscachewriter">RedisCacheWriter</h5>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">RedisCacheWriter</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">static</span> RedisCacheWriter <span class="hljs-title">nonLockingRedisCacheWriter</span><span class="hljs-params">(RedisConnectionFactory connectionFactory)</span> </span>{
+        Assert.notNull(connectionFactory, <span class="hljs-string">&quot;ConnectionFactory must not be null!&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultRedisCacheWriter(connectionFactory);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">static</span> RedisCacheWriter <span class="hljs-title">lockingRedisCacheWriter</span><span class="hljs-params">(RedisConnectionFactory connectionFactory)</span> </span>{
+        Assert.notNull(connectionFactory, <span class="hljs-string">&quot;ConnectionFactory must not be null!&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultRedisCacheWriter(connectionFactory, Duration.ofMillis(<span class="hljs-number">50L</span>));
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x5BF9;&#x4E8E;RedisCacheWriter&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6784;&#x9020;&#x5668;&#x9700;&#x8981;&#x4F20;&#x5165;RedisConnectionFactory&#x5BF9;&#x8C61;</p>
+<p>RedisCacheWriter&#x5B9E;&#x9645;&#x5C31;&#x662F;&#x5BF9;Redis&#x8FDB;&#x884C;&#x8BFB;&#x5199;&#xFF0C;&#x952E;&#x503C;&#x90FD;&#x662F;byte&#x6570;&#x7EC4;</p>
+</blockquote>
+<h5 id="rediscacheconfiguration">RedisCacheConfiguration</h5>
+<pre><code>public class RedisCacheConfiguration {
+    private final Duration ttl;
+    private final boolean cacheNullValues;
+    private final CacheKeyPrefix keyPrefix;
+    private final boolean usePrefix;
+    private final SerializationPair&lt;String&gt; keySerializationPair;
+    private final SerializationPair&lt;Object&gt; valueSerializationPair;
+    private final ConversionService conversionService;
+    public static RedisCacheConfiguration defaultCacheConfig() {
+        return defaultCacheConfig((ClassLoader)null);
+    }
+    public RedisCacheConfiguration entryTtl(Duration ttl) {
+        Assert.notNull(ttl, &quot;TTL duration must not be null!&quot;);
+        return new RedisCacheConfiguration(ttl, this.cacheNullValues, this.usePrefix, this.keyPrefix, this.keySerializationPair, this.valueSerializationPair, this.conversionService);
+    }
+     public RedisCacheConfiguration serializeKeysWith(SerializationPair&lt;String&gt; keySerializationPair) {
+        Assert.notNull(keySerializationPair, &quot;KeySerializationPair must not be null!&quot;);
+        return new RedisCacheConfiguration(this.ttl, this.cacheNullValues, this.usePrefix, this.keyPrefix, keySerializationPair, this.valueSerializationPair, this.conversionService);
+    }
+</code></pre><blockquote>
+<p>&#x8FD9;&#x4E2A;&#x914D;&#x7F6E;&#x7C7B;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;ttl&#x3001;CacheKeyPrefix&#x3001;ConversionService&#x7B49;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x6784;&#x9020;</p>
+<p>&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7F13;&#x5B58;&#x7B56;&#x7565;</p>
+</blockquote>
+<h5 id="redisautoconfiguration">RedisAutoConfiguration</h5>
+<p>&#x5F53;&#x5F15;&#x5165;<code>spring-boot-starter-data-redis</code>&#x573A;&#x666F;&#x542F;&#x52A8;&#x5668;&#x540E;&#xFF0C;&#x90A3;&#x4E48;<code>RedisAutoConfiguration</code>&#x5C31;&#x5F00;&#x59CB;&#x8D77;&#x4F5C;&#x7528;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@ConditionalOnClass</span>({RedisOperations.class})
+<span class="hljs-meta">@EnableConfigurationProperties</span>({RedisProperties.class})
+<span class="hljs-meta">@Import</span>({LettuceConnectionConfiguration.class, JedisConnectionConfiguration.class})
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisAutoConfiguration</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RedisAutoConfiguration</span><span class="hljs-params">()</span> </span>{
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(
+        name = {<span class="hljs-string">&quot;redisTemplate&quot;</span>}
+    )
+    <span class="hljs-function"><span class="hljs-keyword">public</span> RedisTemplate&lt;Object, Object&gt; <span class="hljs-title">redisTemplate</span><span class="hljs-params">(RedisConnectionFactory redisConnectionFactory)</span> <span class="hljs-keyword">throws</span> UnknownHostException </span>{
+        RedisTemplate&lt;Object, Object&gt; template = <span class="hljs-keyword">new</span> RedisTemplate();
+        template.setConnectionFactory(redisConnectionFactory);
+        <span class="hljs-keyword">return</span> template;
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> StringRedisTemplate <span class="hljs-title">stringRedisTemplate</span><span class="hljs-params">(RedisConnectionFactory redisConnectionFactory)</span> <span class="hljs-keyword">throws</span> UnknownHostException </span>{
+        StringRedisTemplate template = <span class="hljs-keyword">new</span> StringRedisTemplate();
+        template.setConnectionFactory(redisConnectionFactory);
+        <span class="hljs-keyword">return</span> template;
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x9996;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;RedisOperations&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x5BFC;&#x5165;&#x4E86;LettuceConnectionConfiguration&#x914D;&#x7F6E;&#x7C7B;</p>
+<p>&#x6700;&#x540E;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x5BFC;&#x5165;&#x4E86;RedisTemplate&#x548C;StringRedisTemplate&#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x4E14;<code>&#x90FD;&#x662F;&#x5728;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5982;&#x679C;&#x81EA;&#x5B9A;&#x4E49;&#x5C31;&#x4E0D;&#x4F1A;&#x6CE8;&#x5165;&#x8BE5;&#x7EC4;&#x4EF6;</code></p>
+</blockquote>
+<p>RedisTemplate&#x7EC4;&#x4EF6;&#x662F;&#x5BF9;Redis&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF0C;&#x7136;&#x800C;&#x901A;&#x5E38;&#x5728;Redis&#x4E2D;&#x7F13;&#x5B58;&#x7684;&#x90FD;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;RedisTemplate&#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;&#x65F6;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x90FD;&#x662F;jdk&#x5E8F;&#x5217;&#x5316;&#x5668;&#xFF0C;&#x9020;&#x6210;&#x4E71;&#x7801;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120152206417.png" alt="image-20210120152206417"></p>
+<p>&#x5982;&#x4F55;&#x77E5;&#x9053;&#x9ED8;&#x8BA4;&#x5E8F;&#x5217;&#x5316;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x662F;JDK&#x5E8F;&#x5217;&#x5316;&#x5668;&#xFF1F;</p>
+<blockquote>
+<p>&#x5728;RedisAutoConfiguration&#x6CE8;&#x5165;RedisTemplate&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x901A;&#x8FC7;<code>RedisTemplate&lt;Object, Object&gt; template = new RedisTemplate()</code>&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</p>
+<p>&#x800C;RedisTemplate&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;<code>InitializingBean</code>&#x63A5;&#x53E3;&#xFF0C;&#x4ECE;&#x800C;&#x5B58;&#x5728;afterPropertiesSet&#x65B9;&#x6CD5;</p>
+</blockquote>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120152838791.png" alt="image-20210120152838791"></p>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5728;RedisTemplate&#x7EC4;&#x4EF6;&#x521B;&#x5EFA;&#x65F6;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;&#x5224;&#x65AD;&#x9ED8;&#x8BA4;&#x5E8F;&#x5217;&#x5316;&#x5668;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5C31;&#x4F7F;&#x7528;jdk&#x5E8F;&#x5217;&#x5316;&#x5668;</p>
+</blockquote>
+<p>&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;RedisTemplate&#x7EC4;&#x4EF6;&#x4E14;&#x4F7F;&#x7528;JSON&#x5E8F;&#x5217;&#x5316;&#x5668;</p>
+<blockquote>
+<p>&#x53C2;&#x8003;&#x4E0B;&#x5BB9;&#x5668;&#x6CE8;&#x5165;&#x7684;RedisTemplate&#xFF0C;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;RedisTemplate&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;set&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x4E86;&#x53C2;&#x6570;&#x4E2D;&#x7684;RedisConnectionFactory</p>
+<p>&#x53EA;&#x662F;&#x5728;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x4E0D;&#x9002;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;JSON&#x5E8F;&#x5217;&#x5316;&#x5668;</p>
+</blockquote>
+<h4 id="&#x7EC4;&#x4EF6;">&#x7EC4;&#x4EF6;</h4>
+<h5 id="redisserializerredis&#x5E8F;&#x5217;&#x5316;&#x5668;">RedisSerializer(Redis&#x5E8F;&#x5217;&#x5316;&#x5668;)</h5>
+<p>&#x5B9E;&#x73B0;&#x7C7B;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120211257489.png" alt="image-20210120211257489"></p>
+<blockquote>
+<p>Jackson2JsonRedisSerializer&#x5E8F;&#x5217;&#x5316;&#x5668;&#x662F;&#x5BF9;JSON&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x6700;&#x4E3A;&#x5E38;&#x7528;</p>
+</blockquote>
+<p><a href="https://docs.spring.io/spring-data/redis/docs/current/api/org/springframework/data/redis/serializer/Jackson2JsonRedisSerializer.html" target="_blank">Jackson2JsonRedisSerializer&#x5B98;&#x65B9;API</a></p>
+<pre><code class="lang-bash">RedisSerializer that can <span class="hljs-built_in">read</span> and write JSON using Jackson<span class="hljs-string">&apos;s and Jackson Databind ObjectMapper.
+This converter can be used to bind to typed beans, or untyped HashMap instances. Note:Null objects are serialized as empty arrays and vice versa
+</span></code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jackson2JsonRedisSerializer</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">RedisSerializer</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> JavaType javaType;
+    <span class="hljs-keyword">private</span> ObjectMapper objectMapper = <span class="hljs-keyword">new</span> ObjectMapper();
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Jackson2JsonRedisSerializer</span><span class="hljs-params">(Class&lt;T&gt; type)</span> </span>{
+        <span class="hljs-keyword">this</span>.javaType = getJavaType(type);
+    }
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">byte</span>[] serialize(<span class="hljs-meta">@Nullable</span> Object t) <span class="hljs-keyword">throws</span> SerializationException {
+
+        <span class="hljs-keyword">if</span> (t == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> SerializationUtils.EMPTY_ARRAY;
+        }
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.objectMapper.writeValueAsBytes(t);
+        } <span class="hljs-keyword">catch</span> (Exception ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> SerializationException(<span class="hljs-string">&quot;Could not write JSON: &quot;</span> + ex.getMessage(), ex);
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setObjectMapper</span><span class="hljs-params">(ObjectMapper objectMapper)</span> </span>{
+
+        Assert.notNull(objectMapper, <span class="hljs-string">&quot;&apos;objectMapper&apos; must not be null&quot;</span>);
+        <span class="hljs-keyword">this</span>.objectMapper = objectMapper;
+    }
+</code></pre>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;serialize&#x65B9;&#x6CD5;&#x662F;&#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x800C;setObjectMapper&#x65B9;&#x6CD5;&#x5C06;&#x53C2;&#x6570;&#x4E2D;&#x7684;ObjectMapper&#x8D4B;&#x503C;&#x7ED9;&#x5C5E;&#x6027;</p>
+</blockquote>
+<h5 id="objectmapper">ObjectMapper</h5>
+<p>&#x5B98;&#x65B9;&#x89E3;&#x91CA;&#xFF1A;</p>
+<pre><code class="lang-bash">ObjectMapper is a framework written <span class="hljs-keyword">in</span> Swift that makes it easy <span class="hljs-keyword">for</span> you to convert your model objects (classes and structs) to and from JSON
+</code></pre>
+<h6 id="&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x65B9;&#x6CD5;">&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x65B9;&#x6CD5;</h6>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20210120213818259.png" alt="image-20210120213818259"></p>
+<blockquote>
+<p>&#x8BE5;&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#x5C06;java&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x4E3A;json&#xFF0C;&#x5E76;&#x5C06;json&#x5B58;&#x50A8;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x5E38;&#x7528;writeValueAsString</p>
+</blockquote>
+<h6 id="&#x5E8F;&#x5217;&#x5316;&#x4FE1;&#x606F;&#x914D;&#x7F6E;">&#x5E8F;&#x5217;&#x5316;&#x4FE1;&#x606F;&#x914D;&#x7F6E;</h6>
+<pre><code class="lang-java"> <span class="hljs-comment">//&#x5728;&#x5E8F;&#x5217;&#x5316;&#x65F6;&#x65E5;&#x671F;&#x683C;&#x5F0F;&#x9ED8;&#x8BA4;&#x4E3A; yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSSZ</span>
+ mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,<span class="hljs-keyword">false</span>)
+ <span class="hljs-comment">//&#x5728;&#x5E8F;&#x5217;&#x5316;&#x65F6;&#x5FFD;&#x7565;&#x503C;&#x4E3A; null &#x7684;&#x5C5E;&#x6027;</span>
+ mapper.setSerializationInclusion(Include.NON_NULL);
+ <span class="hljs-comment">//&#x5FFD;&#x7565;&#x503C;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x5C5E;&#x6027;</span>
+ mapper.setDefaultPropertyInclusion(Include.NON_DEFAULT);
+</code></pre>
+<blockquote>
+<p>1&#x3001;setSerializationInclusion&#x53EF;&#x4EE5;&#x4F20;&#x5165;<code>JsonInclude.Include</code>&#x5185;&#x90E8;&#x679A;&#x4E3E;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x5316;&#x65F6;&#x5FFD;&#x7565;&#x54EA;&#x4E9B;&#x5C5E;&#x6027;</p>
+</blockquote>
+<h5 id="rediscache">RedisCache</h5>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisCache</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractValueAdaptingCache</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">byte</span>[] BINARY_NULL_VALUE = RedisSerializer.java().serialize(NullValue.INSTANCE);
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name; <span class="hljs-comment">// &#x7F13;&#x5B58;&#x7684;&#x540D;&#x5B57;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RedisCacheWriter cacheWriter; <span class="hljs-comment">//&#x6700;&#x7EC8;&#x64CD;&#x4F5C;&#x662F;&#x59D4;&#x6258;&#x7ED9;&#x5B83;&#x7684;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RedisCacheConfiguration cacheConfig; <span class="hljs-comment">// cache&#x7684;&#x914D;&#x7F6E;&#xFF08;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;Cache&#x7684;&#x914D;&#x7F6E;&#x53EF;&#x80FD;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5373;&#x4F7F;&#x6765;&#x81EA;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;CacheManager&#xFF09;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ConversionService conversionService; <span class="hljs-comment">// &#x6570;&#x636E;&#x8F6C;&#x6362;</span>
+
+    <span class="hljs-comment">// &#x552F;&#x4E00;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x662F;protected &#x7684;&#x3002;&#x53EF;&#x89C1;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5E76;&#x4E0D;&#x80FD;&#x64CD;&#x63A7;&#x5B83;</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-title">RedisCache</span><span class="hljs-params">(String name, RedisCacheWriter cacheWriter, RedisCacheConfiguration cacheConfig)</span> </span>{
+
+        <span class="hljs-keyword">super</span>(cacheConfig.getAllowCacheNullValues());
+
+        Assert.notNull(name, <span class="hljs-string">&quot;Name must not be null!&quot;</span>);
+        Assert.notNull(cacheWriter, <span class="hljs-string">&quot;CacheWriter must not be null!&quot;</span>);
+        Assert.notNull(cacheConfig, <span class="hljs-string">&quot;CacheConfig must not be null!&quot;</span>);
+
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.cacheWriter = cacheWriter;
+        <span class="hljs-keyword">this</span>.cacheConfig = cacheConfig;
+        <span class="hljs-keyword">this</span>.conversionService = cacheConfig.getConversionService();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> RedisCacheWriter <span class="hljs-title">getNativeCache</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.cacheWriter;
+    }
+
+    <span class="hljs-comment">// cacheWriter&#x4F1A;&#x6709;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;~~~&#x53BB;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x5668;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">lookup</span><span class="hljs-params">(Object key)</span> </span>{
+        <span class="hljs-keyword">byte</span>[] value = cacheWriter.get(name, createAndConvertCacheKey(key));
+        <span class="hljs-keyword">if</span> (value == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+        <span class="hljs-keyword">return</span> deserializeCacheValue(value);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ValueWrapper <span class="hljs-title">get</span><span class="hljs-params">(Object key)</span> </span>{
+        Object value = lookup(key);
+        <span class="hljs-keyword">return</span> toValueWrapper(value);
+    }
+
+    <span class="hljs-comment">// &#x8BF7;&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x56E0;&#x4E3A;&#x5B83;&#x8981;&#x4FDD;&#x8BC1;&#x540C;&#x6B65;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;synchronized </span>
+    <span class="hljs-comment">// &#x8FD8;&#x8BB0;&#x5F97;&#x6211;&#x8BF4;&#x8FC7;&#x7684;sync=true&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5417;&#xFF0C;&#x9760;&#x7684;&#x5C31;&#x662F;&#x5B83;&#x6765;&#x4FDD;&#x8BC1;&#x7684;&#xFF08;&#x5F53;&#x7136;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x60C5;&#x51B5;&#x4E0B; &#x4E0D;&#x80FD;&#x767E;&#x5206;&#x767E;&#x4FDD;&#x8BC1;&#xFF09;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">get</span><span class="hljs-params">(Object key, Callable&lt;T&gt; valueLoader)</span> </span>{
+        ValueWrapper result = get(key);
+        <span class="hljs-keyword">if</span> (result != <span class="hljs-keyword">null</span>) { <span class="hljs-comment">// &#x7F13;&#x5B58;&#x91CC;&#x6709;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x5427;</span>
+            <span class="hljs-keyword">return</span> (T) result.get();
+        }
+
+        <span class="hljs-comment">// &#x7F13;&#x5B58;&#x91CC;&#x6CA1;&#x6709;&#xFF0C;&#x90A3;&#x5C31;&#x4ECE;valueLoader&#x91CC;&#x62FF;&#x503C;&#xFF0C;&#x62FF;&#x5230;&#x540E;&#x9A6C;&#x4E0A;put&#x8FDB;&#x53BB;</span>
+        T value = valueFromLoader(key, valueLoader);
+        put(key, value); 
+        <span class="hljs-keyword">return</span> value;
+    }
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(Object key, @Nullable Object value)</span> </span>{
+        Object cacheValue = preProcessCacheValue(value);
+
+        <span class="hljs-comment">// &#x5BF9;null&#x503C;&#x7684;&#x5224;&#x65AD;&#xFF0C;&#x770B;&#x770B;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x5B58;&#x50A8;&#x5B83;&#x5462;~~~</span>
+        <span class="hljs-keyword">if</span> (!isAllowNullValues() &amp;&amp; cacheValue == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(String.format(<span class="hljs-string">&quot;Cache &apos;%s&apos; does not allow &apos;null&apos; values. Avoid storing null via &apos;@Cacheable(unless=\&quot;#result == null\&quot;)&apos; or configure RedisCache to allow &apos;null&apos; via RedisCacheConfiguration.&quot;</span>, name));
+        }
+        cacheWriter.put(name, createAndConvertCacheKey(key), serializeCacheValue(cacheValue), cacheConfig.getTtl());
+    }
+
+    <span class="hljs-comment">// @since 4.1</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ValueWrapper <span class="hljs-title">putIfAbsent</span><span class="hljs-params">(Object key, @Nullable Object value)</span> </span>{
+    ...
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">evict</span><span class="hljs-params">(Object key)</span> </span>{
+        cacheWriter.remove(name, createAndConvertCacheKey(key));
+    }
+
+    <span class="hljs-comment">// &#x6E05;&#x7A7A;&#xFF1A;&#x5728;redis&#x4E2D;&#x614E;&#x7528;&#x3002;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x4F20;&#x4E00;&#x4E2A;*&#x53BB;  &#x8FDB;&#x884C;&#x5168;&#x90E8;&#x5220;&#x9664;&#x7684;&#x3002;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">byte</span>[] pattern = conversionService.convert(createCacheKey(<span class="hljs-string">&quot;*&quot;</span>), <span class="hljs-keyword">byte</span>[].class);
+        cacheWriter.clean(name, pattern);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> RedisCacheConfiguration <span class="hljs-title">getCacheConfiguration</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> cacheConfig;
+    }
+    <span class="hljs-comment">// &#x5E8F;&#x5217;&#x5316;key&#x3001;value   ByteUtils&#x4E3A;redis&#x5305;&#x7684;&#x5DE5;&#x5177;&#x7C7B;&#xFF0C;Data Redis 1.7</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">byte</span>[] serializeCacheKey(String cacheKey) {
+        <span class="hljs-keyword">return</span> ByteUtils.getBytes(cacheConfig.getKeySerializationPair().write(cacheKey));
+    }
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">byte</span>[] serializeCacheValue(Object value) {
+        <span class="hljs-keyword">if</span> (isAllowNullValues() &amp;&amp; value <span class="hljs-keyword">instanceof</span> NullValue) {
+            <span class="hljs-keyword">return</span> BINARY_NULL_VALUE;
+        }
+        <span class="hljs-keyword">return</span> ByteUtils.getBytes(cacheConfig.getValueSerializationPair().write(value));
+    }
+
+
+    <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;key&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;prefixCacheKey() &#x524D;&#x7F00;&#x751F;&#x6548;&#x4E86;~~~</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">createCacheKey</span><span class="hljs-params">(Object key)</span> </span>{
+
+        String convertedKey = convertKey(key);
+
+        <span class="hljs-keyword">if</span> (!cacheConfig.usePrefix()) {
+            <span class="hljs-keyword">return</span> convertedKey;
+        }
+
+        <span class="hljs-keyword">return</span> prefixCacheKey(convertedKey);
+    }
+    ... 
+}
+</code></pre>
+<h4 id="&#x81EA;&#x5B9A;&#x4E49;redistemplate&#x548C;rediscachemanager">&#x81EA;&#x5B9A;&#x4E49;RedisTemplate&#x548C;RedisCacheManager</h4>
+<h5 id="&#x81EA;&#x5B9A;&#x4E49;json&#x5E8F;&#x5217;&#x5316;&#x5668;">&#x81EA;&#x5B9A;&#x4E49;JSON&#x5E8F;&#x5217;&#x5316;&#x5668;</h5>
+<pre><code class="lang-java"><span class="hljs-meta">@Bean</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> RedisSerializer&lt;Object&gt; <span class="hljs-title">redisSerializer</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">//&#x521B;&#x5EFA;JSON&#x5E8F;&#x5217;&#x5316;&#x5668;</span>
+    Jackson2JsonRedisSerializer&lt;Object&gt; serializer = <span class="hljs-keyword">new</span> Jackson2JsonRedisSerializer&lt;&gt;(Object.class);
+    ObjectMapper objectMapper = <span class="hljs-keyword">new</span> ObjectMapper();
+    objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+    <span class="hljs-comment">//&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#xFF0C;&#x5426;&#x5219;&#x65E0;&#x6CD5;&#x5C06;JSON&#x8F6C;&#x5316;&#x4E3A;&#x5BF9;&#x8C61;&#xFF0C;&#x4F1A;&#x8F6C;&#x5316;&#x6210;Map&#x7C7B;&#x578B;</span>
+    objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,ObjectMapper.DefaultTyping.NON_FINAL);
+    serializer.setObjectMapper(objectMapper);
+    <span class="hljs-keyword">return</span> serializer;
+}
+</code></pre>
+<blockquote>
+<p>1&#x3001;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Jackson2JsonRedisSerializer&#x5E8F;&#x5217;&#x5316;&#x5668;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;Class&#x5BF9;&#x8C61;</p>
+</blockquote>
+<h3 id="redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;">Redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5BF9;&#x5927;&#x5C0F;&#x5199;&#x4E0D;&#x654F;&#x611F;</li>
+</ul>
+<h5 id="includes&#x677F;&#x5757;">INCLUDES&#x677F;&#x5757;</h5>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119004722802.png" alt="image-20201119004722802"></p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x5F15;&#x5165;&#x5176;&#x4ED6;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x548C;&#x8BE5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x5408;&#x4F7F;&#x7528;</li>
+<li>&#x7C7B;&#x4F3C;&#x4E8E;spring&#x7684;@PropertiesSource&#x6CE8;&#x89E3;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+</ul>
+<h5 id="network&#x677F;&#x5757;">NETWORK&#x677F;&#x5757;</h5>
+<pre><code class="lang-bash"><span class="hljs-built_in">bind</span> 127.0.0.1  <span class="hljs-comment"># &#x7ED1;&#x5B9A;&#x7684;ip&#x5730;&#x5740;&#xFF0C;&#x5F00;&#x542F;&#x65F6;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x6307;&#x5B9A;ip&#x8BBF;&#x95EE;</span>
+protected-mode yes <span class="hljs-comment"># &#x4FDD;&#x62A4;&#x6A21;&#x5F0F;</span>
+port 6379  <span class="hljs-comment"># &#x7AEF;&#x53E3;</span>
+</code></pre>
+<h5 id="general&#x677F;&#x5757;">GENERAL&#x677F;&#x5757;</h5>
+<pre><code class="lang-bash">daemonize yes <span class="hljs-comment"># &#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;no&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x542F;&#xFF0C;&#x4E0D;&#x7136;&#x4E00;&#x9000;&#x51FA;&#x8FDB;&#x7A0B;&#x5C31;&#x7ED3;&#x675F;</span>
+pidfile /var/run/redis_6379.pid <span class="hljs-comment"># &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;pid&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x4EE5;&#x540E;&#x53F0;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;pid&#x8FDB;&#x7A0B;&#x6587;&#x4EF6;</span>
+
+<span class="hljs-comment"># Specify the server verbosity level.</span>
+<span class="hljs-comment"># This can be one of:</span>
+<span class="hljs-comment"># debug (a lot of information, useful for development/testing)</span>
+<span class="hljs-comment"># verbose (many rarely useful info, but not a mess like the debug level)</span>
+<span class="hljs-comment"># notice (moderately verbose, what you want in production probably)</span>
+<span class="hljs-comment"># warning (only very important / critical messages are logged)</span>
+loglevel notice  <span class="hljs-comment"># &#x65E5;&#x5FD7;&#x7EA7;&#x522B;</span>
+
+logfile <span class="hljs-string">&quot;&quot;</span> <span class="hljs-comment"># &#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x4F4D;&#x7F6E;</span>
+databases 30 <span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x6570;&#x636E;&#x5E93;&#x6570;&#x91CF;</span>
+always-show-logo yes <span class="hljs-comment"># &#x662F;&#x5426;&#x5728;&#x542F;&#x52A8;&#x65F6;&#x663E;&#x793A;log</span>
+</code></pre>
+<h5 id="snapshotting&#x677F;&#x5757;&#x5FEB;&#x7167;">SNAPSHOTTING&#x677F;&#x5757;(&#x5FEB;&#x7167;)</h5>
+<ul>
+<li>&#x6301;&#x4E45;&#x5316;&#xFF1A;&#x5728;&#x89C4;&#x5B9A;&#x7684;&#x4E8B;&#x4EF6;&#x5185;&#xFF0C;&#x6267;&#x884C;&#x4E86;&#x591A;&#x5C11;&#x6B21;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x5C06;&#x6301;&#x4E45;&#x5316;&#x5230;&#x6587;&#x4EF6;</li>
+</ul>
+<pre><code class="lang-bash">save 900 1  <span class="hljs-comment"># &#x5982;&#x679C;&#x5728;900&#x79D2;&#x5185;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x6301;&#x4E45;&#x5316;&#x64CD;&#x4F5C;</span>
+save 300 10
+save 60 10000
+
+stop-writes-on-bgsave-error yes <span class="hljs-comment"># &#x5982;&#x679C;&#x6301;&#x4E45;&#x5316;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x662F;&#x5426;&#x7EE7;&#x7EED;&#x5DE5;&#x4F5C;</span>
+rdbcompression yes  <span class="hljs-comment"># &#x662F;&#x5426;&#x538B;&#x7F29;rdb&#x6587;&#x4EF6;&#xFF0C;&#x6D88;&#x8017;cpu&#x8D44;&#x6E90;</span>
+rdbchecksum yes  <span class="hljs-comment"># &#x4FDD;&#x5B58;rdb&#x6587;&#x4EF6;&#x65F6;&#x662F;&#x5426;&#x8FDB;&#x884C;&#x6821;&#x9A8C;</span>
+dbfilename dump.rdb <span class="hljs-comment"># rdb&#x6587;&#x4EF6;&#x7684;&#x4FDD;&#x5B58;&#x4F4D;&#x7F6E;</span>
+</code></pre>
+<h5 id="replication&#x677F;&#x5757;">REPLICATION&#x677F;&#x5757;</h5>
+<h5 id="security&#x677F;&#x5757;">SECURITY&#x677F;&#x5757;</h5>
+<pre><code class="lang-bash">requirepass nidi1995 <span class="hljs-comment"># &#x662F;&#x5426;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;</span>
+</code></pre>
+<ul>
+<li><p>&#x76F4;&#x63A5;&#x4ECE;&#x7EC8;&#x7AEF;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; config <span class="hljs-built_in">set</span> requirepass <span class="hljs-string">&quot;&quot;</span>
+OK
+</code></pre>
+</li>
+</ul>
+<h5 id="clients&#x677F;&#x5757;">CLIENTS&#x677F;&#x5757;</h5>
+<pre><code class="lang-bash">maxclients 10000 <span class="hljs-comment"># &#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6700;&#x5927;&#x8FDE;&#x63A5;&#x6570;</span>
+maxmemory &lt;bytes&gt; <span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x6700;&#x5927;&#x5185;&#x5B58;&#x5BB9;&#x91CF;</span>
+maxmemory-policy noeviction <span class="hljs-comment"># &#x5F53;&#x5185;&#x5B58;&#x8FBE;&#x5230;&#x4E0A;&#x9650;&#x7684;&#x5904;&#x7406;&#x7B56;&#x7565;</span>
+<span class="hljs-comment"># &#x5E38;&#x7528;&#x5904;&#x7406;&#x7B56;&#x7565;</span>
+<span class="hljs-comment"># - noeviction&#xFF1A;&#x5F53;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x8FBE;&#x5230;&#x9608;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6240;&#x6709;&#x5F15;&#x8D77;&#x7533;&#x8BF7;&#x5185;&#x5B58;&#x7684;&#x547D;&#x4EE4;&#x4F1A;&#x62A5;&#x9519;&#x3002;</span>
+<span class="hljs-comment"># - allkeys-lru&#xFF1A;&#x5728;&#x6240;&#x6709;&#x952E;&#x4E2D;&#x91C7;&#x7528;lru&#x7B97;&#x6CD5;&#x5220;&#x9664;&#x952E;&#xFF0C;&#x76F4;&#x5230;&#x817E;&#x51FA;&#x8DB3;&#x591F;&#x5185;&#x5B58;&#x4E3A;&#x6B62;&#x3002;</span>
+<span class="hljs-comment"># - volatile-lru&#xFF1A;&#x5728;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;&#x952E;&#x4E2D;&#x91C7;&#x7528;lru&#x7B97;&#x6CD5;&#x5220;&#x9664;&#x952E;&#xFF0C;&#x76F4;&#x5230;&#x817E;&#x51FA;&#x8DB3;&#x591F;&#x5185;&#x5B58;&#x4E3A;&#x6B62;&#x3002;</span>
+<span class="hljs-comment"># - allkeys-random&#xFF1A;&#x5728;&#x6240;&#x6709;&#x952E;&#x4E2D;&#x91C7;&#x7528;&#x968F;&#x673A;&#x5220;&#x9664;&#x952E;&#xFF0C;&#x76F4;&#x5230;&#x817E;&#x51FA;&#x8DB3;&#x591F;&#x5185;&#x5B58;&#x4E3A;&#x6B62;&#x3002;</span>
+<span class="hljs-comment"># - volatile-random&#xFF1A;&#x5728;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;&#x952E;&#x4E2D;&#x968F;&#x673A;&#x5220;&#x9664;&#x952E;&#xFF0C;&#x76F4;&#x5230;&#x817E;&#x51FA;&#x8DB3;&#x591F;&#x5185;&#x5B58;&#x4E3A;&#x6B62;&#x3002;</span>
+<span class="hljs-comment"># - volatile-ttl&#xFF1A;&#x5728;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;&#x952E;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x5177;&#x6709;&#x66F4;&#x65E9;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;key&#x4F18;&#x5148;&#x79FB;&#x9664;&#x3002; </span>
+<span class="hljs-comment">##########################################</span>
+</code></pre>
+<h5 id="append-only-mode&#x677F;&#x5757;aof&#x8BBE;&#x7F6E;">APPEND ONLY MODE&#x677F;&#x5757;(aof&#x8BBE;&#x7F6E;)</h5>
+<pre><code class="lang-bash">appendonly no  <span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x4E0D;&#x5F00;&#x542F;aof&#x6A21;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528;rdb&#x6A21;&#x5F0F;</span>
+appendfilename <span class="hljs-string">&quot;appendonly.aof&quot;</span>  <span class="hljs-comment"># aof&#x6301;&#x4E45;&#x5316;&#x6587;&#x4EF6;</span>
+appendfsync everysec <span class="hljs-comment"># &#x540C;&#x6B65;&#x7684;&#x6267;&#x884C;&#x7B56;&#x7565;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;always&#x3001;everysec&#x3001;no</span>
+</code></pre>
+<h3 id="rdb">RDB</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/NjYjYvF.png!web" alt="img"></p>
+<ul>
+<li>&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x5185;&#x5C06;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5FEB;&#x7167;&#x5199;&#x5165;&#x78C1;&#x76D8;&#xFF0C;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x662F;fork&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5148;&#x5C06;&#x6570;&#x636E;&#x96C6;&#x5199;&#x5165;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#xFF0C;&#x5199;&#x5165;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x518D;&#x66FF;&#x6362;&#x4E4B;&#x524D;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x538B;&#x7F29;&#x5B58;&#x50A8;</li>
+</ul>
+<h4 id="rdb&#x6587;&#x4EF6;&#x89E6;&#x53D1;&#x89C4;&#x5219;">RDB&#x6587;&#x4EF6;&#x89E6;&#x53D1;&#x89C4;&#x5219;</h4>
+<ul>
+<li>save&#x89C4;&#x5219;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x4E0B;&#x4F1A;&#x81EA;&#x52A8;&#x89E6;&#x53D1;rdb&#x89C4;&#x5219;</li>
+<li>&#x6267;&#x884C;flushall&#x547D;&#x4EE4;&#x4F1A;&#x89E6;&#x53D1;rdb&#x89C4;&#x5219;&#xFF0C;&#x4F46;&#x662F;flushdb&#x547D;&#x4EE4;&#x5E76;&#x4E0D;&#x4F1A;</li>
+<li>&#x9000;&#x51FA;redis&#x4E5F;&#x4F1A;&#x751F;&#x4EA7;rdb&#x6587;&#x4EF6;(&#x901A;&#x8FC7;shutdown&#x547D;&#x4EE4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;kill&#x8FDB;&#x7A0B;&#x6216;&#x5F3A;&#x5236;&#x9000;&#x51FA;)</li>
+</ul>
+<h4 id="rdb&#x6587;&#x4EF6;&#x7684;&#x6062;&#x590D;">RDB&#x6587;&#x4EF6;&#x7684;&#x6062;&#x590D;</h4>
+<ul>
+<li>&#x53EA;&#x8981;&#x5C06;rdb&#x6587;&#x4EF6;&#x653E;&#x5728;redis&#x542F;&#x52A8;&#x76EE;&#x5F55;&#xFF0C;redis&#x542F;&#x52A8;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x68C0;&#x67E5;dump.rdb&#x6587;&#x4EF6;&#x6062;&#x590D;&#x6570;&#x636E;(&#x4E5F;&#x5C31;&#x662F;bin&#x76EE;&#x5F55;)</li>
+</ul>
+<h4 id="&#x4F18;&#x70B9;">&#x4F18;&#x70B9;</h4>
+<ul>
+<li>RDB&#x6587;&#x4EF6;&#x7D27;&#x51D1;&#xFF0C;&#x5168;&#x91CF;&#x5907;&#x4EFD;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x7528;&#x4E8E;&#x8FDB;&#x884C;&#x5907;&#x4EFD;&#x548C;&#x707E;&#x96BE;&#x6062;&#x590D;</li>
+<li>RDB &#x5728;&#x6062;&#x590D;&#x5927;&#x6570;&#x636E;&#x96C6;&#x65F6;&#x7684;&#x901F;&#x5EA6;&#x6BD4; AOF &#x7684;&#x6062;&#x590D;&#x901F;&#x5EA6;&#x8981;&#x5FEB;</li>
+<li>&#x751F;&#x6210;RDB&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;redis&#x4E3B;&#x8FDB;&#x7A0B;&#x4F1A;fork()&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x6765;&#x5904;&#x7406;&#x6240;&#x6709;&#x4FDD;&#x5B58;&#x5DE5;&#x4F5C;&#xFF0C;&#x4E3B;&#x8FDB;&#x7A0B;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;&#x78C1;&#x76D8;IO&#x64CD;&#x4F5C;</li>
+</ul>
+<h4 id="&#x7F3A;&#x70B9;">&#x7F3A;&#x70B9;</h4>
+<ul>
+<li>RDB&#x5FEB;&#x7167;&#x662F;&#x4E00;&#x6B21;&#x5168;&#x91CF;&#x5907;&#x4EFD;&#xFF0C;&#x5B58;&#x50A8;&#x7684;&#x662F;&#x5185;&#x5B58;&#x6570;&#x636E;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5E8F;&#x5217;&#x5316;&#x5F62;&#x5F0F;&#xFF0C;&#x5B58;&#x50A8;&#x4E0A;&#x975E;&#x5E38;&#x7D27;&#x51D1;&#x3002;&#x5F53;&#x8FDB;&#x884C;&#x5FEB;&#x7167;&#x6301;&#x4E45;&#x5316;&#x65F6;&#xFF0C;&#x4F1A;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x4E13;&#x95E8;&#x8D1F;&#x8D23;&#x5FEB;&#x7167;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x4F1A;&#x62E5;&#x6709;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x5185;&#x5B58;&#x6570;&#x636E;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x4FEE;&#x6539;&#x5185;&#x5B58;&#x5B50;&#x8FDB;&#x7A0B;&#x4E0D;&#x4F1A;&#x53CD;&#x5E94;&#x51FA;&#x6765;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x5FEB;&#x7167;&#x6301;&#x4E45;&#x5316;&#x671F;&#x95F4;&#x4FEE;&#x6539;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x4FDD;&#x5B58;&#xFF0C;&#x53EF;&#x80FD;&#x4E22;&#x5931;&#x6570;&#x636E;</li>
+<li>fork&#x7236;&#x8FDB;&#x7A0B;&#x65F6;&#x4F1A;&#x5360;&#x7528;&#x4E00;&#x5B9A;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x5F00;&#x542F;&#x53E6;&#x5916;&#x4E00;&#x6761;&#x7EBF;&#x7A0B;</li>
+</ul>
+<h3 id="aof">AOF</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/u=17070361,1427234765&amp;fm=15&amp;gp=0.jpg" alt="img"></p>
+<ul>
+<li>&#x5C06;&#x6240;&#x6709;&#x7684;&#x547D;&#x4EE4;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;history&#xFF0C;&#x6062;&#x590D;&#x7684;&#x65F6;&#x5019;&#x628A;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6307;&#x4EE4;&#x5168;&#x90E8;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x4E00;&#x904D;</li>
+<li>redis&#x4F1A;&#x5C06;&#x6BCF;&#x4E00;&#x4E2A;&#x6536;&#x5230;&#x7684;&#x5199;&#x547D;&#x4EE4;(&#x6CA1;&#x6709;&#x8BFB;&#x547D;&#x4EE4;)&#x90FD;&#x901A;&#x8FC7;write&#x51FD;&#x6570;&#x8FFD;&#x52A0;&#x5230;aof&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#xFF1B;&#x53EA;&#x9700;&#x8FFD;&#x52A0;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6539;&#x5199;&#x6587;&#x4EF6;</li>
+</ul>
+<h4 id="&#x5F53;aof&#x6587;&#x4EF6;&#x51FA;&#x73B0;&#x9519;&#x8BEF;">&#x5F53;aof&#x6587;&#x4EF6;&#x51FA;&#x73B0;&#x9519;&#x8BEF;</h4>
+<ul>
+<li><p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x751F;&#x6210;aof&#x6587;&#x4EF6;&#x65F6;redis&#x63D0;&#x4F9B;&#x7684;redis-check-aof&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x4FEE;&#x590D;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; redis-check-aof --fix appendonly.aof
+OK
+</code></pre>
+</li>
+</ul>
+<h4 id="&#x4F18;&#x70B9;">&#x4F18;&#x70B9;</h4>
+<ul>
+<li>AOF&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x7684;&#x4FDD;&#x62A4;&#x6570;&#x636E;&#x4E0D;&#x4E22;&#x5931;&#xFF0C;&#x4E00;&#x822C;AOF&#x4F1A;&#x6BCF;&#x9694;1&#x79D2;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x4E00;&#x6B21;fsync&#x64CD;&#x4F5C;&#xFF0C;&#x6700;&#x591A;&#x4E22;&#x5931;1&#x79D2;&#x949F;&#x7684;&#x6570;&#x636E;</li>
+<li>AOF&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x78C1;&#x76D8;&#x5BFB;&#x5740;&#x7684;&#x5F00;&#x9500;&#xFF0C;&#x5199;&#x5165;&#x6027;&#x80FD;&#x975E;&#x5E38;&#x9AD8;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5BB9;&#x6613;&#x7834;&#x635F;</li>
+<li>AOF&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x547D;&#x4EE4;&#x901A;&#x8FC7;&#x975E;&#x5E38;&#x53EF;&#x8BFB;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x8BB0;&#x5F55;&#xFF0C;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x975E;&#x5E38;&#x9002;&#x5408;&#x505A;&#x707E;&#x96BE;&#x6027;&#x7684;&#x8BEF;&#x5220;&#x9664;&#x7684;&#x7D27;&#x6025;&#x6062;&#x590D;</li>
+</ul>
+<h4 id="&#x7F3A;&#x70B9;">&#x7F3A;&#x70B9;</h4>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x540C;&#x4E00;&#x4EFD;&#x6570;&#x636E;&#x6765;&#x8BF4;&#xFF0C;AOF&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x901A;&#x5E38;&#x6BD4;RDB&#x6570;&#x636E;&#x5FEB;&#x7167;&#x6587;&#x4EF6;&#x66F4;&#x5927;</li>
+<li>AOF&#x5F00;&#x542F;&#x540E;&#xFF0C;&#x652F;&#x6301;&#x7684;&#x5199;QPS&#x4F1A;&#x6BD4;RDB&#x652F;&#x6301;&#x7684;&#x5199;QPS&#x4F4E;&#xFF0C;&#x56E0;&#x4E3A;AOF&#x4E00;&#x822C;&#x4F1A;&#x914D;&#x7F6E;&#x6210;&#x6BCF;&#x79D2;fsync&#x4E00;&#x6B21;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x6BCF;&#x79D2;&#x4E00;&#x6B21;fsync&#xFF0C;&#x6027;&#x80FD;&#x4E5F;&#x8FD8;&#x662F;&#x5F88;&#x9AD8;&#x7684;</li>
+</ul>
+<h3 id="aof&#x5BF9;&#x6BD4;rdb">AOF&#x5BF9;&#x6BD4;RDB</h3>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/8326cffc1e178a82c532308ef2117b8ba977e8ae.jpeg" alt="img"></p>
+<p><a href="https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc" target="_blank">https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc</a></p>
+<p><a href="https://segmentfault.com/a/1190000016021217" target="_blank">https://segmentfault.com/a/1190000016021217</a></p>
+<h3 id="redis&#x96C6;&#x7FA4;">Redis&#x96C6;&#x7FA4;</h3>
+<h4 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4FE1;&#x606F;">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4FE1;&#x606F;</h4>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; info replication
+<span class="hljs-comment"># Replication</span>
+role:master   <span class="hljs-comment"># &#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x89D2;&#x8272;&#x4E3A;&#x4E3B;&#x8282;&#x70B9;</span>
+connected_slaves:0  <span class="hljs-comment"># &#x6CA1;&#x6709;&#x8FDE;&#x63A5;&#x7684;&#x4ECE;&#x673A;</span>
+master_replid:574e4f5ef88dae1875a1dfc80ca77893da88eb10
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+</code></pre>
+<h4 id="&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x670D;&#x52A1;&#x5668;&#x642D;&#x5EFA;&#x56DB;&#x4E2A;redis&#x8282;&#x70B9;&#x9ED8;&#x8BA4;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x4E3B;&#x8282;&#x70B9;">&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x670D;&#x52A1;&#x5668;&#x642D;&#x5EFA;&#x56DB;&#x4E2A;redis&#x8282;&#x70B9;(&#x9ED8;&#x8BA4;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x4E3B;&#x8282;&#x70B9;)</h4>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119103634306.png" alt="image-20201119103634306"></p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119103709416.png" alt="image-20201119103709416"></p>
+<h4 id="redis&#x4E3B;&#x4ECE;&#x590D;&#x5236;">Redis&#x4E3B;&#x4ECE;&#x590D;&#x5236;</h4>
+<h5 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h5>
+<ul>
+<li><p><a href="https://www.cnblogs.com/kismetv/p/9236731.html#t3" target="_blank">https://www.cnblogs.com/kismetv/p/9236731.html#t3</a></p>
+</li>
+<li><p>&#x5C06;&#x4E00;&#x53F0;redis&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x590D;&#x5236;&#x5230;&#x5176;&#x4ED6;&#x7684;redis&#x670D;&#x52A1;&#x5668;&#xFF1B;&#x524D;&#x8005;&#x79F0;&#x4E3A;&#x4E3B;&#x8282;&#x70B9;(master/leader)&#xFF0C;&#x540E;&#x8005;&#x79F0;&#x4E3A;&#x4ECE;&#x8282;&#x70B9;(slave/follower)&#xFF1B;<strong>&#x6570;&#x636E;&#x7684;&#x590D;&#x5236;&#x662F;&#x5355;&#x5411;&#x7684;&#xFF0C;&#x53EA;&#x80FD;&#x4ECE;&#x4E3B;&#x8282;&#x70B9;&#x5230;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;Master&#x4EE5;&#x5199;&#x4E3A;&#x4E3B;&#xFF0C;Salve&#x4EE5;&#x8BFB;&#x4E3A;&#x4E3B;</strong>&#xFF08;80%&#x7684;&#x64CD;&#x4F5C;&#x57FA;&#x672C;&#x90FD;&#x662F;&#x8FDB;&#x884C;&#x8BFB;&#x64CD;&#x4F5C;&#xFF09;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/timg" alt="img"></p>
+</li>
+<li><p><strong><em>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6BCF;&#x53F0;redis&#x670D;&#x52A1;&#x5668;&#x90FD;&#x662F;&#x4E3B;&#x8282;&#x70B9;</em></strong>&#xFF1B;&#x4E14;&#x4E00;&#x4E2A;&#x4E3B;&#x8282;&#x70B9;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;(&#x6216;&#x6CA1;&#x6709;&#x4ECE;&#x8282;&#x70B9;)&#xFF0C;&#x4F46;&#x4E00;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x4E3B;&#x8282;&#x70B9;</p>
+</li>
+</ul>
+<h5 id="&#x4F5C;&#x7528;">&#x4F5C;&#x7528;</h5>
+<ul>
+<li>&#x6570;&#x636E;&#x5197;&#x4F59;&#xFF1A;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x5B9E;&#x73B0;&#x4E86;&#x6570;&#x636E;&#x7684;&#x70ED;&#x5907;&#x4EFD;&#xFF0C;&#x662F;&#x6301;&#x4E45;&#x5316;&#x4E4B;&#x5916;&#x7684;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x5197;&#x4F59;&#x65B9;&#x5F0F;</li>
+<li>&#x6545;&#x969C;&#x6062;&#x590D;&#xFF1A;&#x5F53;&#x4E3B;&#x8282;&#x70B9;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7531;&#x4ECE;&#x8282;&#x70B9;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x5B9E;&#x73B0;&#x5FEB;&#x901F;&#x7684;&#x6545;&#x969C;&#x6062;&#x590D;&#xFF1B;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x79CD;&#x670D;&#x52A1;&#x7684;&#x5197;&#x4F59;</li>
+<li>&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF1A;&#x5728;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x914D;&#x5408;&#x8BFB;&#x5199;&#x5206;&#x79BB;&#xFF0C;&#x53EF;&#x4EE5;&#x7531;&#x4E3B;&#x8282;&#x70B9;&#x63D0;&#x4F9B;&#x5199;&#x670D;&#x52A1;&#xFF0C;&#x7531;&#x4ECE;&#x8282;&#x70B9;&#x63D0;&#x4F9B;&#x8BFB;&#x670D;&#x52A1;&#xFF08;&#x5373;&#x5199;Redis&#x6570;&#x636E;&#x65F6;&#x5E94;&#x7528;&#x8FDE;&#x63A5;&#x4E3B;&#x8282;&#x70B9;&#xFF0C;&#x8BFB;Redis&#x6570;&#x636E;&#x65F6;&#x5E94;&#x7528;&#x8FDE;&#x63A5;&#x4ECE;&#x8282;&#x70B9;&#xFF09;&#xFF0C;&#x5206;&#x62C5;&#x670D;&#x52A1;&#x5668;&#x8D1F;&#x8F7D;&#xFF1B;&#x5C24;&#x5176;&#x662F;&#x5728;&#x5199;&#x5C11;&#x8BFB;&#x591A;&#x7684;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x5206;&#x62C5;&#x8BFB;&#x8D1F;&#x8F7D;&#xFF0C;&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x63D0;&#x9AD8;Redis&#x670D;&#x52A1;&#x5668;&#x7684;&#x5E76;&#x53D1;&#x91CF;</li>
+<li>&#x9AD8;&#x53EF;&#x7528;&#x57FA;&#x77F3;&#xFF1A;&#x9664;&#x4E86;&#x4E0A;&#x8FF0;&#x4F5C;&#x7528;&#x4EE5;&#x5916;&#xFF0C;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x8FD8;&#x662F;&#x54E8;&#x5175;&#x548C;&#x96C6;&#x7FA4;&#x80FD;&#x591F;&#x5B9E;&#x65BD;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x56E0;&#x6B64;&#x8BF4;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x662F;Redis&#x9AD8;&#x53EF;&#x7528;&#x7684;&#x57FA;&#x7840;</li>
+</ul>
+<h4 id="&#x4E00;&#x4E3B;&#x4E09;&#x4ECE;&#x914D;&#x7F6E;">&#x4E00;&#x4E3B;&#x4E09;&#x4ECE;&#x914D;&#x7F6E;</h4>
+<h5 id="&#x89C4;&#x5B9A;">&#x89C4;&#x5B9A;</h5>
+<ul>
+<li><p>&#x963F;&#x91CC;&#x4E91;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4F5C;&#x4E3A;&#x4E3B;&#x673A;&#xFF0C;&#x817E;&#x8BAF;&#x4E91;&#x548C;&#x5176;&#x4ED6;&#x4E24;&#x4E2A;&#x865A;&#x62DF;&#x673A;&#x4F5C;&#x4E3A;&#x4ECE;&#x673A;</p>
+</li>
+<li><p>slaveof &#x4E3B;&#x673A;&#x7684;ip&#x548C;&#x7AEF;&#x53E3;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; SLAVEOF 123.57.66.144 6379
+OK
+</code></pre>
+</li>
+</ul>
+<h5 id="&#x67E5;&#x770B;&#x963F;&#x91CC;&#x4E91;&#x548C;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x4FE1;&#x606F;">&#x67E5;&#x770B;&#x963F;&#x91CC;&#x4E91;&#x548C;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x4FE1;&#x606F;</h5>
+<ul>
+<li><p>&#x817E;&#x8BAF;&#x4E91;&#x548C;&#x865A;&#x62DF;&#x673A;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119104304842.png" alt="image-20201119104304842"></p>
+</li>
+<li><p>&#x963F;&#x91CC;&#x4E91;(<strong>&#x9700;&#x8981;&#x5173;&#x95ED;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;</strong>)</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119104939491.png" alt="image-20201119104939491"></p>
+</li>
+<li><p>&#x5982;&#x679C;&#x4E0D;&#x5173;&#x95ED;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x4ECE;&#x673A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;<code>REPLICATION&#x677F;&#x5757;</code>&#x4FEE;&#x6539;masterauth&#x914D;&#x7F6E;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119110650485.png" alt="image-20201119110650485"></p>
+<ul>
+<li><p>&#x6216;&#x8005;&#x5728;&#x4ECE;&#x673A;&#x7EC8;&#x7AEF;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; CONFIG SET masterauth &lt;nidi1995&gt;
+OK
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="&#x4ECE;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x914D;&#x7F6E;">&#x4ECE;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x914D;&#x7F6E;</h5>
+<ul>
+<li><p>&#x4ECE;&#x673A;&#x7684;REPLICATION&#x677F;&#x5757;</p>
+<pre><code class="lang-bash">replicaof &lt;masterip&gt; &lt;masterport&gt;  <span class="hljs-comment"># &#x4EE3;&#x8868;&#x4E3B;&#x673A;&#x7684;ip&#x548C;&#x7AEF;&#x53E3;</span>
+masterauth &lt;nidi1995&gt;  <span class="hljs-comment"># &#x4EE3;&#x8868;&#x4E3B;&#x673A;&#x7684;&#x9A8C;&#x8BC1;&#x4FE1;&#x606F;</span>
+</code></pre>
+</li>
+<li><p>&#x670D;&#x52A1;&#x5668;&#x542F;&#x52A8;&#x65F6;&#x5C31;&#x4F1A;&#x4F5C;&#x4E3A;&#x4ECE;&#x673A;&#x542F;&#x52A8;(&#x4E3B;&#x673A;&#x7684;&#x5730;&#x5740;&#x56FA;&#x5B9A;&#xFF0C;&#x56E0;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x5199;&#x6B7B;)</p>
+</li>
+</ul>
+<h5 id="&#x6D4B;&#x8BD5;">&#x6D4B;&#x8BD5;</h5>
+<ul>
+<li><p>&#x4E3B;&#x673A;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;k-v</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; FLUSHALL
+OK
+127.0.0.1:6379&gt; SET k1 v1
+OK
+</code></pre>
+</li>
+<li><p>&#x4ECE;&#x673A;&#x4E2D;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;(&#x4ECE;&#x673A;&#x4E2D;&#x76F4;&#x63A5;&#x83B7;&#x5F97;&#x503C;)</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; GET k1
+<span class="hljs-string">&quot;v1&quot;</span>
+</code></pre>
+</li>
+<li><p>&#x4ECE;&#x673A;&#x6CA1;&#x6709;&#x5199;&#x7684;&#x6743;&#x9650;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> k2 v2
+(error) READONLY You can<span class="hljs-string">&apos;t write against a read only replica.
+</span></code></pre>
+</li>
+<li><p>&#x4E3B;&#x673A;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x4E4B;&#x540E;&#x518D;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#xFF0C;&#x4E3B;&#x673A;&#x7684;&#x5199;&#x64CD;&#x4F5C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x4ECE;&#x4ECE;&#x673A;&#x83B7;&#x5F97;&#x5BF9;&#x5E94;&#x7684;&#x503C;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x662F;&#x901A;&#x8FC7;&#x7EC8;&#x7AEF;&#x914D;&#x7F6E;&#x7684;&#x4ECE;&#x673A;&#xFF0C;&#x5F53;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x518D;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x8BE5;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x4E0D;&#x4F1A;&#x518D;&#x4F5C;&#x4E3A;&#x4ECE;&#x673A;&#x5B58;&#x5728;&#xFF0C;&#x800C;&#x662F;&#x4F5C;&#x4E3A;&#x4E3B;&#x673A;&#xFF1B;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x7684;&#x4F9D;&#x7136;&#x4F5C;&#x4E3A;&#x4ECE;&#x673A;</p>
+</li>
+<li><p>&#x5373;&#x4F7F;&#x5728;&#x4ECE;&#x673A;&#x65AD;&#x5F00;&#x671F;&#x95F4;&#x4E3B;&#x673A;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5F53;&#x4ECE;&#x673A;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x5E76;&#x4F5C;&#x4E3A;&#x4ECE;&#x673A;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x65AD;&#x5F00;&#x671F;&#x95F4;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;</p>
+</li>
+</ul>
+<h4 id="&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x539F;&#x7406;">&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x539F;&#x7406;</h4>
+<ul>
+<li>&#x4E3B;&#x4ECE;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x4EE5;&#x540E;&#xFF0C;&#x4FBF;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x540C;&#x6B65;&#xFF0C;&#x8BE5;&#x9636;&#x6BB5;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4ECE;&#x8282;&#x70B9;&#x6570;&#x636E;&#x7684;&#x521D;&#x59CB;&#x5316;&#x3002;&#x5177;&#x4F53;&#x6267;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;&#x4ECE;&#x8282;&#x70B9;&#x5411;&#x4E3B;&#x8282;&#x70B9;&#x53D1;&#x9001;psync&#x547D;&#x4EE4;&#xFF08;Redis2.8&#x4EE5;&#x524D;&#x662F;sync&#x547D;&#x4EE4;&#xFF09;&#xFF0C;&#x5F00;&#x59CB;&#x540C;&#x6B65;</li>
+<li>&#x5728;&#x6570;&#x636E;&#x540C;&#x6B65;&#x9636;&#x6BB5;&#x4E4B;&#x524D;&#xFF0C;&#x4ECE;&#x8282;&#x70B9;&#x662F;&#x4E3B;&#x8282;&#x70B9;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4E3B;&#x8282;&#x70B9;&#x4E0D;&#x662F;&#x4ECE;&#x8282;&#x70B9;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF1B;&#x800C;&#x5230;&#x4E86;&#x8FD9;&#x4E00;&#x9636;&#x6BB5;&#x53CA;&#x4EE5;&#x540E;&#xFF0C;&#x4E3B;&#x4ECE;&#x8282;&#x70B9;&#x4E92;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x539F;&#x56E0;&#x5728;&#x4E8E;&#xFF1A;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#xFF0C;&#x4E3B;&#x8282;&#x70B9;&#x53EA;&#x9700;&#x8981;&#x54CD;&#x5E94;&#x4ECE;&#x8282;&#x70B9;&#x7684;&#x8BF7;&#x6C42;&#x5373;&#x53EF;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4E3B;&#x52A8;&#x53D1;&#x8BF7;&#x6C42;&#xFF0C;&#x800C;&#x5728;&#x6570;&#x636E;&#x540C;&#x6B65;&#x9636;&#x6BB5;&#x548C;&#x540E;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x4F20;&#x64AD;&#x9636;&#x6BB5;&#xFF0C;&#x4E3B;&#x8282;&#x70B9;&#x9700;&#x8981;&#x4E3B;&#x52A8;&#x5411;&#x4ECE;&#x8282;&#x70B9;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF08;&#x5982;&#x63A8;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x7684;&#x5199;&#x547D;&#x4EE4;&#xFF09;&#xFF0C;&#x624D;&#x80FD;&#x5B8C;&#x6210;&#x590D;&#x5236;</li>
+<li>&#x6570;&#x636E;&#x540C;&#x6B65;&#x9636;&#x6BB5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4E3B;&#x4ECE;&#x8282;&#x70B9;&#x8FDB;&#x5165;&#x547D;&#x4EE4;&#x4F20;&#x64AD;&#x9636;&#x6BB5;&#xFF1B;&#x5728;&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x4E3B;&#x8282;&#x70B9;&#x5C06;&#x81EA;&#x5DF1;&#x6267;&#x884C;&#x7684;&#x5199;&#x547D;&#x4EE4;&#x53D1;&#x9001;&#x7ED9;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x4ECE;&#x8282;&#x70B9;&#x63A5;&#x6536;&#x547D;&#x4EE4;&#x5E76;&#x6267;&#x884C;&#xFF0C;&#x4ECE;&#x800C;&#x4FDD;&#x8BC1;&#x4E3B;&#x4ECE;&#x8282;&#x70B9;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x6027;</li>
+<li>&#x6839;&#x636E;&#x4E3B;&#x4ECE;&#x8282;&#x70B9;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x5168;&#x91CF;&#x590D;&#x5236;&#x548C;&#x90E8;&#x5206;&#x590D;&#x5236;&#xFF1A;<ul>
+<li>&#x5168;&#x91CF;&#x590D;&#x5236;<ul>
+<li>&#x7528;&#x4E8E;&#x521D;&#x6B21;&#x590D;&#x5236;&#x6216;&#x5176;&#x4ED6;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x90E8;&#x5206;&#x590D;&#x5236;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5C06;&#x4E3B;&#x8282;&#x70B9;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x90FD;&#x53D1;&#x9001;&#x7ED9;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x91CD;&#x578B;&#x7684;&#x64CD;&#x4F5C;</li>
+</ul>
+</li>
+<li>&#x90E8;&#x5206;&#x590D;&#x5236;<ul>
+<li>&#x7528;&#x4E8E;&#x7F51;&#x7EDC;&#x4E2D;&#x65AD;&#x7B49;&#x60C5;&#x51B5;&#x540E;&#x7684;&#x590D;&#x5236;&#xFF0C;&#x53EA;&#x5C06;&#x4E2D;&#x65AD;&#x671F;&#x95F4;&#x4E3B;&#x8282;&#x70B9;&#x6267;&#x884C;&#x7684;&#x5199;&#x547D;&#x4EE4;&#x53D1;&#x9001;&#x7ED9;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x4E0E;&#x5168;&#x91CF;&#x590D;&#x5236;&#x76F8;&#x6BD4;&#x66F4;&#x52A0;&#x9AD8;&#x6548;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x7F51;&#x7EDC;&#x4E2D;&#x65AD;&#x65F6;&#x95F4;&#x8FC7;&#x957F;&#xFF0C;&#x5BFC;&#x81F4;&#x4E3B;&#x8282;&#x70B9;&#x6CA1;&#x6709;&#x80FD;&#x591F;&#x5B8C;&#x6574;&#x5730;&#x4FDD;&#x5B58;&#x4E2D;&#x65AD;&#x671F;&#x95F4;&#x6267;&#x884C;&#x7684;&#x5199;&#x547D;&#x4EE4;&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x90E8;&#x5206;&#x590D;&#x5236;&#xFF0C;&#x4ECD;&#x4F7F;&#x7528;&#x5168;&#x91CF;&#x590D;&#x5236;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x54E8;&#x5175;&#x6A21;&#x5F0F;">&#x54E8;&#x5175;&#x6A21;&#x5F0F;</h3>
+<h4 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h4>
+<ul>
+<li>&#x54E8;&#x5175;&#x6A21;&#x5F0F;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x9996;&#x5148;Redis&#x63D0;&#x4F9B;&#x4E86;&#x54E8;&#x5175;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x54E8;&#x5175;&#x662F;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4F5C;&#x4E3A;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B83;&#x4F1A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x3002;&#x5176;&#x539F;&#x7406;&#x662F;<strong>&#x54E8;&#x5175;&#x901A;&#x8FC7;&#x53D1;&#x9001;&#x547D;&#x4EE4;&#xFF0C;&#x7B49;&#x5F85;Redis&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#xFF0C;&#x4ECE;&#x800C;&#x76D1;&#x63A7;&#x8FD0;&#x884C;&#x7684;&#x591A;&#x4E2A;Redis&#x5B9E;&#x4F8B;&#x3002;</strong></li>
+</ul>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119113810036.png" alt="image-20201119113810036"></p>
+<ul>
+<li><p>&#x54E8;&#x5175;&#x4F5C;&#x7528;</p>
+<ul>
+<li>&#x901A;&#x8FC7;&#x53D1;&#x9001;&#x547D;&#x4EE4;&#xFF0C;&#x8BA9;Redis&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x76D1;&#x63A7;&#x5176;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x5305;&#x62EC;&#x4E3B;&#x670D;&#x52A1;&#x5668;&#x548C;&#x4ECE;&#x670D;&#x52A1;&#x5668;</li>
+<li>&#x5F53;&#x54E8;&#x5175;&#x76D1;&#x6D4B;&#x5230;master&#x5B95;&#x673A;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;slave&#x5207;&#x6362;&#x6210;master&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<strong>&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;</strong>&#x901A;&#x77E5;&#x5176;&#x4ED6;&#x7684;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x8BA9;&#x5B83;&#x4EEC;&#x5207;&#x6362;&#x4E3B;&#x673A;</li>
+</ul>
+</li>
+<li><p>&#x591A;&#x54E8;&#x5175;&#x6A21;&#x5F0F;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x54E8;&#x5175;&#x8FDB;&#x7A0B;&#x5BF9;Redis&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x76D1;&#x63A7;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x54E8;&#x5175;&#x8FDB;&#x884C;&#x76D1;&#x63A7;&#x3002;&#x5404;&#x4E2A;&#x54E8;&#x5175;&#x4E4B;&#x95F4;&#x8FD8;&#x4F1A;&#x8FDB;&#x884C;&#x76D1;&#x63A7;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x5F62;&#x6210;&#x4E86;&#x591A;&#x54E8;&#x5175;&#x6A21;&#x5F0F;</li>
+</ul>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/11320039-3f40b17c0412116c.png" alt="img"></p>
+<ul>
+<li>&#x5047;&#x8BBE;&#x4E3B;&#x670D;&#x52A1;&#x5668;&#x5B95;&#x673A;&#xFF0C;&#x54E8;&#x5175;1&#x5148;&#x68C0;&#x6D4B;&#x5230;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#xFF0C;&#x7CFB;&#x7EDF;&#x5E76;&#x4E0D;&#x4F1A;&#x9A6C;&#x4E0A;&#x8FDB;&#x884C;failover&#x8FC7;&#x7A0B;&#xFF0C;&#x4EC5;&#x4EC5;&#x662F;&#x54E8;&#x5175;1&#x4E3B;&#x89C2;&#x7684;&#x8BA4;&#x4E3A;&#x4E3B;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x8FD9;&#x4E2A;&#x73B0;&#x8C61;&#x6210;&#x4E3A;<strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong>&#xFF1B;&#x5F53;&#x540E;&#x9762;&#x7684;&#x54E8;&#x5175;&#x4E5F;&#x68C0;&#x6D4B;&#x5230;&#x4E3B;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x6570;&#x91CF;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x503C;&#x65F6;&#xFF0C;&#x90A3;&#x4E48;&#x54E8;&#x5175;&#x4E4B;&#x95F4;&#x5C31;&#x4F1A;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x6295;&#x7968;&#xFF0C;&#x6295;&#x7968;&#x7684;&#x7ED3;&#x679C;&#x7531;&#x4E00;&#x4E2A;&#x54E8;&#x5175;&#x53D1;&#x8D77;&#xFF0C;&#x8FDB;&#x884C;failover&#x64CD;&#x4F5C;&#xFF1B;&#x5207;&#x6362;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x901A;&#x8FC7;&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;&#xFF0C;&#x8BA9;&#x5404;&#x4E2A;&#x54E8;&#x5175;&#x628A;&#x81EA;&#x5DF1;&#x76D1;&#x63A7;&#x7684;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x5B9E;&#x73B0;&#x5207;&#x6362;&#x4E3B;&#x673A;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x79F0;&#x4E3A;<strong>&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x6D4B;&#x8BD5;">&#x6D4B;&#x8BD5;</h4>
+<h5 id="&#x914D;&#x7F6E;&#x54E8;&#x5175;&#x914D;&#x7F6E;&#x6587;&#x4EF6;-sentinelconf">&#x914D;&#x7F6E;&#x54E8;&#x5175;&#x914D;&#x7F6E;&#x6587;&#x4EF6; sentinel.conf</h5>
+<ul>
+<li><p>&#x5728;docker&#x5BB9;&#x5668;&#x4E2D;&#x627E;&#x5230;redis&#x54E8;&#x5175;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;</p>
+<ul>
+<li>&#x4F4D;&#x7F6E;&#x4E3A;/usr/local/bin/redis-sentinel</li>
+</ul>
+</li>
+<li><p>&#x5728;bin&#x76EE;&#x5F55;&#x4E2D;&#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;sentinel.conf</p>
+</li>
+<li><pre><code class="lang-bash">cat &lt;&lt; EOF &gt; sentinel.conf
+<span class="hljs-comment"># sentinel monitor &#x76D1;&#x89C6;&#x5668;&#x540D;&#x79F0; &#x88AB;&#x76D1;&#x63A7;&#x670D;&#x52A1;&#x5668;&#x7684;IP&#x548C;&#x7AEF;&#x53E3;&#x53F7; &#x54E8;&#x5175;&#x591A;&#x5C11;&#x6B21;&#x5224;&#x65AD;&#x8282;&#x70B9;&#x624D;&#x7B97;&#x6B7B;&#x4EA1;</span>
+&gt; sentinel monitor mymaster 123.57.66.144  6379 1     
+&gt; EOF
+</code></pre>
+</li>
+</ul>
+<h5 id="&#x4F7F;&#x7528;redis&#x54E8;&#x5175;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#x4EE5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x542F;&#x52A8;">&#x4F7F;&#x7528;redis&#x54E8;&#x5175;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#x4EE5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x542F;&#x52A8;</h5>
+<pre><code class="lang-bash">ls    <span class="hljs-comment"># bin&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;</span>
+docker-entrypoint.sh  redis-benchmark  redis-check-rdb    redis-sentinel    sentinel.conf
+gosu              redis-check-aof  redis-cli    redis-server
+
+redis-sentinel sentinel.conf  <span class="hljs-comment"># &#x4EE5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x542F;&#x52A8;</span>
+</code></pre>
+<ul>
+<li><p>&#x542F;&#x52A8;&#x4E4B;&#x540E;&#x7684;&#x754C;&#x9762;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119130557957.png" alt="image-20201119130557957"></p>
+</li>
+<li><p>&#x7AEF;&#x53E3;&#x4E3A;26379&#xFF0C;&#x76D1;&#x63A7;&#x5668;mymaster&#x76D1;&#x63A7;&#x7684;ip&#x4E3A;123.57.66.144&#xFF0C;&#x4E3B;&#x673A;&#x4E0B;&#x9762;&#x6709;&#x4E09;&#x4E2A;&#x4ECE;&#x673A;</p>
+</li>
+</ul>
+<h5 id="&#x5F53;&#x4E3B;&#x673A;&#x5B95;&#x673A;&#x4E4B;&#x540E;">&#x5F53;&#x4E3B;&#x673A;&#x5B95;&#x673A;&#x4E4B;&#x540E;</h5>
+<ul>
+<li><p>&#x505C;&#x6B62;&#x4E86;&#x963F;&#x91CC;&#x4E91;docker&#x5BB9;&#x5668;&#x4E4B;&#x540E;&#xFF0C;&#x54E8;&#x5175;&#x5C31;&#x4F1A;&#x76D1;&#x89C6;&#x5230;&#x4E3B;&#x673A;&#x5B95;&#x673A;&#x5E76;&#x91CD;&#x65B0;&#x9009;&#x4E3E;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119131153115.png" alt="image-20201119131153115"></p>
+</li>
+<li><p>&#x68C0;&#x6D4B;&#x5230;&#x963F;&#x91CC;&#x4E91;redis&#x5B95;&#x673A;&#x4E4B;&#x540E;&#xFF0C;&#x91CD;&#x65B0;&#x9009;&#x4E3E;vm-1&#x4E3A;&#x65B0;&#x7684;&#x4E3B;&#x673A;</p>
+<pre><code class="lang-bash">127.0.0.1:6379&gt; info replication
+<span class="hljs-comment"># Replication</span>
+role:master  
+connected_slaves:1
+master_replid:8ac6fb64ad4ab83adfc0c1a62ed04ab30345ad26
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+</code></pre>
+</li>
+</ul>
+<h5 id="&#x5F53;&#x4E3B;&#x673A;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x4E4B;&#x540E;">&#x5F53;&#x4E3B;&#x673A;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x4E4B;&#x540E;</h5>
+<ul>
+<li>&#x91CD;&#x8FDE;&#x63A5;&#x4E4B;&#x540E;&#x5C31;&#x4F1A;&#x4F5C;&#x4E3A;&#x65B0;&#x4E3B;&#x673A;&#x7684;&#x4ECE;&#x673A;</li>
+</ul>
+<h5 id="&#x4F18;&#x70B9;">&#x4F18;&#x70B9;</h5>
+<ul>
+<li>&#x54E8;&#x5175;&#x96C6;&#x7FA4;&#xFF0C;&#x57FA;&#x4E8E;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4E3B;&#x4ECE;&#x914D;&#x7F6E;&#x4F18;&#x70B9;&#xFF0C;&#x5B83;&#x90FD;&#x6709;</li>
+<li>&#x4E3B;&#x4ECE;&#x53EF;&#x4EE5;&#x5207;&#x6362;&#xFF0C;&#x6545;&#x969C;&#x53EF;&#x4EE5;&#x8F6C;&#x79FB;&#xFF0C;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#x7684;&#x7CFB;&#x7EDF;</li>
+<li>&#x54E8;&#x5175;&#x6A21;&#x5F0F;&#x5C31;&#x662F;&#x4E3B;&#x4ECE;&#x6A21;&#x5F0F;&#x7684;&#x5347;&#x7EA7;&#xFF0C;&#x624B;&#x52A8;&#x5230;&#x81EA;&#x52A8;&#xFF0C;&#x66F4;&#x52A0;&#x5065;&#x58EE;</li>
+</ul>
+<h5 id="&#x7F3A;&#x70B9;">&#x7F3A;&#x70B9;</h5>
+<ul>
+<li>Redis&#x4E0D;&#x597D;&#x5728;&#x7EBF;&#x6269;&#x5BB9;&#x7684;&#xFF0C;&#x96C6;&#x7FA4;&#x5BB9;&#x91CF;&#x4E00;&#x65E6;&#x5230;&#x8FBE;&#x4E0A;&#x9650;&#xFF0C;&#x5728;&#x7EBF;&#x6269;&#x5BB9;&#x5C31;&#x5341;&#x5206;&#x9EBB;&#x70E6;</li>
+<li>&#x54E8;&#x5175;&#x6A21;&#x5F0F;&#x7684;&#x914D;&#x7F6E;&#x7E41;&#x7410;</li>
+</ul>
+<h5 id="sentinelconf&#x914D;&#x7F6E;&#x6A21;&#x677F;">sentinel.conf&#x914D;&#x7F6E;&#x6A21;&#x677F;</h5>
+<p><a href="https://www.icode9.com/content-4-650003.html" target="_blank">https://www.icode9.com/content-4-650003.html</a></p>
+<h3 id="redis&#x7F13;&#x5B58;&#x7A7F;&#x900F;&#x3001;&#x51FB;&#x7A7F;&#x3001;&#x96EA;&#x5D29;&#x9AD8;&#x53EF;&#x7528;&#x95EE;&#x9898;">Redis&#x7F13;&#x5B58;&#x7A7F;&#x900F;&#x3001;&#x51FB;&#x7A7F;&#x3001;&#x96EA;&#x5D29;(&#x9AD8;&#x53EF;&#x7528;&#x95EE;&#x9898;)</h3>
+<h4 id="&#x7F13;&#x5B58;&#x6B63;&#x5E38;&#x6D41;&#x7A0B;">&#x7F13;&#x5B58;&#x6B63;&#x5E38;&#x6D41;&#x7A0B;</h4>
+<p><img src="Redis.assets/20180919143214712" alt="img"></p>
+<h4 id="&#x7F13;&#x5B58;&#x7A7F;&#x900F;&#x67E5;&#x4E0D;&#x5230;">&#x7F13;&#x5B58;&#x7A7F;&#x900F;(&#x67E5;&#x4E0D;&#x5230;)</h4>
+<h5 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h5>
+<p>&#x7528;&#x6237;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x662F;&#x7F13;&#x5B58;&#x548C;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x90FD;&#x6CA1;&#x6709;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7F13;&#x5B58;&#x5E76;&#x6CA1;&#x6709;&#x547D;&#x4E2D;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x5411;&#x6301;&#x4E45;&#x5C42;&#x67E5;&#x8BE2;&#xFF1B;&#x800C;&#x7528;&#x6237;&#x4E0D;&#x65AD;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x5982;&#x53D1;&#x8D77;&#x4E3A;id&#x4E3A;&#x201C;-1&#x201D;&#x7684;&#x6570;&#x636E;&#x6216;id&#x4E3A;&#x7279;&#x522B;&#x5927;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x65F6;&#x7684;&#x7528;&#x6237;&#x5F88;&#x53EF;&#x80FD;&#x662F;&#x653B;&#x51FB;&#x8005;&#xFF0C;&#x653B;&#x51FB;&#x4F1A;&#x5BFC;&#x81F4;&#x6570;&#x636E;&#x5E93;&#x538B;&#x529B;&#x8FC7;&#x5927;</p>
+<h5 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h5>
+<ul>
+<li><p>&#x5E03;&#x9686;&#x8FC7;&#x6EE4;&#x5668;</p>
+<ul>
+<li><p>&#x5E03;&#x9686;&#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5BF9;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x67E5;&#x8BE2;&#x7684;&#x53C2;&#x6570;&#x4EE5;hash&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#xFF0C;&#x5728;&#x63A7;&#x5236;&#x5C42;&#x5148;&#x8FDB;&#x884C;&#x6821;&#x9A8C;&#xFF0C;&#x4E0D;&#x7B26;&#x5408;&#x5219;&#x76F4;&#x63A5;&#x4E22;&#x5F03;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x5BF9;&#x5E95;&#x5C42;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x7684;&#x538B;&#x529B;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/20201105162325563.jpeg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>&#x7F13;&#x5B58;&#x7A7A;&#x5BF9;&#x8C61;<ul>
+<li>&#x5F53;&#x5B58;&#x50A8;&#x5C42;&#x4E0D;&#x547D;&#x4E2D;&#x540E;&#xFF0C;&#x5373;&#x4F7F;&#x8FD4;&#x56DE;&#x7684;&#x7A7A;&#x5BF9;&#x8C61;&#x4E5F;&#x5C06;&#x5176;&#x7F13;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5C06;&#x4F1A;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#xFF0C;&#x4FDD;&#x62A4;&#x4E86;&#x540E;&#x7AEF;&#x6570;&#x636E;&#x6E90;</li>
+<li>&#x51FA;&#x73B0;&#x7684;&#x95EE;&#x9898;<ul>
+<li>&#x5982;&#x679C;&#x7A7A;&#x503C;&#x80FD;&#x591F;&#x88AB;&#x7F13;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#x7F13;&#x5B58;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x7A7A;&#x95F4;&#x5B58;&#x50A8;&#x66F4;&#x591A;&#x7684;&#x952E;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x5F53;&#x4E2D;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x7684;&#x7A7A;&#x503C;&#x7684;&#x952E;</li>
+<li>&#x5373;&#x4F7F;&#x5BF9;&#x7A7A;&#x503C;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x8FD8;&#x662F;&#x4F1A;&#x5B58;&#x5728;&#x7F13;&#x5B58;&#x5C42;&#x548C;&#x5B58;&#x50A8;&#x5C42;&#x7684;&#x6570;&#x636E;&#x4F1A;&#x6709;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x7684;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x6027;&#x7684;&#x4E1A;&#x52A1;&#x4F1A;&#x6709;&#x5F71;&#x54CD;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x7F13;&#x5B58;&#x51FB;&#x7A7F;&#x8BBF;&#x95EE;&#x91CF;&#x5927;&#x3001;&#x7F13;&#x5B58;&#x8FC7;&#x671F;">&#x7F13;&#x5B58;&#x51FB;&#x7A7F;(&#x8BBF;&#x95EE;&#x91CF;&#x5927;&#x3001;&#x7F13;&#x5B58;&#x8FC7;&#x671F;)</h4>
+<h5 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h5>
+<ul>
+<li>&#x6307;&#x4E00;&#x4E2A;key&#x975E;&#x5E38;&#x70ED;&#x70B9;&#xFF0C;&#x5728;&#x4E0D;&#x505C;&#x7684;&#x625B;&#x7740;&#x5927;&#x5E76;&#x53D1;&#xFF0C;&#x5927;&#x5E76;&#x53D1;&#x96C6;&#x4E2D;&#x5BF9;&#x8FD9;&#x4E00;&#x4E2A;&#x70B9;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#xFF0C;&#x5F53;&#x8FD9;&#x4E2A;key&#x5728;&#x5931;&#x6548;&#x7684;&#x77AC;&#x95F4;&#xFF0C;&#x6301;&#x7EED;&#x7684;&#x5927;&#x5E76;&#x53D1;&#x5C31;&#x7A7F;&#x7834;&#x7F13;&#x5B58;&#xFF0C;&#x76F4;&#x63A5;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5C31;&#x50CF;&#x5728;&#x4E00;&#x4E2A;&#x5C4F;&#x969C;&#x4E0A;&#x51FF;&#x5F00;&#x4E86;&#x4E00;&#x4E2A;&#x6D1E;</li>
+<li>&#x5F53;&#x67D0;&#x4E2A;key&#x5728;&#x8FC7;&#x671F;&#x7684;&#x77AC;&#x95F4;&#xFF0C;&#x6709;&#x5927;&#x91CF;&#x7684;&#x8BF7;&#x6C42;&#x5E76;&#x53D1;&#x8BBF;&#x95EE;&#xFF0C;&#x7531;&#x4E8E;&#x7F13;&#x5B58;&#x8FC7;&#x671F;&#xFF0C;&#x5219;&#x4F1A;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x6765;&#x67E5;&#x8BE2;&#x6700;&#x65B0;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x56DE;&#x5199;&#x7F13;&#x5B58;&#xFF0C;&#x5BFC;&#x81F4;&#x6570;&#x636E;&#x5E93;&#x77AC;&#x95F4;&#x538B;&#x529B;&#x8FC7;&#x5927;</li>
+<li>&#x7C7B;&#x4F3C;&#x4E8E;&#x5FAE;&#x535A;&#x70ED;&#x641C;&#xFF0C;&#x8BB8;&#x591A;&#x7528;&#x6237;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x8BE5;&#x70ED;&#x641C;</li>
+</ul>
+<h5 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h5>
+<ul>
+<li><p>&#x8BBE;&#x7F6E;&#x70ED;&#x70B9;&#x6570;&#x636E;&#x6C38;&#x8FDC;&#x4E0D;&#x8FC7;&#x671F;</p>
+<ul>
+<li>&#x4ECE;&#x7F13;&#x5B58;&#x5C42;&#x9762;&#x6765;&#x770B;&#xFF0C;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x6545;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x70ED;&#x70B9;key&#x8FC7;&#x671F;&#x73B0;&#x8C61;</li>
+</ul>
+</li>
+<li><p>&#x52A0;&#x4E92;&#x65A5;&#x9501;</p>
+<ul>
+<li><p>&#x5206;&#x5E03;&#x5F0F;&#x9501;&#xFF1A;&#x4F7F;&#x7528;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#xFF0C;&#x4FDD;&#x8BC1;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;key&#x540C;&#x65F6;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x67E5;&#x8BE2;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x6CA1;&#x6709;&#x83B7;&#x5F97;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x6545;&#x9700;&#x8981;&#x7B49;&#x5F85;</p>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/image-20201119140109620.png" alt="image-20201119140109620"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x7F13;&#x5B58;&#x96EA;&#x5D29;">&#x7F13;&#x5B58;&#x96EA;&#x5D29;</h4>
+<h5 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h5>
+<ul>
+<li>&#x7F13;&#x5B58;&#x4E2D;&#x6570;&#x636E;&#x5927;&#x6279;&#x91CF;&#x5230;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x800C;&#x67E5;&#x8BE2;&#x6570;&#x636E;&#x91CF;&#x5DE8;&#x5927;&#xFF0C;&#x5F15;&#x8D77;&#x6570;&#x636E;&#x5E93;&#x538B;&#x529B;&#x8FC7;&#x5927;&#x751A;&#x81F3;down&#x673A;&#x3002;&#x548C;&#x7F13;&#x5B58;&#x51FB;&#x7A7F;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x7F13;&#x5B58;&#x51FB;&#x7A7F;&#x6307;&#x5E76;&#x53D1;&#x67E5;&#x540C;&#x4E00;&#x6761;&#x6570;&#x636E;&#xFF0C;&#x7F13;&#x5B58;&#x96EA;&#x5D29;&#x662F;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x90FD;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x5F88;&#x591A;&#x6570;&#x636E;&#x90FD;&#x67E5;&#x4E0D;&#x5230;&#x4ECE;&#x800C;&#x67E5;&#x6570;&#x636E;&#x5E93;</li>
+</ul>
+<p><img src="https://learning-pool.oss-cn-chengdu.aliyuncs.com/netty/9c16fdfaaf51f3dec6606ae3a504f81938297953.jpeg" alt="img"></p>
+<ul>
+<li>&#x53CC;&#x5341;&#x4E00;&#xFF1A;&#x505C;&#x6389;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x670D;&#x52A1;</li>
+</ul>
+<h5 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h5>
+<ul>
+<li>redis&#x9AD8;&#x53EF;&#x7528;<ul>
+<li>&#x65E2;&#x7136;redis&#x6709;&#x53EF;&#x80FD;&#x6302;&#x6389;&#xFF0C;&#x90A3;&#x4E48;&#x591A;&#x589E;&#x8BBE;&#x51E0;&#x53F0;redis&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x53F0;&#x6302;&#x6389;&#x4E4B;&#x540E;&#x5176;&#x4ED6;&#x7684;&#x8FD8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x5DE5;&#x4F5C;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x642D;&#x5EFA;&#x7684;&#x96C6;&#x7FA4;</li>
+</ul>
+</li>
+<li>&#x9650;&#x6D41;&#x964D;&#x7EA7;<ul>
+<li>&#x5728;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x52A0;&#x9501;&#x6216;&#x8005;&#x961F;&#x5217;&#x6765;&#x63A7;&#x5236;&#x8BFB;&#x6570;&#x636E;&#x5E93;&#x5199;&#x7F13;&#x5B58;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;&#x3002;&#x6BD4;&#x5982;&#x5BF9;&#x67D0;&#x4E2A;key&#x53EA;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x67E5;&#x8BE2;&#x6570;&#x636E;&#x548C;&#x5199;&#x7F13;&#x5B58;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;</li>
+</ul>
+</li>
+<li>&#x6570;&#x636E;&#x9884;&#x70ED;<ul>
+<li>&#x5728;&#x6B63;&#x5F0F;&#x90E8;&#x7F72;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x5148;&#x628A;&#x53EF;&#x80FD;&#x7684;&#x6570;&#x636E;&#x5148;&#x9884;&#x5148;&#x8BBF;&#x95EE;&#x4E00;&#x904D;&#xFF0C;&#x8FD9;&#x6837;&#x90E8;&#x5206;&#x53EF;&#x80FD;&#x5927;&#x91CF;&#x8BBF;&#x95EE;&#x7684;&#x6570;&#x636E;&#x5C31;&#x4F1A;&#x52A0;&#x8F7D;&#x5230;&#x7F13;&#x5B58;&#x4E2D;&#x3002;&#x5728;&#x5373;&#x5C06;&#x53D1;&#x751F;&#x5927;&#x5E76;&#x53D1;&#x8BBF;&#x95EE;&#x524D;&#x624B;&#x52A8;&#x89E6;&#x53D1;&#x52A0;&#x8F7D;&#x7F13;&#x5B58;&#x4E0D;&#x540C;&#x7684;key&#xFF0C;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x8BA9;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x7684;&#x65F6;&#x95F4;&#x70B9;&#x5C3D;&#x91CF;&#x5747;&#x5300;</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="RabbitMQ.html" class="navigation navigation-prev " aria-label="Previous page: Rabbit MQ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="SpringCloud.html" class="navigation navigation-next " aria-label="Next page: Spring Cloud">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Redis","level":"1.6","depth":1,"next":{"title":"Spring Cloud","level":"1.7","depth":1,"path":"SpringCloud.md","ref":"SpringCloud.md","articles":[]},"previous":{"title":"Rabbit MQ","level":"1.5","depth":1,"path":"RabbitMQ.md","ref":"RabbitMQ.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Redis.md","mtime":"2021-01-21T07:21:32.861Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-29T02:08:49.101Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
